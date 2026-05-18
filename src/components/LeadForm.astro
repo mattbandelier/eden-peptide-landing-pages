@@ -1,0 +1,189 @@
+---
+const { cta = "Request review" } = Astro.props;
+---
+
+<form
+  class="lead-form"
+  name="Wolverine Stack Denver Lead Form"
+  action="/api/ghl-lead"
+  method="post"
+  data-lead-form
+  data-external-form-name="Wolverine Stack Denver Lead Form"
+>
+  <label>
+    <span>Name</span>
+    <input type="text" name="name" autocomplete="name" required />
+  </label>
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" autocomplete="email" required />
+  </label>
+  <label>
+    <span>Phone</span>
+    <input type="tel" name="phone" autocomplete="tel" required />
+  </label>
+  <label>
+    <span>What brought you in?</span>
+    <input type="text" name="goal" autocomplete="off" />
+  </label>
+  <input type="hidden" name="service" value="Wolverine Stack" />
+  <input type="hidden" name="page" value="Wolverine Stack in Denver" />
+  <input type="hidden" name="leadSource" value="Wolverine Stack Denver Landing Page" />
+  <input type="hidden" name="externalFormName" value="Wolverine Stack Denver Lead Form" />
+  <input type="hidden" name="landingPage" data-attribution-field="landingPage" />
+  <input type="hidden" name="referrer" data-attribution-field="referrer" />
+  <input type="hidden" name="utmSource" data-attribution-field="utmSource" />
+  <input type="hidden" name="utmMedium" data-attribution-field="utmMedium" />
+  <input type="hidden" name="utmCampaign" data-attribution-field="utmCampaign" />
+  <input type="hidden" name="utmTerm" data-attribution-field="utmTerm" />
+  <input type="hidden" name="utmContent" data-attribution-field="utmContent" />
+  <input type="hidden" name="gclid" data-attribution-field="gclid" />
+  <input type="hidden" name="fbclid" data-attribution-field="fbclid" />
+  <button type="submit">{cta}</button>
+  <p class="form-disclaimer">
+    By submitting, you agree to be contacted by Eden Health Club about your request.
+    Message and data rates may apply.
+  </p>
+  <p class="form-status" data-form-status aria-live="polite"></p>
+</form>
+
+<script>
+  const attributionKey = "eden_lp_attribution";
+  const params = new URLSearchParams(window.location.search);
+  const currentAttribution = {
+    landingPage: window.location.href,
+    referrer: document.referrer || "",
+    utmSource: params.get("utm_source") || "",
+    utmMedium: params.get("utm_medium") || "",
+    utmCampaign: params.get("utm_campaign") || "",
+    utmTerm: params.get("utm_term") || "",
+    utmContent: params.get("utm_content") || "",
+    gclid: params.get("gclid") || "",
+    fbclid: params.get("fbclid") || "",
+    capturedAt: new Date().toISOString()
+  };
+
+  let storedAttribution = {};
+  try {
+    storedAttribution = JSON.parse(window.localStorage.getItem(attributionKey) || "{}");
+  } catch {
+    storedAttribution = {};
+  }
+
+  const hasNewCampaignSignal =
+    currentAttribution.utmSource ||
+    currentAttribution.utmMedium ||
+    currentAttribution.utmCampaign ||
+    currentAttribution.gclid ||
+    currentAttribution.fbclid;
+
+  const savedAttribution = storedAttribution as {
+    firstTouch?: typeof currentAttribution;
+    lastTouch?: typeof currentAttribution;
+  };
+  const firstTouch = savedAttribution.firstTouch || currentAttribution;
+  const lastTouch = hasNewCampaignSignal ? currentAttribution : savedAttribution.lastTouch || currentAttribution;
+  const attribution = { firstTouch, lastTouch };
+
+  try {
+    window.localStorage.setItem(attributionKey, JSON.stringify(attribution));
+  } catch {
+    // Attribution still submits from the current page if local storage is unavailable.
+  }
+
+  const forms = document.querySelectorAll("[data-lead-form]");
+
+  function hasGhlExternalTracking() {
+    return Boolean(
+      document.querySelector("script[data-tracking-id]") ||
+        document.querySelector('script[src*="external-tracking.js"]')
+    );
+  }
+
+  function trackLead(payload: Record<string, unknown>) {
+    const trackingWindow = window as typeof window & {
+      dataLayer?: Array<Record<string, unknown>>;
+      gtag?: (...args: unknown[]) => void;
+      fbq?: (...args: unknown[]) => void;
+    };
+    trackingWindow.dataLayer = trackingWindow.dataLayer || [];
+    trackingWindow.dataLayer.push({
+      event: "lead_submit",
+      lead_service: payload.service,
+      lead_page: payload.page,
+      lead_source: payload.utmSource || lastTouch.utmSource || ""
+    });
+    if (typeof trackingWindow.gtag === "function") {
+      trackingWindow.gtag("event", "generate_lead", {
+        service: payload.service,
+        page: payload.page
+      });
+    }
+    if (typeof trackingWindow.fbq === "function") {
+      trackingWindow.fbq("track", "Lead", {
+        content_name: payload.page,
+        content_category: "Peptide Therapy"
+      });
+    }
+  }
+
+  forms.forEach((form) => {
+    const status = form.querySelector("[data-form-status]");
+    const button = form.querySelector("button");
+
+    form.querySelectorAll("[data-attribution-field]").forEach((field) => {
+      const key = field.getAttribute("data-attribution-field");
+      if (field instanceof HTMLInputElement && key) {
+        field.value = lastTouch[key as keyof typeof lastTouch] || "";
+      }
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const payload = Object.fromEntries(new FormData(form).entries()) as Record<string, unknown>;
+      payload.sourceUrl = window.location.href;
+      payload.firstTouch = firstTouch;
+      payload.lastTouch = lastTouch;
+      payload.submittedAt = new Date().toISOString();
+
+      if (status) status.textContent = "Sending your request...";
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+        button.textContent = "Sending...";
+      }
+
+      try {
+        const response = await fetch(form.action || "/api/ghl-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error("Lead request failed");
+        }
+
+        form.reset();
+        if (status) status.textContent = "Request received. Eden will follow up shortly.";
+        trackLead(payload);
+      } catch {
+        if (hasGhlExternalTracking()) {
+          form.reset();
+          if (status) status.textContent = "Request received. Eden will follow up shortly.";
+          trackLead(payload);
+        } else if (status) {
+          status.textContent =
+            "We could not send this automatically. Please call 720-605-7678 or email care@edenhealthclubs.com.";
+        }
+      } finally {
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = false;
+          button.textContent = "Request My Peptide Consultation";
+        }
+      }
+    });
+  });
+</script>

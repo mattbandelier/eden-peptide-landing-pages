@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+const ghlExternalTrackingSrc = import.meta.env.PUBLIC_GHL_EXTERNAL_TRACKING_SRC as string | undefined;
+const ghlExternalTrackingId = import.meta.env.PUBLIC_GHL_EXTERNAL_TRACKING_ID as string | undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    {
+      ghlExternalTrackingSrc && ghlExternalTrackingId ? (
+        <script is:inline src={ghlExternalTrackingSrc} data-tracking-id={ghlExternalTrackingId}></script>
+      ) : null
+    }
+  </body>
+</html>

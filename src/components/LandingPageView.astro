@@ -1,0 +1,78 @@
+---
+import type { LandingPage } from "@/data/landing-pages";
+import LeadForm from "./LeadForm.astro";
+
+type Props = {
+  page: LandingPage;
+};
+
+const { page } = Astro.props;
+---
+
+<main>
+  <section class="hero" style={`--hero-image: url('${page.heroImage}')`}>
+    <nav class="mobile-topbar" aria-label="Page">
+      <span>Eden</span>
+      <a href="#lead">Consult</a>
+    </nav>
+    <div class="hero__overlay">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.title}</h1>
+      <p class="hero__summary">{page.summary}</p>
+      <div class="hero__actions" aria-label="Primary actions">
+        <a class="button button--primary" href="#lead">{page.primaryCta}</a>
+        <a class="button button--secondary" href="#system">{page.secondaryCta}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof-band" aria-label="Proof points">
+    {page.proof.map((item) => <span>{item}</span>)}
+  </section>
+
+  <section id="system" class="content-grid">
+    <div class="section-heading">
+      <p class="eyebrow">Built for</p>
+      <h2>{page.audience}</h2>
+    </div>
+    <div class="section-list">
+      {page.sections.map((section) => (
+        <article>
+          <h3>{section.title}</h3>
+          <p>{section.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="split-section" id="lead">
+    <div>
+      <p class="eyebrow">Start here</p>
+      <h2>Review the workflow before connecting anything live.</h2>
+      <p>
+        This form is ready to wire into your CRM or form handler. For now, it marks the place
+        where campaign conversion tracking and follow-up logic should live.
+      </p>
+    </div>
+    <LeadForm cta={page.primaryCta} />
+  </section>
+
+  <section class="faq-section">
+    <div class="section-heading">
+      <p class="eyebrow">Questions</p>
+      <h2>Practical answers before the live API switch.</h2>
+    </div>
+    <div class="faq-list">
+      {page.faqs.map((faq) => (
+        <details>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <div class="sticky-cta" aria-label="Book consultation">
+    <a href="#lead">{page.primaryCta}</a>
+  </div>
+</main>
