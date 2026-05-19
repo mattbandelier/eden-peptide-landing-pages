@@ -38,6 +38,10 @@ input {
   font: inherit;
 }
 
+textarea {
+  font: inherit;
+}
+
 .hero {
   position: relative;
   min-height: 86vh;
@@ -185,6 +189,15 @@ input {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 34px;
+}
+
+.hero__credibility {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.45;
 }
 
 .button,
@@ -338,6 +351,18 @@ details p {
   font-size: 16px;
 }
 
+.lead-form textarea {
+  width: 100%;
+  min-height: 118px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
 .lead-form button:disabled {
   cursor: wait;
   opacity: 0.72;
@@ -370,6 +395,9 @@ details p {
 }
 
 summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   color: var(--green-dark);
   cursor: pointer;
   font-weight: 900;
@@ -422,6 +450,13 @@ summary {
   overflow: hidden;
   box-shadow: 0 18px 46px rgba(14, 22, 19, 0.32);
   backdrop-filter: blur(18px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.eden-action-bar.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(18px);
 }
 
 .eden-action-bar a {
@@ -454,6 +489,7 @@ summary {
 }
 
 .lp-detail .copy-section,
+.lp-detail .quick-answer-section,
 .lp-detail .ingredient-grid,
 .lp-detail .process-section,
 .lp-detail .pricing-section,
@@ -464,6 +500,7 @@ summary {
 }
 
 .copy-section,
+.quick-answer-section,
 .process-section,
 .testimonial-section {
   padding: 96px 0;
@@ -475,6 +512,7 @@ summary {
 }
 
 .copy-section--lead h2,
+.quick-answer-section h2,
 .copy-section--split h2,
 .ingredient-grid h2,
 .process-section h2,
@@ -485,6 +523,42 @@ summary {
   font-size: clamp(2.1rem, 4.6vw, 4.1rem);
   line-height: 1.03;
   letter-spacing: 0;
+}
+
+.quick-answer-section {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.quick-answer-card {
+  border: 1px solid rgba(40, 96, 82, 0.22);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 24px;
+}
+
+.quick-answer-card p,
+.quick-answer-card li {
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.62;
+}
+
+.quick-answer-card p {
+  margin: 0 0 18px;
+}
+
+.quick-answer-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.quick-answer-card strong {
+  color: var(--green-dark);
 }
 
 .prose {
@@ -531,6 +605,37 @@ summary {
   line-height: 1.45;
 }
 
+.check-list a {
+  color: var(--green-dark);
+  text-decoration-color: rgba(31, 164, 101, 0.55);
+  text-underline-offset: 3px;
+}
+
+.internal-link-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.internal-link-grid a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(40, 96, 82, 0.22);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 10px 12px;
+  color: var(--green-dark);
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
 .note-box {
   grid-column: 1 / -1;
   margin: 0;
@@ -566,6 +671,15 @@ summary {
   margin: 0 0 12px;
   color: var(--green-dark);
   font-size: 1.5rem;
+}
+
+.ingredient-tag {
+  margin: 0 0 10px;
+  color: var(--sienna);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .ingredient-grid p {
@@ -681,6 +795,10 @@ summary {
     min-height: min(820px, 100svh);
   }
 
+  .hero--klow {
+    min-height: min(760px, 84svh);
+  }
+
   .hero::before {
     background:
       linear-gradient(180deg, rgba(14, 22, 19, 0.38), rgba(14, 22, 19, 0.82)),
@@ -693,7 +811,7 @@ summary {
 
   .hero__overlay {
     width: min(100% - 28px, 440px);
-    padding: 94px 0 72px;
+    padding: 86px 0 54px;
   }
 
   .hero h1,
@@ -725,7 +843,24 @@ summary {
   }
 
   .hero__actions {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero__actions .button {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .hero__actions .button--secondary {
     display: none;
+  }
+
+  .hero__credibility {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   .proof-band,
@@ -748,8 +883,9 @@ summary {
   .split-section,
   .faq-section,
   .dashboard,
-  .lp-detail .copy-section,
-  .lp-detail .ingredient-grid,
+    .lp-detail .copy-section,
+    .lp-detail .quick-answer-section,
+    .lp-detail .ingredient-grid,
   .lp-detail .process-section,
   .lp-detail .pricing-section,
   .lp-detail .testimonial-section,
@@ -799,13 +935,19 @@ summary {
   }
 
   .copy-section--split,
+  .quick-answer-section,
   .ingredient-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  .internal-link-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .copy-section--lead h2,
+  .quick-answer-section h2,
   .copy-section--split h2,
   .ingredient-grid h2,
   .process-section h2,
@@ -816,6 +958,8 @@ summary {
   }
 
   .prose p,
+  .quick-answer-card p,
+  .quick-answer-card li,
   .copy-section--split p,
   .pricing-section p,
   .legal-section p,
@@ -856,7 +1000,11 @@ summary {
   }
 
   .lead-form input {
-    min-height: 46px;
+    min-height: 48px;
+  }
+
+  .lead-form textarea {
+    min-height: 120px;
   }
 
   .legal-section {
@@ -890,7 +1038,7 @@ summary {
 
   .hero__overlay {
     padding-top: 88px;
-    padding-bottom: 66px;
+    padding-bottom: 48px;
   }
 
   .hero h1 {
@@ -906,7 +1054,7 @@ summary {
   }
 
   .hero__expect li {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
   }
 
   .local-seo-band p {
@@ -937,7 +1085,7 @@ summary {
   }
 
   .eden-action-bar a {
-    min-height: 56px;
+    min-height: 64px;
   }
 
   .eden-action-bar strong {

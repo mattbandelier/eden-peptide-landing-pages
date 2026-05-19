@@ -7,6 +7,7 @@ Research date: May 14, 2026
 Use the worldwide/common stack names as the public-facing offer names. Eden/Optimize should be the provider wrapper, for example:
 
 - Wolverine Stack at Eden
+- Structural Repair Stack at Eden
 - KLOW Stack at Eden
 - GLOW Stack at Eden
 - Delta Sleep at Eden
@@ -17,11 +18,35 @@ Use the worldwide/common stack names as the public-facing offer names. Eden/Opti
 
 The internal brief names are useful for organizing protocols, but the website should lead with market-recognized names where they exist.
 
+## Current Eden Site Inventory
+
+Checked May 19, 2026.
+
+Existing Eden pages that should be preserved, improved, or used as uniform-page references:
+
+- `/functional-medicine/peptide-injections/` - Peptide Injections category page.
+- `/functional-medicine/wellness-injections/` - Wellness Injections category page.
+- `/glow-peptide/` - Existing GLOW Peptide page.
+- `/ghk-cu/` - Existing GHK-Cu page.
+- `/sermorelin/` - Existing Sermorelin page.
+- `/nad-at-home/` - Existing NAD+ at-home page.
+- `/functional-medicine` - Functional medicine pillar page with wellness injections, peptide therapies, BHRT, GLP-1/weight loss, and pricing snippets.
+
+Uniform page direction:
+
+- Keep Eden's public page style consistent: `Service in Greenwood Village, CO`, concise intro, `Why Get [Service] at Eden Health Clubs?`, `What Is [Service]?`, concerns/benefits, candidacy, first step, FAQ, and local Greenwood Village / Denver positioning.
+- For high-conversion paid-search LPs, use the Wolverine standalone landing page style and create WordPress paste kits.
+- For core website service pages, use Eden's existing service-page architecture and link from `/functional-medicine/peptide-injections/`.
+- Existing GLOW, GHK-Cu, Sermorelin, and NAD+ pages should be audited before creating duplicates. Improve or redirect rather than publishing competing pages with different URLs.
+
 ## Accuracy Rules
 
 - Wolverine Stack = BPC-157 + TB-500.
+- Structural Repair Stack at Eden = BPC-157 + TB-500 + KPV from the Eden peptide brief.
+- Warrior Stack is not named in the Eden peptide brief and public usage appears inconsistent. Do not publish BPC-157 + TB-500 + KPV as "Warrior Stack" unless the provider/vendor confirms that exact product naming.
 - KLOW Stack = BPC-157 + TB-500 + KPV + GHK-Cu.
 - GLOW Stack = BPC-157 + TB-500 + GHK-Cu.
+- Do not call Warrior Stack "KLOW" unless GHK-Cu is added.
 - Do not call BPC-157 + TB-500 + KPV "KLOW" unless GHK-Cu is added.
 - Do not call BPC-157 + TB-500 "GLOW" unless GHK-Cu is added.
 - MOTS-c, Epitalon, Semax, KPV, BPC-157, and TB-500 are usually sold by compound name rather than a universal stack name.
@@ -146,6 +171,29 @@ Soft-tissue recovery, connective tissue support, mobility, training recovery, in
 
 Recommended slug:
 `/peptide-therapy/wolverine-stack/`
+
+### Structural Repair Stack at Eden
+
+Public stack name:
+Structural Repair Stack
+
+Internal brief mapping:
+Structural Repair
+
+Ingredients:
+BPC-157 + TB-500 + KPV
+
+Why build:
+This is Eden's stronger recovery / injury-intervention page from the actual peptide brief. It extends Wolverine by adding KPV for inflammatory-response support, making it a better fit for active Greenwood Village and DTC clients who want recovery, resilience, and performance capacity without jumping straight into a larger longevity or hormone page.
+
+Positioning:
+Structural repair, connective-tissue support, inflammatory-response support, mobility, training recovery, post-injury consultation, and active-lifestyle resilience.
+
+Recommended slug:
+`/peptide-therapy/structural-repair-stack/`
+
+Naming note:
+Warrior Stack may be tested as ad copy or an alternate headline only after confirming the exact ingredient definition with the supplier/provider. Current public references do not support one consistent Warrior Stack definition.
 
 ### KLOW Stack at Eden
 
@@ -281,21 +329,32 @@ Recommended slug:
 
 ## Priority Build Order
 
+May 19, 2026 naming audit:
+Use universal SEO stack names only where public usage is consistent. Wolverine, GLOW, and KLOW have the strongest market naming support. BPC-157 + TB-500 + KPV should be outcome-named as Recovery Peptide Blend, Structural Repair Stack, or Advanced Recovery Stack; do not publish it as Warrior unless the supplier/provider confirms that exact name and formula. Clinic pages commonly use "Recovery Blend" for BPC-157 + TB-500 + KPV and reserve KLOW for BPC-157 + TB-500 + KPV + GHK-Cu.
+
 1. Wolverine Stack at Eden
 2. KLOW Stack at Eden, if GHK-Cu is included
-3. GLOW Stack at Eden, if GHK-Cu is included
-4. BPC-157 at Eden
-5. TB-500 at Eden
-6. KPV at Eden
-7. MOTS-c at Eden
-8. Epitalon at Eden
-9. Semax at Eden
-10. Delta Sleep / DSIP at Eden
-11. BPC-157 + KPV Gut Protocol at Eden
-12. MOTS-c + Epitalon Longevity Stack at Eden
-13. Semax + DSIP Neuro Recovery Stack at Eden
-14. Cellular Recovery Stack at Eden
-15. Executive Longevity Stack at Eden
+3. GLOW Stack at Eden - improve or replace existing `/glow-peptide/` rather than duplicate
+4. Recovery Peptide Blend / Structural Repair Stack at Eden
+5. GLP-1 Support Stack at Eden
+6. MOTS-c at Eden
+7. BPC-157 at Eden
+8. KPV at Eden
+9. Delta Sleep / DSIP at Eden
+10. Semax at Eden
+11. Epitalon at Eden
+12. TB-500 at Eden
+13. Sermorelin at Eden - improve existing `/sermorelin/`
+14. GHK-Cu at Eden - improve existing `/ghk-cu/`
+15. NAD+ at Eden - unify with `/nad-at-home/` and wellness injections page
+16. Glutathione at Eden
+17. BPC-157 + KPV Gut Protocol at Eden
+18. Hormone Optimization Stack at Eden
+19. MOTS-c + Epitalon Longevity Stack at Eden
+20. Semax + DSIP Neuro Recovery Stack at Eden
+21. Deep Sleep Reset at Eden
+22. Cellular Recovery Stack at Eden
+23. Executive Longevity Stack at Eden
 
 If GHK-Cu is not available yet, move KLOW and GLOW below the individual peptide pages and mark them as "coming soon" or "provider approval pending."
 
@@ -303,7 +362,7 @@ If GHK-Cu is not available yet, move KLOW and GLOW below the individual peptide 
 
 The internal clinical stack names can still map into the public stack architecture:
 
-- Structural Repair -> Wolverine Stack, KLOW Stack, or KPV + TB-500 Recovery Protocol
+- Structural Repair -> Structural Repair Stack, with Wolverine Stack as the simpler BPC-157 + TB-500 entry page
 - Gut Repair & IBD -> BPC-157 + KPV Gut Protocol
 - The Deep Sleep Reset -> Delta Sleep Stack
 - The Telomere Protocol -> MOTS-c + Epitalon Longevity Stack or Epitalon at Eden

@@ -1,14 +1,24 @@
 ---
-const { cta = "Request review" } = Astro.props;
+const {
+  cta = "Request review",
+  service = "Wolverine Stack",
+  page = "Wolverine Stack in Denver",
+  leadSource = "Wolverine Stack Denver Landing Page",
+  externalFormName = "Wolverine Stack Denver Lead Form",
+  goalLabel = "What brought you in?",
+  goalPlaceholder = "",
+  useTextarea = false
+} = Astro.props;
 ---
 
 <form
   class="lead-form"
-  name="Wolverine Stack Denver Lead Form"
+  name={externalFormName}
   action="/api/ghl-lead"
   method="post"
   data-lead-form
-  data-external-form-name="Wolverine Stack Denver Lead Form"
+  data-external-form-name={externalFormName}
+  data-cta={cta}
 >
   <label>
     <span>Name</span>
@@ -23,13 +33,17 @@ const { cta = "Request review" } = Astro.props;
     <input type="tel" name="phone" autocomplete="tel" required />
   </label>
   <label>
-    <span>What brought you in?</span>
-    <input type="text" name="goal" autocomplete="off" />
+    <span>{goalLabel}</span>
+    {useTextarea ? (
+      <textarea name="goal" autocomplete="off" placeholder={goalPlaceholder} required></textarea>
+    ) : (
+      <input type="text" name="goal" autocomplete="off" placeholder={goalPlaceholder} />
+    )}
   </label>
-  <input type="hidden" name="service" value="Wolverine Stack" />
-  <input type="hidden" name="page" value="Wolverine Stack in Denver" />
-  <input type="hidden" name="leadSource" value="Wolverine Stack Denver Landing Page" />
-  <input type="hidden" name="externalFormName" value="Wolverine Stack Denver Lead Form" />
+  <input type="hidden" name="service" value={service} />
+  <input type="hidden" name="page" value={page} />
+  <input type="hidden" name="leadSource" value={leadSource} />
+  <input type="hidden" name="externalFormName" value={externalFormName} />
   <input type="hidden" name="landingPage" data-attribution-field="landingPage" />
   <input type="hidden" name="referrer" data-attribution-field="referrer" />
   <input type="hidden" name="utmSource" data-attribution-field="utmSource" />
@@ -181,7 +195,7 @@ const { cta = "Request review" } = Astro.props;
       } finally {
         if (button instanceof HTMLButtonElement) {
           button.disabled = false;
-          button.textContent = "Request My Peptide Consultation";
+          button.textContent = form.getAttribute("data-cta") || "Request My Peptide Consultation";
         }
       }
     });

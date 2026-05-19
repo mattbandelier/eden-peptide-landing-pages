@@ -8,6 +8,7 @@ We are building the next Eden Health Club peptide landing page using the same la
 Use this page structure and style:
 
 - Premium Eden Health Club standalone landing page
+- Brand language should match edenhealthclubs.com: use "club," "health club," "medical wellness club," "wellness destination," and "Eden Health Club" for consumer-facing copy. Keep "clinical consultation," "clinical team," "licensed provider," and "medical director oversight" where medical accuracy matters.
 - Full-bleed hero with Eden video/photo feel
 - Transparent Eden logo in top nav
 - Mobile-first, optimized for iPhone Pro viewport
@@ -65,7 +66,7 @@ The GHL workflow should trigger from either:
 Compliance:
 
 - Do not claim peptides cure, heal, reverse, or treat disease.
-- Use language like “studied for its role in supporting,” “may support,” “physician-guided,” “when prescribed,” and “eligibility is determined during consultation.”
+- Use language like “studied for its role in supporting,” “may support,” “clinician-guided,” “medical director oversight,” “when prescribed by a licensed medical provider,” and “eligibility is determined during consultation.”
 - Include FDA disclaimer if the peptide is not FDA-approved.
 - Mention prescription and licensed compounding pharmacy where relevant.
 

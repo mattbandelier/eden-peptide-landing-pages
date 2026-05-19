@@ -6,16 +6,20 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 <BaseLayout
   title="Wolverine Stack in Denver | BPC-157 + TB-500 | Eden"
   description="Wolverine Stack peptide therapy in Denver at Eden Health Club. BPC-157 + TB-500 for recovery, mobility, and active aging support."
+  canonical="https://edenhealthclubs.com/wolverine-stack-greenwood-village/"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "MedicalBusiness",
+        "@type": ["MedicalBusiness", "HealthClub"],
         "@id": "https://edenhealthclubs.com/#medicalbusiness",
         "name": "Eden Health Clubs",
         "url": "https://edenhealthclubs.com/",
         "telephone": "+1-720-605-7678",
+        "priceRange": "$$$",
+        "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+        "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "5990 S University Blvd",
@@ -26,6 +30,24 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         },
         "areaServed": ["Denver", "Greenwood Village", "Denver Tech Center", "Cherry Hills", "Centennial", "Englewood"],
         "medicalSpecialty": ["Functional Medicine", "Wellness", "Recovery"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://edenhealthclubs.com/wolverine-stack-greenwood-village/#webpage",
+        "url": "https://edenhealthclubs.com/wolverine-stack-greenwood-village/",
+        "name": "Wolverine Stack in Denver for Recovery That Keeps Up",
+        "description": "Clinician-guided Wolverine Stack peptide therapy at Eden Health Clubs in Greenwood Village for BPC-157 + TB-500 recovery, mobility, and active aging support.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://edenhealthclubs.com/#website",
+          "name": "Eden Health Clubs",
+          "url": "https://edenhealthclubs.com/"
+        },
+        "about": {
+          "@id": "https://edenhealthclubs.com/wolverine-stack-greenwood-village/#service"
+        },
+        "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "inLanguage": "en-US"
       },
       {
         "@type": "Service",
@@ -44,7 +66,31 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           { "@type": "City", "name": "Englewood" },
           { "@type": "City", "name": "Littleton" }
         ],
-        "description": "Physician-guided Wolverine Stack consultation for BPC-157 and TB-500 peptide therapy in Greenwood Village, serving Denver and the south Denver metro."
+        "description": "Clinician-guided Wolverine Stack consultation with medical director oversight for BPC-157 and TB-500 peptide therapy in Greenwood Village, serving Denver and the south Denver metro."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://edenhealthclubs.com/wolverine-stack-greenwood-village/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edenhealthclubs.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Functional Medicine",
+            "item": "https://edenhealthclubs.com/functional-medicine/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Wolverine Stack",
+            "item": "https://edenhealthclubs.com/wolverine-stack-greenwood-village/"
+          }
+        ]
       },
       {
         "@type": "FAQPage",
@@ -55,7 +101,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             "name": "Is the Wolverine Stack FDA-approved?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "BPC-157 and TB-500 are not FDA-approved drugs. They are compounded by a licensed U.S. pharmacy under physician prescription."
+              "text": "BPC-157 and TB-500 are not FDA-approved drugs. They are compounded by a licensed U.S. pharmacy when prescribed by a licensed medical provider."
             }
           },
           {
@@ -63,7 +109,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             "name": "Is it legal?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, when prescribed by a licensed physician and compounded by a licensed pharmacy. Eden does not sell research-only peptides over the counter."
+              "text": "Yes, when prescribed by a licensed medical provider and compounded by a licensed pharmacy. Eden does not sell research-only peptides over the counter."
             }
           },
           {
@@ -112,7 +158,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         <p class="eyebrow">Wolverine Stack in Denver</p>
         <h1>Wolverine Stack in Denver for Recovery That Keeps Up.</h1>
         <p class="hero__summary">
-          The Wolverine Stack, BPC-157 + TB-500, is a physician-guided peptide protocol
+          The Wolverine Stack, BPC-157 + TB-500, is a clinician-guided peptide protocol
           for Denver-area adults who want to support mobility, soft-tissue recovery, and
           an active life that still feels like theirs.
         </p>
@@ -133,7 +179,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     </section>
 
     <section class="proof-band" aria-label="Trust points">
-      <span>Physician-supervised</span>
+      <span>Clinician-guided</span>
       <span>Pharmacy-compounded</span>
       <span>Denver + Greenwood Village</span>
       <span>Subcutaneous injection protocol</span>
@@ -145,6 +191,25 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         therapy patients from Denver, Cherry Hills Village, Centennial, Englewood,
         Littleton, and the south Denver metro.
       </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is Wolverine Stack peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>
+          The Wolverine Stack at Eden Health Clubs is a clinician-guided BPC-157 + TB-500
+          peptide protocol in Greenwood Village for adults who want structured recovery,
+          mobility, and active-aging support with medical director oversight.
+        </p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Active adults who want a recovery conversation before ordering peptides online.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
     </section>
 
     <section class="copy-section copy-section--lead">
@@ -287,11 +352,17 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       </div>
       <ul class="check-list">
         <li>Located in Greenwood Village for Denver, DTC, Cherry Hills, and Centennial patients.</li>
-        <li>A high-touch clinic environment, not a research-peptide checkout page.</li>
-        <li>Physician oversight and eligibility review before treatment.</li>
-        <li>U.S. licensed compounding pharmacy fulfillment when prescribed.</li>
-        <li>Consultation, onboarding, and follow-up under one local care team.</li>
+        <li>A high-touch medical wellness club environment, not a research-peptide checkout page.</li>
+        <li>Clinician-guided care with medical director oversight before treatment.</li>
+        <li>U.S. licensed compounding pharmacy fulfillment when prescribed by a licensed medical provider.</li>
+        <li>Consultation, onboarding, and follow-up under one local care team, with easy connection to functional medicine, peptide injections, wellness injections, and fitness + performance.</li>
       </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
     </section>
 
     <section class="pricing-section">
@@ -329,13 +400,13 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <summary>Is the Wolverine Stack FDA-approved?</summary>
           <p>
             BPC-157 and TB-500 are not FDA-approved drugs. They are compounded by a
-            licensed U.S. pharmacy under physician prescription.
+            licensed U.S. pharmacy when prescribed by a licensed medical provider.
           </p>
         </details>
         <details>
           <summary>Is it legal?</summary>
           <p>
-            Yes, when prescribed by a licensed physician and compounded by a licensed
+            Yes, when prescribed by a licensed medical provider and compounded by a licensed
             pharmacy. Eden does not sell research-only peptides over the counter.
           </p>
         </details>
@@ -343,7 +414,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <summary>How is it administered?</summary>
           <p>
             The Wolverine Stack is administered by subcutaneous injection. First-time users
-            get an in-clinic walkthrough so the first dose is not a guessing game.
+            get an in-club walkthrough so the first dose is not a guessing game.
           </p>
         </details>
         <details>
@@ -356,7 +427,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         <details>
           <summary>Can I stack this with GLP-1, TRT, or other peptides?</summary>
           <p>
-            Often, yes, but only after your physician reviews your full protocol. We do that
+            Often, yes, but only after Eden's clinical team reviews your full protocol. We do that
             during consultation.
           </p>
         </details>
@@ -373,7 +444,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <p>
             Eden sees patients from across the Denver metro. Many peptide therapy consults
             come from Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton
-            because the clinic is easy to access from the south metro.
+            because the club is easy to access from the south metro.
           </p>
         </details>
       </div>
@@ -389,7 +460,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           Wolverine Stack is the right fit.
         </p>
         <p class="microcopy">
-          New peptide consult availability is limited each week. Greenwood Village clinic
+          New peptide consult availability is limited each week. Greenwood Village health club
           or telehealth available.
         </p>
       </div>
@@ -400,7 +471,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <p>
         Statements on this page have not been evaluated by the Food and Drug
         Administration. BPC-157 and TB-500 are not FDA-approved drugs and are dispensed
-        only via physician prescription and licensed compounding pharmacy under applicable
+        only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy under applicable
         state and federal regulations. Information on this page is educational and is not a
         substitute for personalized medical advice. Eligibility is determined during
         clinical consultation.
