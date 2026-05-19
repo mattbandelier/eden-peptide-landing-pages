@@ -260,3 +260,6 @@ Use Wolverine Stack and KLOW Stack as the source layout family:
 - Local URL: `/glow-stack-greenwood-village/`
 - WordPress paste kit: `wordpress/glow-stack-wordpress-paste.html`
 - Form name: `GLOW Stack Denver Lead Form`
+- Local URL: `/structural-repair-stack-greenwood-village/`
+- WordPress paste kit: `wordpress/structural-repair-stack-wordpress-paste.html`
+- Form name: `Structural Repair Stack Denver Lead Form`
