@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  robots?: string;
+};
+
+const {
+  title,
+  description,
+  canonical,
+  image = "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+  robots = "index,follow"
+} = Astro.props;
+const ghlExternalTrackingSrc = import.meta.env.PUBLIC_GHL_EXTERNAL_TRACKING_SRC as string | undefined;
+const ghlExternalTrackingId = import.meta.env.PUBLIC_GHL_EXTERNAL_TRACKING_ID as string | undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    {canonical ? <link rel="canonical" href={canonical} /> : null}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical ? <meta property="og:url" content={canonical} /> : null}
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    {
+      ghlExternalTrackingSrc && ghlExternalTrackingId ? (
+        <script is:inline src={ghlExternalTrackingSrc} data-tracking-id={ghlExternalTrackingId}></script>
+      ) : null
+    }
+  </body>
+</html>

@@ -1,0 +1,565 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is The Skin & Glow?",
+    "answer": "The Skin & Glow is Eden's clinician-guided protocol combining KPV, Sermorelin, and Glutathione for inside-out skin, collagen, inflammatory-balance, and antioxidant support."
+  },
+  {
+    "question": "Is this the same as the GLOW Stack I have seen elsewhere?",
+    "answer": "Not exactly. Community GLOW formulas often refer to BPC-157, TB-500, and GHK-Cu. Eden's The Skin & Glow uses KPV, Sermorelin, and Glutathione per Eden's clinical brief."
+  },
+  {
+    "question": "Will this replace my topicals or aesthetic treatments?",
+    "answer": "No. The Skin & Glow is designed to complement topical skincare and aesthetic treatments, not replace them."
+  },
+  {
+    "question": "Can it stack with injectables, lasers, or microneedling?",
+    "answer": "Often, yes. Eden reviews timing, compatibility, and your full aesthetic plan during consultation."
+  },
+  {
+    "question": "How soon do people notice changes?",
+    "answer": "Skin feel and reactivity may shift within weeks, while visible texture, tone, and collagen-related changes usually take longer. Individual response varies."
+  },
+  {
+    "question": "How is eligibility determined?",
+    "answer": "Through consultation, medical history, medication review, skin goals, and provider review."
+  },
+  {
+    "question": "Is it prescribed?",
+    "answer": "When prescription components are appropriate, Eden uses licensed medical oversight and licensed pharmacy fulfillment."
+  },
+  {
+    "question": "Is it FDA-approved?",
+    "answer": "The components in this protocol are not presented as FDA-approved drugs for this use. Eligibility is determined during consultation."
+  },
+  {
+    "question": "Is this available in Greenwood Village?",
+    "answer": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are a fit, Eden designs the protocol, coordinates it with your aesthetic plan, and sets follow-up expectations."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/",
+      "name": "The Skin & Glow in Greenwood Village / Denver",
+      "description": "Clinician-guided Skin & Glow protocol combining KPV, Sermorelin, and Glutathione for skin, collagen, complexion, and antioxidant support in Greenwood Village.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/#service",
+      "name": "The Skin & Glow Protocol",
+      "alternateName": [
+        "GLOW Stack",
+        "Skin and Glow Peptide Stack",
+        "Dermatological Peptide Protocol"
+      ],
+      "serviceType": "Clinician-guided peptide protocol consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "Clinician-guided Skin & Glow protocol combining KPV, Sermorelin, and Glutathione for skin, collagen, complexion, and antioxidant support in Greenwood Village."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Functional Medicine",
+          "item": "https://edenhealthclubs.com/functional-medicine/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Skin & Glow",
+          "item": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is The Skin & Glow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Skin & Glow is Eden's clinician-guided protocol combining KPV, Sermorelin, and Glutathione for inside-out skin, collagen, inflammatory-balance, and antioxidant support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this the same as the GLOW Stack I have seen elsewhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not exactly. Community GLOW formulas often refer to BPC-157, TB-500, and GHK-Cu. Eden's The Skin & Glow uses KPV, Sermorelin, and Glutathione per Eden's clinical brief."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will this replace my topicals or aesthetic treatments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Skin & Glow is designed to complement topical skincare and aesthetic treatments, not replace them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it stack with injectables, lasers, or microneedling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes. Eden reviews timing, compatibility, and your full aesthetic plan during consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon do people notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skin feel and reactivity may shift within weeks, while visible texture, tone, and collagen-related changes usually take longer. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is eligibility determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through consultation, medical history, medication review, skin goals, and provider review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it prescribed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When prescription components are appropriate, Eden uses licensed medical oversight and licensed pharmacy fulfillment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The components in this protocol are not presented as FDA-approved drugs for this use. Eligibility is determined during consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this available in Greenwood Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a fit, Eden designs the protocol, coordinates it with your aesthetic plan, and sets follow-up expectations."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="The Skin & Glow in Greenwood Village | KPV + Sermorelin + Glutathione, Denver"
+  description="The Skin & Glow at Eden Health Clubs: clinician-guided protocol for skin, collagen, and complexion. KPV, Sermorelin, and Glutathione in Greenwood Village."
+  canonical="https://edenhealthclubs.com/the-skin-and-glow-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Aesthetic Peptide Therapy in Denver</p>
+        <h1>The Skin &amp; Glow in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A clinician-guided three-component protocol for adults whose skin is not matching the work they are already doing topically, addressing inflammatory balance, GH-pulse-driven collagen support, and antioxidant capacity from the inside.</p>
+        <div class="hero__expect">
+          <h3>Designed for inside-out skin support:</h3>
+          <ul>
+            <li>Skin redness and inflammatory comfort support</li>
+            <li>Collagen and elasticity support via overnight GH pulse</li>
+            <li>Antioxidant capacity and skin clarity support</li>
+            <li>Personalized by an Eden clinician</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. The Skin &amp; Glow is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is The Skin &amp; Glow at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>The Skin &amp; Glow at Eden Health Clubs is a clinician-guided protocol in Greenwood Village combining KPV, Sermorelin, and Glutathione for skin inflammatory comfort, collagen-supporting GH-axis care, and antioxidant capacity.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Aesthetic-forward clients, post-procedure clients, active-aging adults, and Eden aesthetics clients who want an inside-out layer.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Skin + collagen + antioxidant support</p>
+      <h2>Your skin keeps the receipts.</h2>
+      <div class="prose">
+        <p>Most skincare does not reach the systems underneath. Inflammatory load drives reactive skin. Collagen production depends on the body's overnight GH pulse, which drifts with age. Oxidative stress can show up as dullness, uneven tone, and slow recovery.</p>
+        <p>The Skin &amp; Glow is Eden's clinician-guided protocol for clients who want the inside-out conversation. Three components, three roles: KPV supports inflammatory balance, Sermorelin supports the overnight GH pulse collagen depends on, and Glutathione supports antioxidant capacity.</p>
+        <p>This page is separate from Eden's GLOW Stack page. The Skin &amp; Glow uses the exact Eden clinical-brief formula: KPV, Sermorelin, and Glutathione.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is The Skin &amp; Glow?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>The Skin &amp; Glow combines KPV, Sermorelin, and Glutathione. Each is studied for a distinct role in skin health: inflammatory balance, collagen-supporting GH pulse, and antioxidant capacity.</p>
+        <p>Together they address three systems most topical skincare cannot reach. Eligibility is determined during consultation and the protocol is personalized around your skin goals, aesthetic plan, history, and provider review.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For clients who want skin support beyond the surface.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Aesthetic-forward clients in their 30s to 60s focused on skin quality.</li>
+        <li>Clients with reactive, redness-prone, or sensitive-feeling skin concerns.</li>
+        <li>Post-procedure clients wanting tissue-supportive recovery after aesthetic work.</li>
+        <li>Active-aging clients building a skin-and-longevity layer.</li>
+        <li>Clients combining peptide and aesthetic care under one team.</li>
+        <li>Clients who want clinician oversight.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for The Skin &amp; Glow is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--three">
+      <div class="section-heading">
+        <p class="eyebrow">Inside The Skin &amp; Glow</p>
+        <h2>Three systems behind a better skin response.</h2>
+      </div>
+      <article class="">
+        <p class="ingredient-tag">Skin Inflammatory Comfort</p>
+        <h3>KPV</h3>
+        <p>A short tripeptide studied for its role in stabilizing mast cells, supporting histamine-related comfort, and supporting inflammatory balance in the skin and gut.</p>
+      </article>
+      <article class="">
+        <p class="ingredient-tag">GH Pulse &amp; Collagen</p>
+        <h3>Sermorelin</h3>
+        <p>A growth-hormone-releasing-hormone analog studied for its role in supporting the body's own overnight GH pulse, which collagen production and skin elasticity depend on.</p>
+      </article>
+      <article class="">
+        <p class="ingredient-tag">Master Antioxidant</p>
+        <h3>Glutathione</h3>
+        <p>A tripeptide antioxidant studied for its role in detoxification, oxidative-stress balance, and skin clarity. It supports the antioxidant capacity that protects the rest of the protocol.</p>
+      </article>
+      <p class="note-box note-box--wide">
+        Why these three? Skin concerns are often three problems wearing one face: inflammatory noise, collagen-supporting GH drift, and oxidative-stress load. The Skin &amp; Glow addresses all three under one structured plan.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether The Skin &amp; Glow is appropriate and how it should be coordinated with your aesthetic treatments, skin history, medications, and goals.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. The Skin &amp; Glow is personalized care,
+          not a product on a shelf. Pricing is reviewed during your consultation so you
+          leave with a clear plan and a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Skin repair runs on a real timeline.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>Skin feel and reactivity can shift earlier, but collagen and tone are slower biological processes.</blockquote>
+        <blockquote>The clients who get the most from inside-out skin protocols usually start before concerns become years-deep.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with your skin goals and aesthetic plan.</h2>
+        <p>Eden will review your skin goals, recent or planned aesthetic treatments, medical history, medications, and whether The Skin &amp; Glow is the right inside-out layer.</p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My Skin & Glow Consultation"
+        service="The Skin & Glow"
+        page="The Skin & Glow in Greenwood Village"
+        leadSource="The Skin & Glow Denver Landing Page"
+        externalFormName="The Skin and Glow Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for The Skin &amp; Glow is determined during clinical consultation. Results vary by individual. Peptides and wellness therapies on this page may not be FDA-approved for all uses and are dispensed only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy when appropriate. Statements on this page have not been evaluated by the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

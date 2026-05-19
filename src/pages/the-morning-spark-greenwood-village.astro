@@ -1,0 +1,297 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is The Morning Spark?",
+    "answer": "The Morning Spark is a clinician-guided Eden protocol used to support non-stimulant energy, focus, and metabolic response."
+  },
+  {
+    "question": "How is eligibility determined?",
+    "answer": "Through clinical consultation, medical history, medication review, and labs when appropriate."
+  },
+  {
+    "question": "Is it prescribed?",
+    "answer": "NAD+ and related wellness therapies are reviewed by Eden's clinical team and recommended only when appropriate."
+  },
+  {
+    "question": "Can it stack with GLP-1, IV therapy, BHRT, recovery, or fitness?",
+    "answer": "Often, yes. Eden reviews the full care plan before recommending how protocols fit together."
+  },
+  {
+    "question": "How soon do people notice changes?",
+    "answer": "Some clients notice early changes in comfort, sleep, energy, or recovery, while deeper changes usually require a longer timeline. Individual response varies."
+  },
+  {
+    "question": "Is this available in Greenwood Village?",
+    "answer": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+  },
+  {
+    "question": "Is this the same as ordering peptides online?",
+    "answer": "No. Eden uses clinician-guided care, medical director oversight, and licensed fulfillment when prescribed rather than research compounds from the internet."
+  },
+  {
+    "question": "Is it FDA-approved?",
+    "answer": "The components in this protocol are not presented as FDA-approved drugs for this use unless specifically stated. Eligibility is determined during consultation."
+  },
+  {
+    "question": "Are protocols personalized?",
+    "answer": "Yes. Eden personalizes protocols around goals, history, medications, labs, and follow-up."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are eligible, Eden designs the protocol, reviews fulfillment, and sets follow-up expectations."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/the-morning-spark-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/the-morning-spark-greenwood-village/",
+      "name": "The Morning Spark in Greenwood Village / Denver",
+      "description": "The Morning Spark at Eden Health Clubs: clinician-guided protocol for non-stimulant energy, focus, and metabolic response in Greenwood Village and Denver.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/the-morning-spark-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/the-morning-spark-greenwood-village/#service",
+      "name": "The Morning Spark Stack Protocol",
+      "serviceType": "Clinician-guided peptide protocol consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "The Morning Spark at Eden Health Clubs: clinician-guided protocol for non-stimulant energy, focus, and metabolic response in Greenwood Village and Denver."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/the-morning-spark-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is The Morning Spark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Morning Spark is a clinician-guided Eden protocol used to support non-stimulant energy, focus, and metabolic response."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is eligibility determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through clinical consultation, medical history, medication review, and labs when appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it prescribed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NAD+ and related wellness therapies are reviewed by Eden's clinical team and recommended only when appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it stack with GLP-1, IV therapy, BHRT, recovery, or fitness?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes. Eden reviews the full care plan before recommending how protocols fit together."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon do people notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some clients notice early changes in comfort, sleep, energy, or recovery, while deeper changes usually require a longer timeline. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this available in Greenwood Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this the same as ordering peptides online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Eden uses clinician-guided care, medical director oversight, and licensed fulfillment when prescribed rather than research compounds from the internet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The components in this protocol are not presented as FDA-approved drugs for this use unless specifically stated. Eligibility is determined during consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are protocols personalized?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden personalizes protocols around goals, history, medications, labs, and follow-up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are eligible, Eden designs the protocol, reviews fulfillment, and sets follow-up expectations."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout title="The Morning Spark in Greenwood Village | Eden Health Clubs Denver" description="The Morning Spark at Eden Health Clubs: clinician-guided protocol for non-stimulant energy, focus, and metabolic response in Greenwood Village and Denver." canonical="https://edenhealthclubs.com/the-morning-spark-greenwood-village/">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img class="site-logo" src="/assets/eden-health-club-logo-transparent.png" alt="Eden Health Club" width="1080" height="1080" />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>The Morning Spark in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A clinician-guided multi-component protocol for non-stimulant energy, focus, and metabolic response: built for adults in Greenwood Village and Denver who want medical oversight, not internet guesswork.</p>
+        <div class="hero__expect">
+          <h3>Designed for:</h3>
+          <ul><li>Non-stimulant energy support</li><li>Focus support</li><li>And metabolic response support</li><li>Personalized by an Eden clinician</li></ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner when prescribed</p>
+      </div>
+    </section>
+    <section class="proof-band" aria-label="Trust points"><span>Clinician-guided</span><span>Personalized protocols</span><span>Greenwood Village + Denver</span><span>Licensed pharmacy fulfillment</span></section>
+    <section class="local-seo-band" aria-label="Local service area"><p>Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro. The Morning Spark is available through Eden's Greenwood Village health club or via telehealth for established Eden patients in Colorado.</p></section>
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div><p class="eyebrow">Quick answer</p><h2 id="quick-answer-heading">What is The Morning Spark at Eden?</h2></div>
+      <div class="quick-answer-card"><p>The Morning Spark at Eden Health Clubs is a clinician-guided protocol in Greenwood Village for non-stimulant energy, focus, and metabolic response. Eligibility is determined during consultation with Eden's clinical team and medical director oversight.</p><ul><li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li><li><strong>Best fit:</strong> For high performers who want clean morning drive without leaning harder on caffeine.</li><li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li></ul></div>
+    </section>
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">non-stimulant energy, focus, and metabolic response</p>
+      <h2>High output needs a cleaner nervous system.</h2>
+      <div class="prose"><p>For high performers who want clean morning drive without leaning harder on caffeine. Most people try to solve this with isolated tactics: another supplement, another protocol, another online recommendation. Eden starts by putting the system back together.</p><p>The Morning Spark is built for clients who want non-stimulant energy, focus, and metabolic response handled through a structured, medically guided plan. The goal is not to chase every new peptide trend. It is to understand the mechanism, the client, and the care plan.</p><p>At Eden, this page connects into functional medicine, wellness injections, IV therapy, recovery, fitness, aesthetics, and hormone support when appropriate.</p></div>
+    </section>
+    <section class="copy-section copy-section--split"><div><p class="eyebrow">What it is</p><h2>What Is The Morning Spark?</h2></div><div class="prose prose--tight"><p>The Morning Spark combines Semax, MOTS-c, NAD+. Each component is selected for a distinct role in supporting non-stimulant energy, focus, and metabolic response.</p><p>Eligibility, timing, and follow-up are determined during consultation. Specific clinical instructions are reviewed only with eligible patients.</p></div></section>
+    <section class="copy-section copy-section--split"><div><p class="eyebrow">Who it is for</p><h2>For adults who want a personalized plan, not a generic kit.</h2></div><ul class="check-list"><li>High-performing adults in Greenwood Village, DTC, and south Denver.</li><li>Clients who feel their results are not matching their effort.</li><li>Functional medicine and longevity clients building a coordinated care plan.</li><li>Fitness, recovery, GLP-1, BHRT, or aesthetic clients who want better integration.</li><li>Clients who want medical oversight instead of research compounds from the internet.</li><li>Adults willing to use follow-up, labs, and clinical review to guide the protocol.</li></ul><p class="note-box">Eligibility for The Morning Spark is determined during clinical consultation.</p></section>
+    <section class="ingredient-grid ingredient-grid--three">
+      <div class="section-heading"><p class="eyebrow">Inside The Morning Spark</p><h2>3 components, one coordinated protocol.</h2></div>
+      <article class=""><p class="ingredient-tag">Cognitive Performance</p><h3>Semax</h3><p>A synthetic ACTH fragment studied for its role in supporting BDNF, NGF, focus, working memory, and cognitive performance.</p></article><article class=""><p class="ingredient-tag">Mitochondrial Support</p><h3>MOTS-c</h3><p>A mitochondrial-derived peptide studied for its role in supporting AMPK signaling, metabolic flexibility, glucose handling, and exercise response.</p></article><article class=""><p class="ingredient-tag">Cellular Coenzyme</p><h3>NAD+</h3><p>A coenzyme central to cellular energy production, mitochondrial function, DNA repair, and cellular cleanup. NAD+ is not a peptide.</p></article>
+      <p class="note-box note-box--wide">Why this protocol? The Morning Spark addresses non-stimulant energy, focus, and metabolic response as a connected system rather than a single isolated symptom. Eden coordinates it with the rest of your care so the protocol can support the bigger plan.</p>
+    </section>
+    <section class="process-section" id="how"><div class="section-heading"><p class="eyebrow">How it works at Eden</p><h2>A premium protocol should feel clear from the first consult.</h2></div><ol class="step-list"><li><div><strong>Consultation.</strong> A 30-45 minute visit with an Eden clinician to review your goals, history, and current protocols.</div></li><li><div><strong>Medical review & eligibility.</strong> Your clinician determines whether The Morning Spark is appropriate. Labs, medication review, or body-composition markers may be requested when relevant.</div></li><li><div><strong>Personalized protocol.</strong> Components, timeline, and support are tailored to your goals and labs, not pulled from a template.</div></li><li><div><strong>Pharmacy fulfillment or in-club guidance.</strong> Compounded in the U.S. by a licensed pharmacy partner when prescribed. Optional in-club teaching is available for first-time users.</div></li><li><div><strong>Follow-up & optimization.</strong> Check-ins help Eden adjust based on how your body responds and how the protocol fits into the rest of your care.</div></li></ol></section>
+    <section class="copy-section copy-section--split"><div><p class="eyebrow">Why Eden</p><h2>Eden is not an online peptide shop. It is a medical wellness club.</h2></div><ul class="check-list"><li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li><li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li><li>Premium environment designed for the south Denver longevity client.</li><li>Clinician-guided protocols with medical director oversight.</li><li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li><li>Personalized plans built around goals, labs, and the rest of your care.</li></ul><div class="internal-link-grid" aria-label="Related Eden services"><a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a><a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a><a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a><a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a></div></section>
+    <section class="pricing-section"><div><p class="eyebrow">Pricing</p><h2>Know the right protocol before paying for the wrong one.</h2><p>Your consultation helps determine whether this protocol is appropriate and what level of support makes sense for your goals. The Morning Spark is personalized care, not a product on a shelf. Pricing is reviewed during your consultation so you leave with a clear plan and a clear number.</p></div><a class="button button--primary" href="#consult-form">Book a Consultation</a></section>
+    <section class="testimonial-section"><div class="section-heading"><p class="eyebrow">Why it matters</p><h2>The cost of waiting is another season of guessing.</h2></div><div class="testimonial-grid"><blockquote>Personalized protocols require clinical review, not a rushed checkout flow.</blockquote><blockquote>The clients who get the most from Eden usually stop piecing care together and start coordinating it.</blockquote><blockquote>Consult availability with Eden's clinical team is limited each week.</blockquote></div></section>
+    <section class="faq-section"><div class="section-heading"><p class="eyebrow">FAQ</p><h2>Frequently asked.</h2></div><div class="faq-list">{faqItems.map((item) => (<details><summary>{item.question}</summary><p>{item.answer}</p></details>))}</div></section>
+    <section class="split-section" id="consult-form"><div><p class="eyebrow">Start with a consultation</p><h2>Start with your goals, history, and full care plan.</h2><p>Eden will review your goals, medications, health history, current protocols, and whether The Morning Spark is clinically appropriate.</p><p class="microcopy">Greenwood Village health club consults and telehealth follow-ups may be available for established Colorado patients.</p></div><LeadForm cta="Request My The Morning Spark Consultation" service="The Morning Spark" page="The Morning Spark in Greenwood Village" leadSource="The Morning Spark Denver Landing Page" externalFormName="The Morning Spark Denver Lead Form" goalLabel="Goal / reason for inquiry" goalPlaceholder="Tell us what you are hoping to address." useTextarea /></section>
+    <section class="legal-section"><p>Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for The Morning Spark is determined during clinical consultation. Results vary by individual. Peptides and wellness therapies on this page may not be FDA-approved for all uses and are dispensed only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy when appropriate. Statements on this page have not been evaluated by the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.</p></section>
+    <nav class="eden-action-bar" aria-label="Contact Eden"><a href="tel:+17206057678"><span>Phone</span><strong>Call Now</strong></a><a href="mailto:care@edenhealthclubs.com"><span>Email</span><strong>Care Team</strong></a><a href="#consult-form"><span>Consult</span><strong>Book</strong></a></nav>
+  </main>
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(([entry]) => {
+        actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+      }, { threshold: [0, 0.5, 1] });
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

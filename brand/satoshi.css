@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:creator" content="@airHQ"/><meta property="og:url" content="https://app.air.inc/404"/><meta property="og:type" content="website"/><meta property="og:image" content="https://app.air.inc/assets/air-og-image.png"/><meta property="og:image:alt" content="The Air wordmark in white on navy"/><meta property="og:image:width" content="1024"/><meta property="og:image:height" content="512"/><meta property="og:site_name" content="Air"/><link rel="canonical" href="https://app.air.inc/404"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" class="jsx-3257329187"/><title>Afraid there’s nothing but hot air here — maybe you entered the wrong address or the page was deleted? / Air</title><meta name="robots" content="index,follow"/><meta name="description" content="(Lucky for you, we have deletion recovery, so the same could never be said about your assets)"/><meta property="og:title" content="Afraid there’s nothing but hot air here — maybe you entered the wrong address or the page was deleted? / Air"/><meta property="og:description" content="(Lucky for you, we have deletion recovery, so the same could never be said about your assets)"/><meta name="next-head-count" content="17"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><meta name="apple-mobile-web-app-title" content="Air"/><meta name="application-name" content="Air"/><meta name="facebook-domain-verification" content="4utfojr4bf10jvuy8ry1famz7mpeds"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6bcccd"/><meta name="theme-color" content="#f5f5f5"/><meta name="facebook-domain-verification" content="4utfojr4bf10jvuy8ry1famz7mpeds"/><script>
+                if (['/login', '/sign-up'].includes(window.location.pathname)) {
+                  const isLikelyLoggedIn =
+                    typeof window !== 'undefined' &&
+                    Object.keys(window.localStorage).some(
+                      (key) =>
+                        key.includes('CognitoIdentityServiceProvider') && (key.includes('.userData') || key.includes('.idToken')),
+                    );
+                                
+                  /**
+                   * If they're trying to access the login/sign up pages but are logged in, they'll be redirected home
+                   */
+                  if (isLikelyLoggedIn) {
+                    let redirectPath = window.location.hostname === 'admin.air.inc' ? '/all' : '/home';
+                    const redirectParam = new URLSearchParams(window.location.search).get('redirect');
+
+                    if (redirectParam) {
+                      const redirectCandidates = [redirectParam];
+
+                      try {
+                        const decodedRedirectParam = decodeURIComponent(redirectParam);
+                        if (decodedRedirectParam !== redirectParam) {
+                          redirectCandidates.push(decodedRedirectParam);
+                        }
+                      } catch {
+                        // Keep raw redirectParam only
+                      }
+
+                      for (const redirectCandidate of redirectCandidates) {
+                        try {
+                          const parsedRedirect = new URL(redirectCandidate, window.location.origin);
+                          // Reject pathnames starting with '//': URL.origin matches, but
+                          // assigning '//host' to window.location.href is interpreted as a
+                          // protocol-relative URL and would navigate cross-origin.
+                          if (
+                            parsedRedirect.origin === window.location.origin &&
+                            !parsedRedirect.pathname.startsWith('//')
+                          ) {
+                            redirectPath = parsedRedirect.pathname + parsedRedirect.search + parsedRedirect.hash;
+                            break;
+                          }
+                        } catch {
+                          // Try the next redirect candidate
+                        }
+                      }
+                    }
+
+                    window.location.href = redirectPath;
+                  }
+                }
+              </script><style>
+                :root {
+                  --sidebar-width: 272px;
+                }
+              </style><script>
+                const storedSize = localStorage.getItem('air/production/sidebarSize');
+
+                if (storedSize) {
+                    document.documentElement.style.setProperty('--sidebar-width', storedSize + 'px');
+                }
+              </script><script>
+                if (new URLSearchParams(window.location.search).get('cnFs') === 'true') {
+                  document.documentElement.setAttribute('data-canvas-fullscreen', '');
+                }
+              </script><style>
+                html[data-canvas-fullscreen] [data-workspace-content] {
+                  width: 0 !important;
+                  min-width: 0 !important;
+                  overflow: hidden !important;
+                  transition: none !important;
+                }
+              </style><script>
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer', 'GTM-WZMSZFN');
+              </script><link href="/fonts/gelica/gelica.css" rel="stylesheet"/><link href="/fonts/inter/inter.css" rel="stylesheet"/><link href="/fonts/control/control.css" rel="stylesheet"/><link rel="preload" href="/_next/static/media/d3ebbfd689654d3a-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/98e207f02528a563-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/db96af6b531dc71f-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/37786be940ec402b-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/_next/static/css/47cb27ba42e900ca.css?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" as="style"/><link rel="stylesheet" href="/_next/static/css/47cb27ba42e900ca.css?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk"></script><script src="/_next/static/chunks/webpack-0a7af948a85457cf.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/chunks/framework-b0b93c41d6f05eda.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/chunks/main-452ad8c437338545.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/chunks/pages/_app-16a4565e3959db06.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/chunks/7541-0743b803fe32b35c.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/chunks/pages/404-f41aa28c6e85c7aa.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/ebYY2ki-KyqbcJbpApStf/_buildManifest.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><script src="/_next/static/ebYY2ki-KyqbcJbpApStf/_ssgManifest.js?dpl=dpl_F99DhMuVzxH8hdyavtk6itJXu9hk" defer=""></script><style id="__jsx-3257329187">:root{--font-ibm-mono:'__IBM_Plex_Mono_b4c22e', '__IBM_Plex_Mono_Fallback_b4c22e', ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;--font-inter:'__Inter_f367f3', '__Inter_Fallback_f367f3', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif}</style></head><body class="air-colors"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZMSZFN" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript><div id="__next"><script>!function(){try{var d=document.documentElement,n='data-theme',s='setAttribute';var e=localStorage.getItem('air/production/theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';d[s](n,'dark')}else{d.style.colorScheme = 'light';d[s](n,'light')}}else if(e){d[s](n,e|| '')}else{d[s](n,'light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()</script><main class="relative flex h-screen bg-gradient-to-b from-blue-3 to-blue-1"><div class="z-1 mx-auto flex h-[calc(100vh-52px)] max-w-[500px] flex-1 flex-col items-center justify-center gap-4 p-8 text-center"><a href="https://air.inc"><svg class="absolute top-10 left-8 w-[65px] text-gray-12" aria-hidden="true" fill="none" viewBox="0 0 32 32"><path d="M18.4885 14.1291C19.0251 14.1291 19.4799 13.6866 19.4799 13.1396C19.4799 12.5927 19.0251 12.1501 18.4885 12.1501C17.9519 12.1501 17.4971 12.5927 17.4971 13.1396C17.4971 13.6866 17.9405 14.1291 18.4885 14.1291Z" fill="currentColor"></path><path d="M30.0794 18.7733C29.8232 18.5055 29.3684 18.5524 29.1001 18.843C28.3656 19.6577 27.6895 20.2629 26.7094 20.2629C26.2895 20.2629 26.1379 20.0072 26.1379 19.6229C26.1379 19.1456 26.2546 18.6917 26.4525 18.1568L27.1286 16.2829C27.3037 15.7942 27.0468 15.2934 26.5222 15.2934H24.3415C24.1686 15.2948 24.0056 15.2927 23.8512 15.287C23.8974 14.9439 23.9216 14.6065 23.9216 14.2812C23.9216 12.7682 23.1636 12.1516 22.2192 12.1516C21.3566 12.163 20.4114 12.8151 20.4114 14.142C20.4114 15.1606 20.9915 15.9931 22.2598 16.4072C21.642 18.3294 20.2911 20.2636 18.7908 20.2636C18.3361 20.2636 18.0677 19.9141 18.0677 19.4609C18.0677 19.0078 18.1724 18.6 18.3944 17.9714L19.0122 16.2488C19.1873 15.7715 18.9303 15.2948 18.4293 15.2948H14.9419C15.1568 14.2961 15.2515 13.416 15.2458 12.6183C15.2458 10.7913 14.4764 10 13.6601 10C12.3292 10 10.7612 11.3972 8.21258 15.6429C3.95011 16.2659 2 17.7007 2 19.6804C2 20.7744 2.72311 21.6005 3.93587 21.6005C6.09807 21.6005 7.31013 19.868 9.07874 16.9179C10.2595 16.7865 11.6068 16.7112 13.1035 16.6935C12.9533 17.1758 12.7783 17.6922 12.5768 18.2484L11.8075 20.3666C11.5278 21.1466 11.8423 21.6005 12.3555 21.6005C12.6701 21.6005 12.9384 21.3909 13.1021 20.9491L14.023 18.4004C14.2423 17.7959 14.4294 17.2269 14.5867 16.6899H17.3695L17.0543 17.5395C16.7745 18.3074 16.623 18.8898 16.623 19.495C16.623 20.8099 17.3809 21.6019 18.7916 21.6019C21.0128 21.6019 22.817 19.1889 23.5586 16.6573C23.8049 16.6786 24.0654 16.6906 24.3422 16.6906H25.508L25.1586 17.6567C24.9024 18.3663 24.6924 19.007 24.6924 19.6932C24.6924 20.6941 25.2518 21.6019 26.6283 21.6019C28.0047 21.6019 29.2289 20.7523 30.0801 19.7863C30.3249 19.5071 30.3484 19.0532 30.0801 18.7741L30.0794 18.7733ZM4.07537 20.2395C3.60919 20.2395 3.39924 19.9717 3.39924 19.6343C3.39924 18.4949 4.7878 17.6666 7.29091 17.1836C6.3066 18.7911 5.2554 20.2395 4.07537 20.2395ZM9.97053 15.4405C11.7918 12.5146 12.9355 11.3944 13.3925 11.3944C13.6722 11.3944 13.8473 11.5691 13.8473 12.6162C13.8537 13.3954 13.7441 14.2585 13.4935 15.2941C12.2046 15.3012 11.031 15.3502 9.97053 15.4405ZM21.7651 14.1413C21.7651 13.676 21.9637 13.4778 22.2199 13.4778C22.4412 13.4778 22.6163 13.7804 22.6163 14.3856C22.6163 14.6129 22.5978 14.8537 22.5637 15.103C22.0149 14.924 21.7651 14.6122 21.7651 14.1413Z" fill="currentColor"></path></svg></a><div class="flex gap-2 font-control font-normal text-[72px] text-blue-12"><p>4</p><p>0</p><p>4</p></div><h1 class="text-center font-semibold text-16 text-gray-12">Afraid there’s nothing but hot air here — maybe you entered the wrong address or the page was deleted?</h1><p class="mb-3 text-balance text-center text-12 text-gray-10" data-testid="NOT_FOUND_CONTENT">(Lucky for you, we have deletion recovery, so the same could never be said about your assets)</p><a class="relative flex shrink-0 items-center justify-center font-semibold transition-colors hover:no-underline disabled:cursor-not-allowed disabled:bg-gray-3 disabled:text-gray-12 h-12 px-4 text-16 rounded-8 border border-gray-5 bg-gray-3 text-gray-11 active:bg-gray-4 hover:bg-gray-5 cursor-pointer" type="button" href="/all">Go back to Air</a></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/404","query":{},"buildId":"ebYY2ki-KyqbcJbpApStf","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>

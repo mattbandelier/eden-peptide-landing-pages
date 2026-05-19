@@ -1,0 +1,554 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is BPC-157?",
+    "answer": "BPC-157 is a 15-amino-acid peptide studied for its role in supporting the gut lining, tendon and ligament repair, nerve regeneration, and localized tissue recovery."
+  },
+  {
+    "question": "How is eligibility determined?",
+    "answer": "Through consultation. Eden reviews your goals, health history, medications, training load, and whether labs or provider review are needed before recommending a protocol."
+  },
+  {
+    "question": "Is BPC-157 prescribed?",
+    "answer": "Yes. Eden uses clinician-guided protocols and licensed medical oversight. It is not sold as a research compound or over-the-counter supplement."
+  },
+  {
+    "question": "Can BPC-157 be part of a stack?",
+    "answer": "Yes. BPC-157 is a foundation ingredient in several Eden protocols, including Wolverine, KLOW, Structural Repair, and GLP-1 Support."
+  },
+  {
+    "question": "Is BPC-157 banned for athletes?",
+    "answer": "BPC-157 is on the WADA/USADA prohibited list. Athletes subject to drug testing should review this carefully with their clinician before starting."
+  },
+  {
+    "question": "How soon do people notice changes?",
+    "answer": "Some clients report changes in comfort or recovery early, while structural repair support usually requires a longer timeline. Individual response varies."
+  },
+  {
+    "question": "Is this available in Greenwood Village?",
+    "answer": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+  },
+  {
+    "question": "Is it FDA-approved?",
+    "answer": "BPC-157 is not an FDA-approved drug. It may be compounded when prescribed by a licensed medical provider, and eligibility is determined during consultation."
+  },
+  {
+    "question": "Is this the same as ordering peptides online?",
+    "answer": "No. Online peptide sites often sell research compounds without provider review. Eden uses clinician-guided care and licensed medical channels when prescribed."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are a fit, your clinician designs the protocol, reviews fulfillment, and sets follow-up expectations."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/bpc-157-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/bpc-157-greenwood-village/",
+      "name": "BPC-157 in Greenwood Village / Denver",
+      "description": "Clinician-guided BPC-157 peptide consultation for gut lining, tendon, ligament, tissue, and recovery support in Greenwood Village.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/bpc-157-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/bpc-157-greenwood-village/#service",
+      "name": "BPC-157 Peptide Protocol",
+      "alternateName": [
+        "Body Protection Compound 157",
+        "BPC 157"
+      ],
+      "serviceType": "Clinician-guided peptide protocol consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "Clinician-guided BPC-157 peptide consultation for gut lining, tendon, ligament, tissue, and recovery support in Greenwood Village."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://edenhealthclubs.com/bpc-157-greenwood-village/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Functional Medicine",
+          "item": "https://edenhealthclubs.com/functional-medicine/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "BPC-157",
+          "item": "https://edenhealthclubs.com/bpc-157-greenwood-village/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/bpc-157-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is BPC-157?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BPC-157 is a 15-amino-acid peptide studied for its role in supporting the gut lining, tendon and ligament repair, nerve regeneration, and localized tissue recovery."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is eligibility determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through consultation. Eden reviews your goals, health history, medications, training load, and whether labs or provider review are needed before recommending a protocol."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BPC-157 prescribed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden uses clinician-guided protocols and licensed medical oversight. It is not sold as a research compound or over-the-counter supplement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can BPC-157 be part of a stack?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. BPC-157 is a foundation ingredient in several Eden protocols, including Wolverine, KLOW, Structural Repair, and GLP-1 Support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BPC-157 banned for athletes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BPC-157 is on the WADA/USADA prohibited list. Athletes subject to drug testing should review this carefully with their clinician before starting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon do people notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some clients report changes in comfort or recovery early, while structural repair support usually requires a longer timeline. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this available in Greenwood Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BPC-157 is not an FDA-approved drug. It may be compounded when prescribed by a licensed medical provider, and eligibility is determined during consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this the same as ordering peptides online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Online peptide sites often sell research compounds without provider review. Eden uses clinician-guided care and licensed medical channels when prescribed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a fit, your clinician designs the protocol, reviews fulfillment, and sets follow-up expectations."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="BPC-157 in Greenwood Village | Gut & Tissue Repair Peptide, Denver"
+  description="BPC-157 at Eden Health Clubs: clinician-guided peptide therapy for gut, tendon, ligament, and tissue repair support in Greenwood Village, Colorado."
+  canonical="https://edenhealthclubs.com/bpc-157-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>BPC-157 in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A foundational tissue-repair peptide in functional medicine, studied for its role in supporting the gut lining, tendon and ligament repair, nerve regeneration, and localized tissue recovery.</p>
+        <div class="hero__expect">
+          <h3>Designed for focused repair support:</h3>
+          <ul>
+            <li>Gut lining and digestive comfort support</li>
+            <li>Tendon, ligament, and joint recovery support</li>
+            <li>Nerve repair support</li>
+            <li>Personalized by an Eden clinician</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. BPC-157 is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is BPC-157 peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>BPC-157 at Eden Health Clubs is a clinician-guided peptide protocol in Greenwood Village for adults seeking gut lining, soft-tissue, tendon, ligament, and nerve-repair support under medical oversight.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Active adults, post-injury clients, gut-focused functional medicine clients, and clients considering recovery stacks containing BPC-157.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Gut + tissue repair</p>
+      <h2>The foundation peptide of recovery and gut work.</h2>
+      <div class="prose">
+        <p>BPC-157 is the peptide that started many of the modern recovery and gut conversations in functional medicine. It is derived from a protein found in gastric juice, which is part of why clinicians discuss it in both gut and tissue-repair contexts.</p>
+        <p>At Eden, BPC-157 may be considered alone for a focused concern, such as gut barrier support, a tendon flare, or a nerve-repair conversation, or as the foundation peptide inside larger recovery protocols.</p>
+        <p>The goal is not internet self-experimentation. It is a clinician-guided plan that fits your injury history, training load, gut symptoms, medications, and the rest of your Eden care.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is BPC-157?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>BPC-157 stands for Body Protection Compound 157. It is a 15-amino-acid peptide studied for its role in supporting the gut lining, tendon and ligament repair, nerve regeneration, blood-vessel signaling, and localized tissue recovery.</p>
+        <p>At Eden, BPC-157 is not sold as a research peptide or supplement. Eligibility is determined during consultation and fulfillment is handled through licensed medical channels when prescribed.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For clients who want focused repair support without guessing online.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Active adults with tendon, ligament, joint, or chronic soft-tissue issues.</li>
+        <li>Clients with gut barrier symptoms, digestive discomfort, or gut-driven inflammation concerns.</li>
+        <li>Post-injury or post-procedure clients under clinical guidance.</li>
+        <li>Functional medicine clients addressing gut and inflammatory load.</li>
+        <li>Clients with nerve-repair concerns under provider review.</li>
+        <li>Clients who want clinician oversight around peptide therapy.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for BPC-157 is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--solo">
+      <div class="section-heading">
+        <p class="eyebrow">Inside BPC-157</p>
+        <h2>The foundational repair peptide.</h2>
+      </div>
+      <article class="ingredient-card solo">
+        <p class="ingredient-tag">Tissue &amp; Gut Repair</p>
+        <h3>BPC-157</h3>
+        <p>Body Protection Compound 157. A 15-amino-acid peptide derived from a gastric-protein fragment. Studied for its role in supporting the gut lining, tendon and ligament repair, nerve regeneration, blood-vessel signaling, and localized tissue recovery.</p>
+      </article>
+      <p class="note-box note-box--wide">
+        Used alone or as part of a stack. BPC-157 is prescribed individually for focused gut, tendon, or nerve cases, or as the foundation peptide in Eden recovery stacks including Wolverine, KLOW, Structural Repair, and GLP-1 Support.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether BPC-157 is appropriate and whether a focused protocol or a broader stack is the better fit for your history, goals, medications, and training load.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. BPC-157 is personalized care,
+          not a product on a shelf. Pricing is reviewed during your consultation so you
+          leave with a clear plan and a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Small repair problems get expensive when they become chronic.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>A tendon flare, gut irritation, or nagging soft-tissue issue can quietly become the thing that limits training, travel, sleep, and recovery.</blockquote>
+        <blockquote>BPC-157 is often the first peptide conversation because it sits at the intersection of gut, tissue, and recovery support.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with the specific tissue, gut, or recovery problem.</h2>
+        <p>Eden will review what you are trying to repair, your training or procedure history, gut symptoms, medications, and whether BPC-157 alone or a broader stack is the better path.</p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My BPC-157 Consultation"
+        service="BPC-157"
+        page="BPC-157 in Greenwood Village"
+        leadSource="BPC-157 Denver Landing Page"
+        externalFormName="BPC-157 Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for BPC-157 is determined during clinical consultation. Results vary by individual. Peptides and wellness therapies on this page may not be FDA-approved for all uses and are dispensed only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy when appropriate. Statements on this page have not been evaluated by the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

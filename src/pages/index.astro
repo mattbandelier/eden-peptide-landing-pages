@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { landingPages } from "@/data/landing-pages";
+import { listRecentPosts } from "@/lib/wordpress";
+
+const posts = await listRecentPosts();
+---
+
+<BaseLayout
+  title="Landing Page System"
+  description="A reusable Astro landing-page system with mocked WordPress REST API support."
+>
+  <main class="dashboard">
+    <section class="dashboard-hero">
+      <p class="eyebrow">LP production system</p>
+      <h1>Reusable landing pages now. WordPress connection when credentials arrive.</h1>
+      <p>
+        This is the durable layer: templates, campaign pages, SEO structure, and a safe
+        WordPress API path that starts in mock mode.
+      </p>
+    </section>
+
+    <section class="dashboard-grid">
+      <div>
+        <h2>Landing Pages</h2>
+        <div class="item-list">
+          {landingPages.map((page) => (
+            <a class="list-item" href={`/lp/${page.slug}/`}>
+              <strong>{page.title}</strong>
+              <span>{page.summary}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2>Mock WordPress Posts</h2>
+        <div class="item-list">
+          {posts.map((post) => (
+            <article class="list-item">
+              <strong>{post.title}</strong>
+              <span>{post.status} · {post.date}</span>
+              <p>{post.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

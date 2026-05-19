@@ -1,0 +1,518 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    question: "What is the CJC-1295 / Ipamorelin Stack?",
+    answer:
+      "A two-peptide protocol pairing CJC-1295, a GHRH analog, with Ipamorelin, a selective growth hormone secretagogue, to support the body's overnight growth-hormone pulse."
+  },
+  {
+    question: "How is eligibility determined?",
+    answer:
+      "Through clinical consultation. Your clinician reviews your goals, medical history, current medications, and may request bloodwork before recommending a protocol."
+  },
+  {
+    question: "Is it prescribed?",
+    answer:
+      "Yes. The CJC-1295 / Ipamorelin Stack is dispensed only when prescribed by a licensed medical provider and compounded by a U.S. licensed pharmacy partner. Eden does not sell peptides as supplements or research compounds."
+  },
+  {
+    question: "Is this the same as HGH?",
+    answer:
+      "No. HGH is synthetic human growth hormone. CJC-1295 and Ipamorelin are studied for their role in supporting your body's own growth-hormone signaling and pulse pattern."
+  },
+  {
+    question: "How soon do people notice changes?",
+    answer:
+      "Some clients notice sleep-depth changes first, often before body-composition or skin-quality changes. Recovery, lean-tissue, and skin changes typically take longer. Individual response varies."
+  },
+  {
+    question: "Is this available in Greenwood Village?",
+    answer:
+      "Yes. Eden is located in Greenwood Village and serves the Denver Tech Center, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro. Telehealth follow-ups may be available for established Colorado patients."
+  },
+  {
+    question: "Is this the same as ordering peptides online?",
+    answer:
+      "No. Online peptide sites often sell research compounds without clinical oversight. Eden uses clinician-guided protocols, medical director oversight, and licensed U.S. pharmacy fulfillment when appropriate."
+  },
+  {
+    question: "Is it FDA-approved?",
+    answer:
+      "The individual peptides in the CJC-1295 / Ipamorelin Stack are not FDA-approved drugs. They are compounded when prescribed by a licensed medical provider, the same regulatory framework used for many specialty therapies in functional and longevity medicine."
+  },
+  {
+    question: "Can it stack with GLP-1, TRT, recovery, or other peptide protocols?",
+    answer:
+      "Often, yes. Eden reviews your full care plan, medications, labs, and goals before recommending whether CJC-1295 / Ipamorelin belongs alongside GLP-1, hormone, recovery, or aesthetic protocols."
+  },
+  {
+    question: "What happens after the consult?",
+    answer:
+      "If you are a fit, your clinician designs your protocol, the pharmacy compounds it, and Eden gives you a clear plan for next steps, onboarding, and follow-up."
+  }
+];
+---
+
+<BaseLayout
+  title="CJC-1295 / Ipamorelin Stack in Greenwood Village | Eden Health Clubs"
+  description="CJC-1295 / Ipamorelin at Eden Health Clubs: clinician-guided GH-axis peptide protocol for lean tissue, sleep, recovery, and skin quality in Greenwood Village."
+  canonical="https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["MedicalBusiness", "HealthClub"],
+        "@id": "https://edenhealthclubs.com/#medicalbusiness",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/",
+        "telephone": "+1-720-605-7678",
+        "priceRange": "$$$",
+        "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+        "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5990 S University Blvd",
+          "addressLocality": "Greenwood Village",
+          "addressRegion": "CO",
+          "postalCode": "80121",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          "Denver",
+          "Greenwood Village",
+          "Denver Tech Center",
+          "Cherry Hills Village",
+          "Centennial",
+          "Englewood",
+          "Littleton"
+        ],
+        "medicalSpecialty": ["Functional Medicine", "Wellness", "Longevity", "Recovery"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/#webpage",
+        "url": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/",
+        "name": "CJC-1295 / Ipamorelin Stack in Greenwood Village / Denver",
+        "description": "Clinician-guided CJC-1295 / Ipamorelin peptide protocol at Eden Health Clubs in Greenwood Village for GH-axis support, lean tissue, sleep, recovery, and skin quality.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://edenhealthclubs.com/#website",
+          "name": "Eden Health Clubs",
+          "url": "https://edenhealthclubs.com/"
+        },
+        "about": {
+          "@id": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/#service"
+        },
+        "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "@id": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/#service",
+        "name": "CJC-1295 / Ipamorelin Stack Peptide Protocol",
+        "serviceType": "Clinician-guided peptide protocol consultation",
+        "provider": {
+          "@id": "https://edenhealthclubs.com/#medicalbusiness"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Denver" },
+          { "@type": "City", "name": "Greenwood Village" },
+          { "@type": "Place", "name": "Denver Tech Center" },
+          { "@type": "City", "name": "Cherry Hills Village" },
+          { "@type": "City", "name": "Centennial" },
+          { "@type": "City", "name": "Englewood" },
+          { "@type": "City", "name": "Littleton" }
+        ],
+        "description": "Clinician-guided CJC-1295 / Ipamorelin consultation combining CJC-1295 and Ipamorelin for GH-axis support, lean tissue, sleep, recovery, and skin quality in Greenwood Village."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edenhealthclubs.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Functional Medicine",
+            "item": "https://edenhealthclubs.com/functional-medicine/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CJC-1295 / Ipamorelin Stack",
+            "item": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://edenhealthclubs.com/cjc-1295-ipamorelin-greenwood-village/#faq",
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+          }
+        }))
+      }
+    ]
+  })} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>CJC-1295 / Ipamorelin Stack in Greenwood Village / Denver</h1>
+        <p class="hero__summary">
+          A clinician-guided GH-axis peptide pairing for adults who want lean-tissue,
+          sleep, recovery, and skin-quality support without using synthetic HGH.
+        </p>
+        <div class="hero__expect">
+          <h3>Designed for overnight recovery support:</h3>
+          <ul>
+            <li>Lean body-composition support</li>
+            <li>Sleep-depth and recovery support</li>
+            <li>Skin quality and collagen support</li>
+            <li>Personalized by an Eden clinician</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. The CJC-1295 / Ipamorelin Stack is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is CJC-1295 / Ipamorelin Stack peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>
+          The CJC-1295 / Ipamorelin Stack at Eden Health Clubs is a clinician-guided
+          peptide protocol in Greenwood Village that combines CJC-1295 and Ipamorelin to
+          support the body's own overnight growth-hormone pulse for recovery, lean tissue,
+          sleep depth, and skin quality.
+          Eligibility is determined during consultation with Eden's clinical team and
+          medical director oversight.
+        </p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Active-aging adults, high performers, aesthetic-forward clients, and longevity clients who want medical oversight.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">GH-axis + recovery + body composition</p>
+      <h2>The goal is not someone else's growth hormone. It is yours, working better.</h2>
+      <div class="prose">
+        <p>
+          Somewhere in your thirties, forties, or fifties, the same effort can start
+          producing a different return. Recovery takes longer. Sleep is lighter. Lean
+          tissue is harder to keep. Skin quality changes even when the rest of your habits
+          are still dialed in.
+        </p>
+        <p>
+          That is one reason the CJC-1295 / Ipamorelin pairing is one of the most searched
+          peptide combinations in functional medicine. It is designed around the body's own
+          growth-hormone signaling instead of replacing it with synthetic HGH.
+        </p>
+        <p>
+          At Eden, it is not sold as a generic kit. It is reviewed through consultation,
+          labs when appropriate, and medical director oversight so it fits the rest of your
+          health, recovery, aesthetic, and performance plan.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is the CJC-1295 / Ipamorelin Stack?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>
+          The CJC-1295 / Ipamorelin Stack pairs two peptides that work on the same system
+          from different angles. CJC-1295 is a synthetic GHRH analog studied for its role
+          in supporting growth-hormone-releasing signals to the pituitary. Ipamorelin is a
+          selective growth hormone secretagogue studied for its role in triggering a clean
+          GH pulse.
+        </p>
+        <p>
+          Together, they are used to support a stronger overnight GH signal while respecting
+          the body's natural pulse pattern. Eligibility, labs, and fit are determined
+          during consultation.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For adults who want clinician oversight around GH-axis support.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Active adults in their 30s to 60s who want lean-tissue and recovery support.</li>
+        <li>High performers noticing sleep depth, energy, and body-composition changes.</li>
+        <li>Aesthetic-forward clients who want skin quality to match their health work.</li>
+        <li>Longevity clients building a structured GH-axis support plan.</li>
+        <li>Clients comparing peptide support to synthetic HGH and wanting a medically guided path.</li>
+        <li>Clients who want medical guidance instead of internet self-experimentation.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for the CJC-1295 / Ipamorelin Stack is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid">
+      <div class="section-heading">
+        <p class="eyebrow">Inside the CJC-1295 / Ipamorelin Stack</p>
+        <h2>Two peptides, one cleaner overnight GH signal.</h2>
+      </div>
+      <article>
+        <p class="ingredient-tag">GHRH Analog</p>
+        <h3>CJC-1295</h3>
+        <p>
+          A synthetic GHRH analog studied for its role in supporting the body's
+          growth-hormone-releasing signal to the pituitary. Eden protocols commonly focus
+          on pulse timing and lab-guided fit.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Selective GH Pulse</p>
+        <h3>Ipamorelin</h3>
+        <p>
+          A selective growth hormone secretagogue studied for its role in encouraging a
+          clean GH pulse without the same broad hormone spillover associated with less
+          selective approaches.
+        </p>
+      </article>
+      <p class="note-box note-box--wide">
+        Why pair them? CJC-1295 supports the signal. Ipamorelin supports the pulse. Together
+        they are studied as a GH-axis pairing for recovery, sleep, lean tissue, and skin
+        quality while avoiding the synthetic-HGH approach.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether the CJC-1295 / Ipamorelin Stack is appropriate.
+            Labs such as IGF-1 and metabolic markers may be requested.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. The CJC-1295 / Ipamorelin Stack is a personalized
+          protocol, not a product on a shelf. Your consultation determines whether it is
+          the right fit, what components make sense for your physiology, and what level of
+          clinical support your goals require.
+          Pricing is reviewed during your consultation so you leave with a clear plan and a
+          clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Why it matters to start now.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>The GH curve does not fall off overnight. It drifts, quietly, through sleep, recovery, lean tissue, skin, and energy.</blockquote>
+        <blockquote>The clients who get the most from this stack usually start while the drift is still noticeable and manageable.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with your labs, goals, and full care plan.</h2>
+        <p>
+          Eden will review your recovery goals, sleep, body-composition concerns,
+          medications, health history, and labs when appropriate before recommending
+          CJC-1295 / Ipamorelin or a different path.
+        </p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My CJC-1295 / Ipamorelin Consultation"
+        service="CJC-1295 / Ipamorelin Stack"
+        page="CJC-1295 / Ipamorelin Stack in Greenwood Village"
+        leadSource="CJC-1295 / Ipamorelin Stack Denver Landing Page"
+        externalFormName="CJC-1295 / Ipamorelin Stack Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized
+        medical advice. Eligibility for the CJC-1295 / Ipamorelin Stack is determined during clinical
+        consultation. Results vary by individual. The peptides in this protocol may not be
+        FDA-approved for all uses and are dispensed only when prescribed by a licensed
+        medical provider and fulfilled by a licensed compounding pharmacy. Statements on this page have not been evaluated by
+        the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose,
+        treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

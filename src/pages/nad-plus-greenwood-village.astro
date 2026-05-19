@@ -1,0 +1,554 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is NAD+?",
+    "answer": "NAD+ is nicotinamide adenine dinucleotide, a coenzyme involved in cellular energy production, mitochondrial function, DNA repair, and cellular cleanup."
+  },
+  {
+    "question": "Is NAD+ a peptide?",
+    "answer": "No. NAD+ is not a peptide. Eden positions NAD+ as a wellness and cellular-support therapy."
+  },
+  {
+    "question": "Is NAD+ available as IV therapy?",
+    "answer": "Yes. Eden may offer NAD+ through IV therapy or injectable support depending on your goals, eligibility, and provider recommendation."
+  },
+  {
+    "question": "Who is NAD+ for?",
+    "answer": "It is often considered by longevity-focused clients, active-aging adults, functional medicine clients, and people looking for cellular-energy and recovery support."
+  },
+  {
+    "question": "Can NAD+ stack with other Eden protocols?",
+    "answer": "Often, yes. Eden may pair NAD+ with IV therapy, glutathione, peptide protocols, recovery care, or functional medicine plans when appropriate."
+  },
+  {
+    "question": "How soon do people notice changes?",
+    "answer": "Some clients report energy or clarity changes quickly, while deeper recovery and longevity goals require a longer plan. Individual response varies."
+  },
+  {
+    "question": "Is NAD+ FDA-approved?",
+    "answer": "NAD+ is not presented as an FDA-approved drug on this page. Eligibility and fit are determined during clinician consultation."
+  },
+  {
+    "question": "Is this available in Greenwood Village?",
+    "answer": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+  },
+  {
+    "question": "Will NAD+ replace sleep, nutrition, or training?",
+    "answer": "No. NAD+ is designed to support a larger care plan, not replace the fundamentals Eden will still review with you."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are a fit, Eden recommends the delivery format, timeline, and follow-up cadence that fits your plan."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/nad-plus-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/nad-plus-greenwood-village/",
+      "name": "NAD+ in Greenwood Village / Denver",
+      "description": "Clinician-guided NAD+ wellness therapy consultation for cellular energy, longevity, recovery, and cognitive clarity support in Greenwood Village.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/nad-plus-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/nad-plus-greenwood-village/#service",
+      "name": "NAD+ Wellness Therapy",
+      "alternateName": [
+        "Nicotinamide Adenine Dinucleotide",
+        "NAD Plus"
+      ],
+      "serviceType": "Clinician-guided wellness therapy consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "Clinician-guided NAD+ wellness therapy consultation for cellular energy, longevity, recovery, and cognitive clarity support in Greenwood Village."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://edenhealthclubs.com/nad-plus-greenwood-village/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Functional Medicine",
+          "item": "https://edenhealthclubs.com/functional-medicine/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "NAD+",
+          "item": "https://edenhealthclubs.com/nad-plus-greenwood-village/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/nad-plus-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is NAD+?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NAD+ is nicotinamide adenine dinucleotide, a coenzyme involved in cellular energy production, mitochondrial function, DNA repair, and cellular cleanup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is NAD+ a peptide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. NAD+ is not a peptide. Eden positions NAD+ as a wellness and cellular-support therapy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is NAD+ available as IV therapy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden may offer NAD+ through IV therapy or injectable support depending on your goals, eligibility, and provider recommendation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is NAD+ for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is often considered by longevity-focused clients, active-aging adults, functional medicine clients, and people looking for cellular-energy and recovery support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can NAD+ stack with other Eden protocols?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes. Eden may pair NAD+ with IV therapy, glutathione, peptide protocols, recovery care, or functional medicine plans when appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon do people notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some clients report energy or clarity changes quickly, while deeper recovery and longevity goals require a longer plan. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is NAD+ FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NAD+ is not presented as an FDA-approved drug on this page. Eligibility and fit are determined during clinician consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this available in Greenwood Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will NAD+ replace sleep, nutrition, or training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. NAD+ is designed to support a larger care plan, not replace the fundamentals Eden will still review with you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a fit, Eden recommends the delivery format, timeline, and follow-up cadence that fits your plan."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="NAD+ in Greenwood Village | IV & Injectable Therapy, Denver"
+  description="NAD+ therapy at Eden Health Clubs: clinician-guided support for cellular energy, longevity, and cognitive clarity in Greenwood Village, Colorado."
+  canonical="https://edenhealthclubs.com/nad-plus-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Wellness Therapies in Denver</p>
+        <h1>NAD+ in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A coenzyme central to cellular energy production and DNA repair, delivered as IV therapy or injectable support under clinician guidance for adults whose energy, recovery, and clarity are not matching their effort.</p>
+        <div class="hero__expect">
+          <h3>Designed for cellular support:</h3>
+          <ul>
+            <li>Cellular energy and mitochondrial support</li>
+            <li>Longevity-focused care</li>
+            <li>Recovery and cognitive clarity support</li>
+            <li>Personalized by an Eden clinician</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. NAD+ is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is NAD+ therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>NAD+ therapy at Eden Health Clubs is a clinician-guided wellness therapy in Greenwood Village for cellular energy, longevity, recovery, and cognitive-clarity support. NAD+ is a coenzyme, not a peptide.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Longevity-focused clients, functional medicine clients, active-aging adults, and clients building cellular-support protocols.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Cellular coenzyme therapy</p>
+      <h2>Energy starts where most therapies do not reach.</h2>
+      <div class="prose">
+        <p>Most fatigue protocols stop above the cell. Caffeine, adaptogens, and sleep hygiene can help, but they do not reach the part of the system where energy is actually made.</p>
+        <p>NAD+ is the coenzyme that makes cellular energy production possible. It also supports cellular cleanup and DNA-repair pathways that longevity research has pointed to for years.</p>
+        <p>At Eden, NAD+ is delivered as IV therapy or injectable support under clinician guidance as part of personalized recovery, longevity, and cellular-health protocols.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is NAD+?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>NAD+ stands for nicotinamide adenine dinucleotide. It is a coenzyme central to cellular energy production, mitochondrial function, DNA repair, and cellular cleanup.</p>
+        <p>NAD+ is not a peptide. Eden positions it as a wellness and cellular-support therapy that can be used alone or layered into functional medicine, IV therapy, longevity, and recovery plans.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For clients building a cellular-energy layer into their care.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Longevity-focused clients.</li>
+        <li>Active-aging clients addressing energy and cellular health.</li>
+        <li>Athletes optimizing recovery and cellular function.</li>
+        <li>Functional medicine clients.</li>
+        <li>Clients with cognitive-energy concerns.</li>
+        <li>Clients building a longevity protocol that may include Tesamorelin, Epitalon, or Glutathione.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for NAD+ is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--solo">
+      <div class="section-heading">
+        <p class="eyebrow">Inside NAD+</p>
+        <h2>A coenzyme at the center of cellular energy.</h2>
+      </div>
+      <article class="ingredient-card solo">
+        <p class="ingredient-tag">Cellular Coenzyme</p>
+        <h3>NAD+</h3>
+        <p>Nicotinamide adenine dinucleotide. A coenzyme central to cellular energy production, mitochondrial function, DNA repair, and longevity-research pathways. Delivered at Eden as IV therapy or injectable support under clinician guidance.</p>
+      </article>
+      <p class="note-box note-box--wide">
+        NAD+ shows up in many Eden longevity protocols. It pairs naturally with glutathione for antioxidant capacity, Epitalon for cellular-aging conversations, Tesamorelin for body-composition support, and IV therapy for recovery days.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether NAD+ is appropriate and whether IV therapy, injectable support, or a broader wellness protocol fits your goals and health history.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not a generic drip bar. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. NAD+ is personalized care,
+          not a product on a shelf. Pricing is reviewed during your consultation so you
+          leave with a clear plan and a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Cellular energy is the quiet bottleneck.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>When cellular energy is low, everything feels more expensive: training, travel, focus, recovery, and even the habits you already know help.</blockquote>
+        <blockquote>NAD+ gives Eden a cellular-support option that can stand alone or layer into longevity and recovery plans.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with your energy, recovery, and longevity goals.</h2>
+        <p>Eden will review your energy, recovery, cognitive clarity, medications, health history, and whether NAD+ makes sense as IV therapy, injectable support, or part of a broader wellness plan.</p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My NAD+ Consultation"
+        service="NAD+"
+        page="NAD+ in Greenwood Village"
+        leadSource="NAD+ Denver Landing Page"
+        externalFormName="NAD+ Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for NAD+ is determined during clinical consultation. Results vary by individual. NAD+ therapy is personalized wellness support and is not intended to diagnose, treat, cure, or prevent any disease. Statements on this page have not been evaluated by the Food and Drug Administration.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

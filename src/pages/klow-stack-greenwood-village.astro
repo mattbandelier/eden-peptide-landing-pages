@@ -1,0 +1,532 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    question: "What is the KLOW Stack?",
+    answer:
+      "A four-peptide protocol combining BPC-157, TB-500, KPV, and GHK-Cu, prescribed and personalized by an Eden clinician based on your individual goals and history."
+  },
+  {
+    question: "How is eligibility determined?",
+    answer:
+      "Through clinical consultation. Your clinician reviews your goals, medical history, current medications, and may request bloodwork before recommending a protocol."
+  },
+  {
+    question: "Is it prescribed?",
+    answer:
+      "Yes. The KLOW Stack is dispensed only when prescribed by a licensed medical provider and compounded by a U.S. licensed pharmacy partner. Eden does not sell peptides as supplements or research compounds."
+  },
+  {
+    question: "Can it stack with GLP-1, IV therapy, BHRT, or fitness programs?",
+    answer:
+      "Often, yes, and that is one of the advantages of being treated at Eden. Your full care plan is coordinated under one clinical team. Your clinician will review compatibility during consult."
+  },
+  {
+    question: "How soon do people notice changes?",
+    answer:
+      "Clients may notice changes in recovery, skin feel, or inflammatory comfort within the first several weeks, while deeper tissue, gut, and structural support can take longer. Individual response varies."
+  },
+  {
+    question: "Is this available in Greenwood Village?",
+    answer:
+      "Yes. Eden is located in Greenwood Village and serves the Denver Tech Center, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro. Telehealth follow-ups may be available for established Colorado patients."
+  },
+  {
+    question: "Is this the same as ordering peptides online?",
+    answer:
+      "No. Online peptide sites often sell research compounds without clinical oversight. Eden uses clinician-guided protocols, medical director oversight, and licensed U.S. pharmacy fulfillment when appropriate."
+  },
+  {
+    question: "Is it FDA-approved?",
+    answer:
+      "The individual peptides in the KLOW Stack are not FDA-approved drugs. They are compounded when prescribed by a licensed medical provider, the same regulatory framework used for many specialty therapies in functional and longevity medicine."
+  },
+  {
+    question: "Are protocols personalized?",
+    answer:
+      "Yes. Eden does not run a one-size protocol. Components, duration, and follow-up cadence are tailored to your goals, history, and provider review."
+  },
+  {
+    question: "What happens after the consult?",
+    answer:
+      "If you are a fit, your clinician designs your protocol, the pharmacy compounds it, and Eden gives you a clear plan for next steps, onboarding, and follow-up."
+  }
+];
+---
+
+<BaseLayout
+  title="KLOW Stack in Greenwood Village | Eden Health Clubs"
+  description="The KLOW Stack at Eden Health Clubs combines BPC-157, TB-500, KPV, and GHK-Cu with clinician-guided care and medical director oversight in Greenwood Village."
+  canonical="https://edenhealthclubs.com/klow-stack-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["MedicalBusiness", "HealthClub"],
+        "@id": "https://edenhealthclubs.com/#medicalbusiness",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/",
+        "telephone": "+1-720-605-7678",
+        "priceRange": "$$$",
+        "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+        "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5990 S University Blvd",
+          "addressLocality": "Greenwood Village",
+          "addressRegion": "CO",
+          "postalCode": "80121",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          "Denver",
+          "Greenwood Village",
+          "Denver Tech Center",
+          "Cherry Hills Village",
+          "Centennial",
+          "Englewood",
+          "Littleton"
+        ],
+        "medicalSpecialty": ["Functional Medicine", "Wellness", "Longevity", "Recovery"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://edenhealthclubs.com/klow-stack-greenwood-village/#webpage",
+        "url": "https://edenhealthclubs.com/klow-stack-greenwood-village/",
+        "name": "KLOW Stack in Greenwood Village / Denver",
+        "description": "Clinician-guided KLOW Stack peptide protocol at Eden Health Clubs in Greenwood Village for recovery, gut, skin, and inflammatory-response support.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://edenhealthclubs.com/#website",
+          "name": "Eden Health Clubs",
+          "url": "https://edenhealthclubs.com/"
+        },
+        "about": {
+          "@id": "https://edenhealthclubs.com/klow-stack-greenwood-village/#service"
+        },
+        "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "@id": "https://edenhealthclubs.com/klow-stack-greenwood-village/#service",
+        "name": "KLOW Stack Peptide Protocol",
+        "serviceType": "Clinician-guided peptide protocol consultation",
+        "provider": {
+          "@id": "https://edenhealthclubs.com/#medicalbusiness"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Denver" },
+          { "@type": "City", "name": "Greenwood Village" },
+          { "@type": "Place", "name": "Denver Tech Center" },
+          { "@type": "City", "name": "Cherry Hills Village" },
+          { "@type": "City", "name": "Centennial" },
+          { "@type": "City", "name": "Englewood" },
+          { "@type": "City", "name": "Littleton" }
+        ],
+        "description": "Clinician-guided KLOW Stack consultation combining BPC-157, TB-500, KPV, and GHK-Cu for full-spectrum recovery, gut, skin, and inflammatory-response support in Greenwood Village."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://edenhealthclubs.com/klow-stack-greenwood-village/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edenhealthclubs.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Functional Medicine",
+            "item": "https://edenhealthclubs.com/functional-medicine/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "KLOW Stack",
+            "item": "https://edenhealthclubs.com/klow-stack-greenwood-village/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://edenhealthclubs.com/klow-stack-greenwood-village/#faq",
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+          }
+        }))
+      }
+    ]
+  })} />
+
+  <main class="lp-detail">
+    <section class="hero hero--klow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>KLOW Stack in Greenwood Village / Denver</h1>
+        <p class="hero__summary">
+          A clinician-guided four-peptide protocol for adults who want to recover deeper,
+          look better, and feel like themselves again without piecing it together from the
+          internet.
+        </p>
+        <div class="hero__expect">
+          <h3>Designed for full-spectrum support:</h3>
+          <ul>
+            <li>Full-spectrum recovery support</li>
+            <li>Skin, gut, and inflammatory-response care in one protocol</li>
+            <li>Personalized by an Eden clinician</li>
+            <li>Pharmacy-compounded, not shipped from overseas</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. The KLOW Stack is available through Eden's Greenwood Village health club or via telehealth for established
+        Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is KLOW Stack peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>
+          The KLOW Stack at Eden Health Clubs is a clinician-guided peptide protocol in
+          Greenwood Village that combines BPC-157, TB-500, KPV, and GHK-Cu to support
+          recovery, gut barrier integrity, inflammatory balance, and skin/collagen health.
+          Eligibility is determined during consultation with Eden's clinical team and
+          medical director oversight.
+        </p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Active adults, longevity clients, GLP-1 clients, and aesthetic/recovery clients who want medical oversight.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Recovery + gut + skin + inflammatory balance</p>
+      <h2>Effort is not the problem. Recovery is.</h2>
+      <div class="prose">
+        <p>
+          You train. You sleep. You eat well, or you try to. But somewhere in your late
+          thirties or forties, something stopped matching. Recovery takes longer. Your skin
+          does not bounce back the way it used to. Your gut is louder. Inflammatory
+          discomfort lingers in ways it did not before.
+        </p>
+        <p>
+          That is not a willpower problem. It is a repair-and-restoration problem, and most
+          people are trying to solve it one supplement, one cream, one pill at a time, when
+          the underlying systems are connected.
+        </p>
+        <p>
+          The KLOW Stack is the protocol Eden uses when a client wants those systems
+          addressed together: recovery, gut barrier, inflammatory balance, and skin, under
+          a single clinician-guided plan.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is the KLOW Stack?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>
+          The KLOW Stack is a four-peptide protocol that combines BPC-157, TB-500, KPV,
+          and GHK-Cu. Each peptide is studied for a distinct role: tissue repair, systemic
+          recovery, inflammatory balance, and skin/collagen support. Together, they cover
+          the parts of your physiology that recovery, aesthetics, and longevity all depend
+          on.
+        </p>
+        <p>
+          At Eden, the KLOW Stack is not sold as a kit. It is prescribed as a personalized
+          protocol after clinical consultation, compounded by a U.S. licensed pharmacy
+          partner, and adjusted based on your goals, history, and follow-up.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For people who want clinician oversight, not research peptides ordered online.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Active adults in their 30s to 60s who feel recovery is not keeping pace with effort.</li>
+        <li>Executives and high-performers managing systemic stress, fatigue, and inflammatory load.</li>
+        <li>Aesthetic and longevity clients who want skin, gut, and recovery addressed in one protocol.</li>
+        <li>Post-procedure clients looking for a structured tissue-repair conversation.</li>
+        <li>Current GLP-1 clients who want to support recovery, skin elasticity, and lean-tissue maintenance.</li>
+        <li>Clients who want medical guidance instead of internet self-experimentation.</li>
+      </ul>
+      <p class="note-box">
+        The KLOW Stack is not appropriate for everyone. Eligibility is determined during
+        clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid">
+      <div class="section-heading">
+        <p class="eyebrow">Inside the KLOW Stack</p>
+        <h2>Four components. One connected repair system.</h2>
+      </div>
+      <article>
+        <p class="ingredient-tag">Tissue Repair</p>
+        <h3>BPC-157</h3>
+        <p>
+          Studied for its role in supporting the gut lining, tendon and ligament repair,
+          and localized tissue recovery. Often described as the local repair peptide.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Systemic Recovery</p>
+        <h3>TB-500</h3>
+        <p>
+          A synthetic analog of a fragment of Thymosin Beta-4. Studied for its role in
+          supporting systemic recovery, soft-tissue remodeling, and circulation.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Inflammatory Balance</p>
+        <h3>KPV</h3>
+        <p>
+          A short tripeptide studied for its role in supporting inflammatory balance, gut
+          barrier integrity, and skin inflammatory comfort.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Skin & Collagen</p>
+        <h3>GHK-Cu</h3>
+        <p>
+          A copper-binding peptide studied for its role in supporting collagen production,
+          skin elasticity, and wound-area recovery.
+        </p>
+      </article>
+      <p class="note-box note-box--wide">
+        Why all four? Recovery, gut, inflammation, and skin are not separate problems.
+        They are four windows into the same repair system. The KLOW Stack is the protocol
+        Eden builds when a client wants all four addressed together rather than chasing
+        each one alone.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether the KLOW Stack is appropriate. Bloodwork may
+            be requested.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          The KLOW Stack is a personalized protocol, not a product on a shelf. Your
+          consultation determines whether it is the right fit, what components make sense
+          for your physiology, and what level of clinical support your goals require.
+          Pricing is reviewed during your consultation so you leave with a clear plan and a
+          clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>The real cost of waiting is another season of under-recovery.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>Personalized protocols require clinical review, and consult availability with Eden's clinical team is limited each week.</blockquote>
+        <blockquote>The clients who get the most out of KLOW are usually the ones who stopped self-experimenting and started a structured protocol.</blockquote>
+        <blockquote>Recovery, skin response, gut comfort, and inflammatory balance are connected. Eden builds the plan around that connection.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Stop guessing which protocol your body needs.</h2>
+        <p>
+          Eden will review your goals, current protocols, medications, and health history
+          before recommending KLOW or a different path. If it is not the right fit, your
+          clinician will tell you.
+        </p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My KLOW Consultation"
+        service="KLOW Stack"
+        page="KLOW Stack in Greenwood Village"
+        leadSource="KLOW Stack Denver Landing Page"
+        externalFormName="KLOW Stack Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized
+        medical advice. Eligibility for the KLOW Stack is determined during clinical
+        consultation. Results vary by individual. The peptides in this protocol may not be
+        FDA-approved for all uses and are dispensed only when prescribed by a licensed
+        medical provider and fulfilled by a licensed compounding pharmacy. Statements on this page have not been evaluated by
+        the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose,
+        treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

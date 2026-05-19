@@ -1,0 +1,554 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is Sermorelin?",
+    "answer": "Sermorelin is a GHRH analog studied for its role in supporting the body's own growth-hormone pulse."
+  },
+  {
+    "question": "Is Sermorelin the same as HGH?",
+    "answer": "No. HGH is synthetic human growth hormone. Sermorelin supports signaling upstream in the body's own GH-axis."
+  },
+  {
+    "question": "How is eligibility determined?",
+    "answer": "Through consultation, medical history, medication review, and labs when appropriate."
+  },
+  {
+    "question": "How is Sermorelin different from CJC-1295 / Ipamorelin?",
+    "answer": "Sermorelin is often the entry point to GH-axis work. CJC-1295 / Ipamorelin is a stronger pairing for clients ready for a more pronounced overnight signal."
+  },
+  {
+    "question": "Can Sermorelin stack with BHRT?",
+    "answer": "Often, yes. Eden reviews hormone therapy, labs, medications, and goals before recommending how protocols fit together."
+  },
+  {
+    "question": "Is Sermorelin banned for athletes?",
+    "answer": "Growth-hormone secretagogues may be prohibited in tested sport. Athletes subject to testing should review this with their clinician."
+  },
+  {
+    "question": "How soon do people notice changes?",
+    "answer": "Sleep and recovery changes may appear before body-composition or skin-quality shifts. Individual response varies."
+  },
+  {
+    "question": "Is it FDA-approved?",
+    "answer": "Sermorelin is not an FDA-approved drug. It may be compounded when prescribed by a licensed medical provider."
+  },
+  {
+    "question": "Is this available in Greenwood Village?",
+    "answer": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are a fit, Eden designs the protocol, reviews fulfillment, and sets follow-up expectations."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/sermorelin-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/sermorelin-greenwood-village/",
+      "name": "Sermorelin in Greenwood Village / Denver",
+      "description": "Clinician-guided Sermorelin peptide consultation for GH-axis, lean tissue, sleep, and recovery support in Greenwood Village.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/sermorelin-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/sermorelin-greenwood-village/#service",
+      "name": "Sermorelin Peptide Protocol",
+      "alternateName": [
+        "GHRH 1-29",
+        "Sermorelin Acetate"
+      ],
+      "serviceType": "Clinician-guided peptide protocol consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "Clinician-guided Sermorelin peptide consultation for GH-axis, lean tissue, sleep, and recovery support in Greenwood Village."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://edenhealthclubs.com/sermorelin-greenwood-village/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Functional Medicine",
+          "item": "https://edenhealthclubs.com/functional-medicine/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sermorelin",
+          "item": "https://edenhealthclubs.com/sermorelin-greenwood-village/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/sermorelin-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Sermorelin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sermorelin is a GHRH analog studied for its role in supporting the body's own growth-hormone pulse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Sermorelin the same as HGH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. HGH is synthetic human growth hormone. Sermorelin supports signaling upstream in the body's own GH-axis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is eligibility determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through consultation, medical history, medication review, and labs when appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Sermorelin different from CJC-1295 / Ipamorelin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sermorelin is often the entry point to GH-axis work. CJC-1295 / Ipamorelin is a stronger pairing for clients ready for a more pronounced overnight signal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Sermorelin stack with BHRT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes. Eden reviews hormone therapy, labs, medications, and goals before recommending how protocols fit together."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Sermorelin banned for athletes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Growth-hormone secretagogues may be prohibited in tested sport. Athletes subject to testing should review this with their clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How soon do people notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sleep and recovery changes may appear before body-composition or skin-quality shifts. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sermorelin is not an FDA-approved drug. It may be compounded when prescribed by a licensed medical provider."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this available in Greenwood Village?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Eden serves Greenwood Village, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a fit, Eden designs the protocol, reviews fulfillment, and sets follow-up expectations."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Sermorelin in Greenwood Village | GHRH Peptide Therapy, Denver"
+  description="Sermorelin at Eden Health Clubs: clinician-guided GHRH peptide therapy for lean tissue, sleep, and recovery support in Greenwood Village, Colorado."
+  canonical="https://edenhealthclubs.com/sermorelin-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>Sermorelin in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A clinician-guided peptide studied for its role in supporting the body's own growth hormone pulse: the entry point to GH-axis work without crossing into synthetic HGH.</p>
+        <div class="hero__expect">
+          <h3>Designed for GH-axis support:</h3>
+          <ul>
+            <li>Lean tissue and body composition support</li>
+            <li>Sleep depth and recovery support</li>
+            <li>Skin quality and collagen support</li>
+            <li>Personalized by an Eden clinician</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. Sermorelin is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is Sermorelin therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>Sermorelin at Eden Health Clubs is a clinician-guided GHRH peptide protocol in Greenwood Village for adults exploring GH-axis support, lean tissue, sleep, recovery, and body-composition care.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Active-aging clients, BHRT clients, recovery-focused adults, and clients comparing Sermorelin with CJC-1295 / Ipamorelin.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">GH-axis entry point</p>
+      <h2>Work with your endocrine system, not against it.</h2>
+      <div class="prose">
+        <p>Synthetic HGH replaces your body's growth hormone with an outside hormone. Sermorelin supports your body's own GH-axis: the pituitary, the pulse, the rhythm.</p>
+        <p>It is the entry point to growth-hormone work for adults who want the lean tissue, sleep, and recovery conversation without jumping directly into stronger GH-axis pairings.</p>
+        <p>At Eden, Sermorelin is prescribed as a personalized protocol after clinical consultation and may also appear as a component of broader Eden stacks.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is Sermorelin?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>Sermorelin is a growth-hormone-releasing-hormone analog studied for its role in supporting the body's own growth-hormone pulse.</p>
+        <p>At Eden, Sermorelin is used as a medically guided entry point to GH-axis work, with labs, history, goals, and follow-up determining whether it fits your plan.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For clients considering GH-axis support with a measured first step.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Active-aging clients addressing lean tissue, sleep, and recovery.</li>
+        <li>BHRT clients adding GH-axis support under provider guidance.</li>
+        <li>Athletes focused on long-term recovery and body composition who are not subject to banned-substance testing.</li>
+        <li>Clients with documented GH-axis concerns.</li>
+        <li>Clients wanting an entry point before considering CJC-1295 / Ipamorelin.</li>
+        <li>Clients who want clinician oversight instead of internet protocols.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for Sermorelin is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--solo">
+      <div class="section-heading">
+        <p class="eyebrow">Inside Sermorelin</p>
+        <h2>The entry-point GH-axis peptide.</h2>
+      </div>
+      <article class="ingredient-card solo">
+        <p class="ingredient-tag">GHRH Analog</p>
+        <h3>Sermorelin</h3>
+        <p>A growth-hormone-releasing-hormone analog studied for its role in supporting the body's own growth hormone pulse. Used alone or as a component of broader clinician-guided protocols.</p>
+      </article>
+      <p class="note-box note-box--wide">
+        Sermorelin or CJC-1295 / Ipamorelin? Sermorelin is the entry point to GH-axis work: a simpler, gentler pulse. CJC-1295 / Ipamorelin is the stronger pairing for clients ready for a more pronounced overnight signal. Eden recommends based on goals, labs, and clinical fit.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether Sermorelin is appropriate and whether it should be considered alone or compared with CJC-1295 / Ipamorelin based on your goals and labs.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. Sermorelin is personalized care,
+          not a product on a shelf. Pricing is reviewed during your consultation so you
+          leave with a clear plan and a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>The GH-axis drift is easier to address before it becomes your new baseline.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>Sleep depth, recovery, lean tissue, and skin quality can shift gradually until the change feels normal.</blockquote>
+        <blockquote>Sermorelin gives Eden a measured entry point for clients who want to explore GH-axis support with clinical oversight.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with your sleep, recovery, labs, and goals.</h2>
+        <p>Eden will review sleep, recovery, body composition, hormone history, medications, and whether Sermorelin or another GH-axis path is the better fit.</p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My Sermorelin Consultation"
+        service="Sermorelin"
+        page="Sermorelin in Greenwood Village"
+        leadSource="Sermorelin Denver Landing Page"
+        externalFormName="Sermorelin Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for Sermorelin is determined during clinical consultation. Results vary by individual. Peptides and wellness therapies on this page may not be FDA-approved for all uses and are dispensed only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy when appropriate. Statements on this page have not been evaluated by the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

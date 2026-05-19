@@ -1,0 +1,23 @@
+---
+import LandingPageView from "@/components/LandingPageView.astro";
+import { landingPages, getLandingPage } from "@/data/landing-pages";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return landingPages.map((page) => ({
+    params: { slug: page.slug }
+  }));
+}
+
+const page = getLandingPage(Astro.params.slug ?? "");
+
+if (Astro.params.slug === "wolverine-stack") {
+  return Astro.redirect("/wolverine-stack-greenwood-village/");
+} else if (!page) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout title={page.title} description={page.summary}>
+  <LandingPageView page={page} />
+</BaseLayout>

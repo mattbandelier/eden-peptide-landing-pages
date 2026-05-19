@@ -1,0 +1,554 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    "question": "What is Tesamorelin?",
+    "answer": "Tesamorelin is a synthetic GHRH analog that supports the body's own growth-hormone signaling and carries an FDA-approved indication for HIV-associated lipodystrophy."
+  },
+  {
+    "question": "Is Tesamorelin really FDA-approved?",
+    "answer": "Yes. Tesamorelin is FDA-approved under the brand name Egrifta for HIV-associated lipodystrophy. Eden still determines eligibility through consultation and clinical review."
+  },
+  {
+    "question": "Is this the same as Ozempic or other GLP-1s?",
+    "answer": "No. Tesamorelin has a different mechanism than GLP-1 medications. For some clients, the conversations are complementary, especially when visceral fat remains a concern."
+  },
+  {
+    "question": "Can I take Tesamorelin while on a GLP-1?",
+    "answer": "Often, yes, but Eden reviews your full medication list, labs, goals, and prescribing history before recommending whether it belongs in your plan."
+  },
+  {
+    "question": "How long until I notice changes?",
+    "answer": "Visceral-fat and body-composition changes usually require a longer timeline. IGF-1 changes may be seen earlier on labs. Individual response varies."
+  },
+  {
+    "question": "Is this safe long term?",
+    "answer": "Long-term fit depends on your history, labs, risk factors, and response. Eden monitors eligibility and follow-up rather than treating Tesamorelin like an off-the-shelf product."
+  },
+  {
+    "question": "What labs are needed?",
+    "answer": "Your clinician may request IGF-1, metabolic markers, and other labs based on your history. Body-composition imaging may be considered when visceral fat is the lead concern."
+  },
+  {
+    "question": "How is eligibility determined?",
+    "answer": "Through clinical consultation, medical history, medication review, and labs when appropriate."
+  },
+  {
+    "question": "Will my insurance cover it?",
+    "answer": "Many Eden protocols are paid out of pocket. Pricing and fulfillment details are reviewed during your consultation."
+  },
+  {
+    "question": "What happens after the consult?",
+    "answer": "If you are a fit, your clinician designs the protocol, reviews fulfillment, and sets follow-up expectations before you start."
+  }
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalBusiness",
+        "HealthClub"
+      ],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Clubs",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": "+1-720-605-7678",
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Denver",
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton"
+      ],
+      "medicalSpecialty": [
+        "Functional Medicine",
+        "Wellness",
+        "Longevity",
+        "Recovery"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edenhealthclubs.com/tesamorelin-greenwood-village/#webpage",
+      "url": "https://edenhealthclubs.com/tesamorelin-greenwood-village/",
+      "name": "Tesamorelin in Greenwood Village / Denver",
+      "description": "Physician-guided Tesamorelin therapy consultation for visceral fat, IGF-1, and body-composition support in Greenwood Village.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": "https://edenhealthclubs.com/tesamorelin-greenwood-village/#service"
+      },
+      "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://edenhealthclubs.com/tesamorelin-greenwood-village/#service",
+      "name": "Tesamorelin Therapy",
+      "alternateName": [
+        "Egrifta",
+        "Tesamorelin Acetate"
+      ],
+      "serviceType": "Clinician-guided peptide protocol consultation",
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Denver"
+        },
+        {
+          "@type": "City",
+          "name": "Greenwood Village"
+        },
+        {
+          "@type": "Place",
+          "name": "Denver Tech Center"
+        },
+        {
+          "@type": "City",
+          "name": "Cherry Hills Village"
+        },
+        {
+          "@type": "City",
+          "name": "Centennial"
+        },
+        {
+          "@type": "City",
+          "name": "Englewood"
+        },
+        {
+          "@type": "City",
+          "name": "Littleton"
+        }
+      ],
+      "description": "Physician-guided Tesamorelin therapy consultation for visceral fat, IGF-1, and body-composition support in Greenwood Village."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://edenhealthclubs.com/tesamorelin-greenwood-village/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Functional Medicine",
+          "item": "https://edenhealthclubs.com/functional-medicine/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tesamorelin",
+          "item": "https://edenhealthclubs.com/tesamorelin-greenwood-village/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://edenhealthclubs.com/tesamorelin-greenwood-village/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Tesamorelin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tesamorelin is a synthetic GHRH analog that supports the body's own growth-hormone signaling and carries an FDA-approved indication for HIV-associated lipodystrophy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Tesamorelin really FDA-approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tesamorelin is FDA-approved under the brand name Egrifta for HIV-associated lipodystrophy. Eden still determines eligibility through consultation and clinical review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this the same as Ozempic or other GLP-1s?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tesamorelin has a different mechanism than GLP-1 medications. For some clients, the conversations are complementary, especially when visceral fat remains a concern."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I take Tesamorelin while on a GLP-1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, yes, but Eden reviews your full medication list, labs, goals, and prescribing history before recommending whether it belongs in your plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long until I notice changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visceral-fat and body-composition changes usually require a longer timeline. IGF-1 changes may be seen earlier on labs. Individual response varies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this safe long term?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Long-term fit depends on your history, labs, risk factors, and response. Eden monitors eligibility and follow-up rather than treating Tesamorelin like an off-the-shelf product."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What labs are needed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your clinician may request IGF-1, metabolic markers, and other labs based on your history. Body-composition imaging may be considered when visceral fat is the lead concern."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is eligibility determined?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through clinical consultation, medical history, medication review, and labs when appropriate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my insurance cover it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many Eden protocols are paid out of pocket. Pricing and fulfillment details are reviewed during your consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the consult?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a fit, your clinician designs the protocol, reviews fulfillment, and sets follow-up expectations before you start."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Tesamorelin in Greenwood Village | FDA-Approved Visceral Fat Peptide, Denver"
+  description="Tesamorelin at Eden Health Clubs: FDA-approved peptide therapy for visceral fat reduction and IGF-1 support, physician-prescribed in Greenwood Village, Colorado."
+  canonical="https://edenhealthclubs.com/tesamorelin-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>Tesamorelin in Greenwood Village / Denver</h1>
+        <p class="hero__summary">A clinician-guided protocol with an FDA-approved indication, studied for its role in reducing visceral fat, supporting body composition, and elevating IGF-1 for adults whose midsection is not responding the way it used to.</p>
+        <div class="hero__expect">
+          <h3>Designed for visceral-fat and body-composition support:</h3>
+          <ul>
+            <li>Visceral fat reduction support</li>
+            <li>IGF-1 and body-composition support</li>
+            <li>Cognitive clarity support in older adults</li>
+            <li>Physician-prescribed and clinician-monitored</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. Tesamorelin is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is Tesamorelin therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>Tesamorelin at Eden Health Clubs is a clinician-guided protocol in Greenwood Village for adults exploring peptide therapy with an FDA-approved indication related to visceral fat, IGF-1, and body composition. Eligibility is determined during consultation with Eden's clinical team and medical director oversight.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Adults with persistent visceral fat, GLP-1 clients, active-aging clients, and metabolic-health clients who want physician-guided care.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Visceral-fat peptide therapy</p>
+      <h2>The visceral fat peptide. Backed by an FDA approval.</h2>
+      <div class="prose">
+        <p>Visceral fat, the deep organ-wrapping kind, is not the same as the layer you can pinch. It is metabolically active, harder to lose, and often the kind that GLP-1 medications, training, and diet leave behind even when overall weight drops.</p>
+        <p>Tesamorelin is the protocol Eden considers when visceral fat is the specific conversation. It is a synthetic analog of growth-hormone-releasing hormone with an FDA-approved indication, originally for HIV-associated lipodystrophy.</p>
+        <p>Clinical interest today is broader, including body-composition support, IGF-1 elevation, and active-aging care. At Eden, the decision starts with consultation, labs when appropriate, and clinician review.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is Tesamorelin?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>Tesamorelin is a synthetic GHRH analog that supports the body's own growth-hormone signaling through the anterior pituitary. It is FDA-approved under the brand name Egrifta for HIV-associated lipodystrophy.</p>
+        <p>At Eden, Tesamorelin is prescribed only after clinical consultation, compounded in the U.S. when appropriate, and monitored with labs and follow-up so the protocol fits your goals and risk profile.</p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For adults who need a more specific body-composition conversation.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Adults with persistent visceral fat that has not responded to standard interventions.</li>
+        <li>GLP-1 clients whose midsection has not shifted at the rate the rest of their body has.</li>
+        <li>Active-aging clients focused on body composition and IGF-1.</li>
+        <li>Clients with metabolic concerns under functional medicine care.</li>
+        <li>Adults wanting cognitive-clarity support with a GH-axis mechanism.</li>
+        <li>Clients who want physician oversight and structured follow-up.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for Tesamorelin is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--solo">
+      <div class="section-heading">
+        <p class="eyebrow">Inside Tesamorelin</p>
+        <h2>One peptide with a cleaner regulatory story.</h2>
+      </div>
+      <article class="ingredient-card solo">
+        <p class="ingredient-tag">FDA-Approved GHRH Analog</p>
+        <h3>Tesamorelin</h3>
+        <p>A synthetic GHRH analog. FDA-approved as Egrifta for HIV-associated lipodystrophy. Studied for its role in reducing visceral fat, elevating IGF-1, supporting body composition, and supporting cognitive clarity in older adults.</p>
+      </article>
+      <p class="note-box note-box--wide">
+        Why Tesamorelin matters. Tesamorelin has a clearer regulatory story than many wellness peptides because it carries an FDA-approved indication. That does not make it right for every client, but it does make it an important option when the visceral-fat or IGF-1 conversation is the right one.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician determines whether Tesamorelin is appropriate. Baseline labs commonly include IGF-1 and metabolic markers, and body-composition imaging may be requested when visceral fat is the lead concern.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. Tesamorelin is personalized care,
+          not a product on a shelf. Pricing is reviewed during your consultation so you
+          leave with a clear plan and a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Visceral fat does not reverse on its own.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>The kind of fat Tesamorelin is studied for is metabolically active, hormonally tangled, and different from ordinary weight-loss frustration.</blockquote>
+        <blockquote>The clients who shift it are usually the ones who get specific about the mechanism instead of trying harder at a general approach.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited each week, and personalized protocols require clinical review.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Start with labs, body composition, and the right mechanism.</h2>
+        <p>Eden will review your body-composition goals, GLP-1 history if relevant, medications, health history, IGF-1, metabolic markers, and whether Tesamorelin is clinically appropriate.</p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My Tesamorelin Consultation"
+        service="Tesamorelin"
+        page="Tesamorelin in Greenwood Village"
+        leadSource="Tesamorelin Denver Landing Page"
+        externalFormName="Tesamorelin Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for Tesamorelin is determined during clinical consultation. Results vary by individual. Tesamorelin has an FDA-approved indication, but not every use, client goal, or compounded form is FDA-approved. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>
