@@ -6,6 +6,7 @@ Use these files when you want a copy/paste handoff for WordPress:
 - `klow-stack-wordpress-paste.html`
 - `glow-stack-wordpress-paste.html`
 - `structural-repair-stack-wordpress-paste.html`
+- `glp-1-support-stack-wordpress-paste.html`
 
 ## How to publish
 
@@ -21,7 +22,7 @@ Use these files when you want a copy/paste handoff for WordPress:
 
 Use either:
 
-- External form name matching the page, such as `Wolverine Stack Denver Lead Form`, `KLOW Stack Denver Lead Form`, `GLOW Stack Denver Lead Form`, or `Structural Repair Stack Denver Lead Form`
-- Page path matching the slug, such as `/wolverine-stack-greenwood-village`, `/klow-stack-greenwood-village`, `/glow-stack-greenwood-village`, or `/structural-repair-stack-greenwood-village`
+- External form name matching the page, such as `Wolverine Stack Denver Lead Form`, `KLOW Stack Denver Lead Form`, `GLOW Stack Denver Lead Form`, `Structural Repair Stack Denver Lead Form`, or `GLP-1 Support Stack Denver Lead Form`
+- Page path matching the slug, such as `/wolverine-stack-greenwood-village`, `/klow-stack-greenwood-village`, `/glow-stack-greenwood-village`, `/structural-repair-stack-greenwood-village`, or `/glp-1-support-stack-greenwood-village`
 
 The form also includes UTMs, GCLID, FBCLID, source URL, service, and lead source fields.

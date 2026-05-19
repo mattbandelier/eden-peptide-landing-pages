@@ -336,7 +336,7 @@ Use universal SEO stack names only where public usage is consistent. Wolverine, 
 2. KLOW Stack at Eden, if GHK-Cu is included
 3. GLOW Stack at Eden - built as `/glow-stack-greenwood-village/`; coordinate with or redirect existing `/glow-peptide/` rather than letting duplicate pages compete
 4. Recovery Peptide Blend / Structural Repair Stack at Eden - built as `/structural-repair-stack-greenwood-village/`
-5. GLP-1 Support Stack at Eden
+5. GLP-1 Support Stack at Eden - built as `/glp-1-support-stack-greenwood-village/`
 6. MOTS-c at Eden
 7. BPC-157 at Eden
 8. KPV at Eden

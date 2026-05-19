@@ -1,0 +1,533 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    question: "Is the GLP-1 Support Stack a GLP-1 medication?",
+    answer:
+      "No. It contains no semaglutide, tirzepatide, or any GLP-1 receptor agonist. It is a companion peptide protocol designed to support clients who are already using, considering, or tapering from a GLP-1 medication."
+  },
+  {
+    question: "Can I take this while on Ozempic, Wegovy, Mounjaro, or Zepbound?",
+    answer:
+      "That is what the protocol is designed to support. Your Eden clinician reviews your GLP-1 prescription, dose, timing, goals, and any other medications before recommending whether the stack is appropriate."
+  },
+  {
+    question: "Will this help me lose more weight?",
+    answer:
+      "Weight loss is not the goal of this stack. The goal is to support lean tissue, gut comfort, cellular energy, and inflammatory balance while your GLP-1 medication drives the weight-loss plan."
+  },
+  {
+    question: "What about lean muscle loss?",
+    answer:
+      "That is the central reason many clients ask about this stack. MOTS-c is studied for its role in supporting metabolic flexibility and exercise response, and Eden pairs the protocol with training, recovery, and nutrition guidance where appropriate."
+  },
+  {
+    question: "What if I am tapering off my GLP-1?",
+    answer:
+      "The transition off a GLP-1 can be an important time to support lean tissue, appetite transition, and metabolic resilience. Your clinician will discuss timing and fit during consultation."
+  },
+  {
+    question: "How is eligibility determined?",
+    answer:
+      "Through clinical consultation, medication review, and sometimes bloodwork. Your clinician confirms appropriateness before any protocol is prescribed."
+  },
+  {
+    question: "Is it prescribed?",
+    answer:
+      "Yes. The GLP-1 Support Stack is dispensed only when prescribed by a licensed medical provider and compounded by a U.S. licensed pharmacy partner. Eden does not sell peptides as supplements or research compounds."
+  },
+  {
+    question: "Is it FDA-approved?",
+    answer:
+      "The individual peptides in the GLP-1 Support Stack are not FDA-approved drugs. They are compounded when prescribed by a licensed medical provider, the same regulatory framework used for many specialty therapies in functional and longevity medicine."
+  },
+  {
+    question: "My GLP-1 prescriber is somewhere else. Is that a problem?",
+    answer:
+      "Not at all. Eden can coordinate around your existing prescription. Bring your current medication details and any recent labs so your clinician can review the full picture."
+  },
+  {
+    question: "What happens after the consult?",
+    answer:
+      "If you are a fit, your clinician designs your protocol, the pharmacy compounds it, and Eden gives you a clear plan for next steps, onboarding, and follow-up."
+  }
+];
+---
+
+<BaseLayout
+  title="GLP-1 Support Stack in Greenwood Village | Eden"
+  description="The GLP-1 Support Stack at Eden Health Clubs combines BPC-157, MOTS-c, and KPV with clinician-guided care for cellular and tissue recovery in Greenwood Village."
+  canonical="https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["MedicalBusiness", "HealthClub"],
+        "@id": "https://edenhealthclubs.com/#medicalbusiness",
+        "name": "Eden Health Clubs",
+        "url": "https://edenhealthclubs.com/",
+        "telephone": "+1-720-605-7678",
+        "priceRange": "$$$",
+        "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+        "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5990 S University Blvd",
+          "addressLocality": "Greenwood Village",
+          "addressRegion": "CO",
+          "postalCode": "80121",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          "Denver",
+          "Greenwood Village",
+          "Denver Tech Center",
+          "Cherry Hills Village",
+          "Centennial",
+          "Englewood",
+          "Littleton"
+        ],
+        "medicalSpecialty": ["Functional Medicine", "Wellness", "Longevity", "Recovery"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/#webpage",
+        "url": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/",
+        "name": "GLP-1 Support Stack in Greenwood Village / Denver",
+        "description": "Clinician-guided companion peptide protocol at Eden Health Clubs in Greenwood Village for GLP-1 clients focused on lean-tissue support, gut comfort, and inflammatory balance.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://edenhealthclubs.com/#website",
+          "name": "Eden Health Clubs",
+          "url": "https://edenhealthclubs.com/"
+        },
+        "about": {
+          "@id": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/#service"
+        },
+        "primaryImageOfPage": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/#service",
+        "name": "GLP-1 Support Stack Peptide Protocol",
+        "serviceType": "Clinician-guided peptide protocol consultation",
+        "provider": {
+          "@id": "https://edenhealthclubs.com/#medicalbusiness"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Denver" },
+          { "@type": "City", "name": "Greenwood Village" },
+          { "@type": "Place", "name": "Denver Tech Center" },
+          { "@type": "City", "name": "Cherry Hills Village" },
+          { "@type": "City", "name": "Centennial" },
+          { "@type": "City", "name": "Englewood" },
+          { "@type": "City", "name": "Littleton" }
+        ],
+        "description": "Clinician-guided GLP-1 Support Stack consultation combining BPC-157, MOTS-c, and KPV for lean-tissue support, gut comfort, cellular energy, and inflammatory balance in Greenwood Village."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edenhealthclubs.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Functional Medicine",
+            "item": "https://edenhealthclubs.com/functional-medicine/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "GLP-1 Support Stack",
+            "item": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://edenhealthclubs.com/glp-1-support-stack-greenwood-village/#faq",
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+          }
+        }))
+      }
+    ]
+  })} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>GLP-1 Support Stack in Greenwood Village / Denver</h1>
+        <p class="hero__summary">
+          A clinician-guided three-peptide protocol designed to support clients already
+          on Ozempic, Wegovy, Mounjaro, or Zepbound: lean tissue, gut comfort, and
+          metabolic resilience in one structured plan.
+        </p>
+        <div class="hero__expect">
+          <h3>Designed for GLP-1 companion support:</h3>
+          <ul>
+            <li>Lean-tissue support during weight loss</li>
+            <li>Gut and GI side-effect support</li>
+            <li>Inflammatory balance</li>
+            <li>Personalized Eden plan</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#how">See How It Works</a>
+        </div>
+        <p class="hero__credibility">
+          Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner
+        </p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>
+        Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry
+        Hills Village, Centennial, Englewood, Littleton, and the broader south Denver
+        metro. The GLP-1 Support Stack is available through Eden's Greenwood Village health club or
+        via telehealth for established Eden patients in Colorado.
+      </p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is GLP-1 Support Stack peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>
+          The GLP-1 Support Stack at Eden Health Clubs is a clinician-guided peptide
+          protocol in Greenwood Village that combines BPC-157, MOTS-c, and KPV to
+          support lean tissue, gut comfort, cellular energy, and inflammatory balance for
+          clients already using or considering GLP-1 medications.
+          Eligibility is determined during consultation with Eden's clinical team and
+          medical director oversight.
+        </p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> GLP-1 clients, active adults in weight-loss phases, clients tapering from GLP-1s, and anyone wanting medical oversight around peptide support.</li>
+          <li><strong>Care model:</strong> Eden medical wellness club consult, licensed provider review, pharmacy fulfillment when prescribed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Lean tissue + gut + metabolic support</p>
+      <h2>Lose the weight. Keep the rest of you.</h2>
+      <div class="prose">
+        <p>
+          GLP-1 medications work, and they can work fast. The weight comes off. The cravings
+          quiet. But fast weight loss has a quieter side: lean muscle loss, gut and GI
+          strain, inflammatory load, and a body-composition shift that does not always land
+          the way the number on the scale suggests.
+        </p>
+        <p>
+          The question is not only how much weight you lose. It is what you keep while you
+          lose it: muscle, energy, gut function, strength, and the confidence that your
+          metabolism is not quietly downshifting.
+        </p>
+        <p>
+          The GLP-1 Support Stack is the protocol Eden built for clients who are already
+          on a GLP-1 and want to protect what they are trying to keep. It is a companion
+          protocol, prescribed under clinician guidance, alongside your existing GLP-1 plan.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>What Is the GLP-1 Support Stack?</h2>
+      </div>
+      <div class="prose prose--tight">
+        <p>
+          The GLP-1 Support Stack combines BPC-157, MOTS-c, and KPV into a single
+          clinician-prescribed protocol. Each peptide is studied for a role that maps onto
+          something GLP-1 clients often care about: tissue and gut support, cellular and
+          metabolic support, and inflammatory balance.
+        </p>
+        <p>
+          This stack does not contain semaglutide, tirzepatide, or any GLP-1 receptor
+          agonist. It is designed to support your GLP-1 plan, not replace it. At Eden,
+          eligibility is determined through clinical consultation, medication review, and
+          medical director oversight.
+        </p>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Who it is for</p>
+        <h2>For GLP-1 clients who want clinician oversight, not internet self-experimentation.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Current GLP-1 clients focused on preserving lean tissue and cellular energy during weight loss.</li>
+        <li>Clients dealing with GI side effects, slow gut motility, nausea, or gut-barrier discomfort.</li>
+        <li>Clients in rapid weight-loss phases wanting structured tissue-repair support.</li>
+        <li>Clients tapering off a GLP-1 who want to support metabolic and inflammatory transition.</li>
+        <li>Active clients on a GLP-1 who train and want to keep training without losing what they have built.</li>
+        <li>Clients who want medical guidance instead of stacking research peptides on prescription medications without supervision.</li>
+      </ul>
+      <p class="note-box">
+        Eligibility for the GLP-1 Support Stack is determined during clinical consultation.
+      </p>
+    </section>
+
+    <section class="ingredient-grid ingredient-grid--three">
+      <div class="section-heading">
+        <p class="eyebrow">Inside the GLP-1 Support Stack</p>
+        <h2>Three peptides for GLP-1 companion support.</h2>
+      </div>
+      <article>
+        <p class="ingredient-tag">Gut & Tissue Repair</p>
+        <h3>BPC-157</h3>
+        <p>
+          Studied for its role in supporting tissue repair, the gut lining, and localized
+          recovery. Particularly relevant for GLP-1 clients managing GI discomfort or
+          motility issues.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Lean Tissue & Cellular Energy</p>
+        <h3>MOTS-c</h3>
+        <p>
+          A mitochondrial-derived peptide studied for its role in supporting metabolic
+          flexibility, mitochondrial function, and exercise response. For GLP-1 clients,
+          it is often considered to support lean-tissue preservation during rapid weight loss.
+        </p>
+      </article>
+      <article>
+        <p class="ingredient-tag">Inflammatory Balance</p>
+        <h3>KPV</h3>
+        <p>
+          A short tripeptide studied for its role in supporting inflammatory balance and
+          gut barrier integrity. Often considered alongside GLP-1 protocols to support gut
+          and inflammatory comfort.
+        </p>
+      </article>
+      <p class="note-box note-box--wide">
+        Companion, not replacement. The GLP-1 Support Stack is designed to work with your
+        GLP-1 medication, not in place of it. Your Eden clinician reviews your full
+        medication list, timing, goals, and current protocol before recommending whether
+        and when to start.
+      </p>
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium protocol should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li>
+          <div>
+            <strong>Consultation.</strong>
+            A 30-45 minute visit with an Eden clinician to review your goals, history,
+            and current protocols.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Medical review & eligibility.</strong>
+            Your clinician reviews your GLP-1 prescription, dose, timing, medications, and
+            goals to determine whether the stack is appropriate. Bloodwork may be requested.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Personalized protocol.</strong>
+            Components, timeline, and support are tailored to your goals and labs, not
+            pulled from a template.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pharmacy fulfillment or in-club guidance.</strong>
+            Compounded in the U.S. by a licensed pharmacy partner when prescribed.
+            Optional in-club teaching is available for first-time users.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Follow-up & optimization.</strong>
+            Check-ins help Eden adjust based on how your body responds and how the protocol
+            fits into the rest of your care.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club: Greenwood Village, a physical address, and licensed providers on site.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for the south Denver longevity client.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integrated GLP-1 care connecting weight-loss medications, peptides, recovery, and aesthetics as one plan.</li>
+        <li>Integration with wellness injections, peptide injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, and the rest of your care.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/glp-1-weight-loss/">GLP-1 / Weight Loss</a>
+        <a href="https://edenhealthclubs.com/recovery/">Recovery</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>
+          Your consultation helps determine whether this protocol is appropriate and what
+          level of support makes sense for your goals. The GLP-1 Support Stack is a personalized
+          protocol, not a product on a shelf. Your consultation determines whether it is
+          the right fit, what components make sense for your physiology, and what level of
+          clinical support your goals require.
+          Pricing typically includes the companion peptide protocol plus follow-up cadence.
+          Bundled visits are reviewed during consultation so you leave with a clear plan and
+          a clear number.
+        </p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why it matters</p>
+        <h2>Lean tissue is easier to protect early than rebuild later.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote>Lean tissue lost during GLP-1 weight loss is hard to get back. The clients who protect the most of it usually start support early.</blockquote>
+        <blockquote>Rapid weight loss changes more than the scale. Eden coordinates gut, muscle, recovery, and metabolic support before the cracks become obvious.</blockquote>
+        <blockquote>Consult availability with Eden's clinical team is limited, and we coordinate carefully with your GLP-1 prescriber if you are being treated elsewhere.</blockquote>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Support the GLP-1 work you are already doing.</h2>
+        <p>
+          Eden will review which GLP-1 you are on or considering, your dose and timing,
+          training, body-composition goals, medications, and health history before
+          recommending the GLP-1 Support Stack or a different path.
+        </p>
+        <p class="microcopy">
+          Greenwood Village health club consults and telehealth follow-ups may be available for
+          established Colorado patients.
+        </p>
+      </div>
+      <LeadForm
+        cta="Request My GLP-1 Support Consultation"
+        service="GLP-1 Support Stack"
+        page="GLP-1 Support Stack in Greenwood Village"
+        leadSource="GLP-1 Support Stack Denver Landing Page"
+        externalFormName="GLP-1 Support Stack Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what GLP-1 you are on or considering, and what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>
+        Information on this page is educational and is not a substitute for personalized
+        medical advice. Eligibility for the GLP-1 Support Stack is determined during clinical
+        consultation. Results vary by individual. The peptides in this protocol may not be
+        FDA-approved for all uses and are dispensed only when prescribed by a licensed
+        medical provider and fulfilled by a licensed compounding pharmacy. Statements on this page have not been evaluated by
+        the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose,
+        treat, cure, or prevent any disease.
+      </p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678">
+        <span>Phone</span>
+        <strong>Call Now</strong>
+      </a>
+      <a href="mailto:care@edenhealthclubs.com">
+        <span>Email</span>
+        <strong>Care Team</strong>
+      </a>
+      <a href="#consult-form">
+        <span>Consult</span>
+        <strong>Book</strong>
+      </a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>
