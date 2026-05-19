@@ -18,6 +18,12 @@ const pages = [
     slug: "klow-stack-greenwood-village",
     formName: "KLOW Stack Denver Lead Form",
     outputFile: "klow-stack-wordpress-paste.html"
+  },
+  {
+    name: "GLOW Stack Denver LP",
+    slug: "glow-stack-greenwood-village",
+    formName: "GLOW Stack Denver Lead Form",
+    outputFile: "glow-stack-wordpress-paste.html"
   }
 ];
 
@@ -34,6 +40,7 @@ Use these files when you want a copy/paste handoff for WordPress:
 
 - \`wolverine-stack-wordpress-paste.html\`
 - \`klow-stack-wordpress-paste.html\`
+- \`glow-stack-wordpress-paste.html\`
 
 ## How to publish
 
@@ -49,8 +56,8 @@ Use these files when you want a copy/paste handoff for WordPress:
 
 Use either:
 
-- External form name matching the page, such as \`Wolverine Stack Denver Lead Form\` or \`KLOW Stack Denver Lead Form\`
-- Page path matching the slug, such as \`/wolverine-stack-greenwood-village\` or \`/klow-stack-greenwood-village\`
+- External form name matching the page, such as \`Wolverine Stack Denver Lead Form\`, \`KLOW Stack Denver Lead Form\`, or \`GLOW Stack Denver Lead Form\`
+- Page path matching the slug, such as \`/wolverine-stack-greenwood-village\`, \`/klow-stack-greenwood-village\`, or \`/glow-stack-greenwood-village\`
 
 The form also includes UTMs, GCLID, FBCLID, source URL, service, and lead source fields.
 `;
@@ -114,16 +121,33 @@ function matchOrThrow(source, pattern, label) {
 async function getModuleScript(html) {
   const inlineMatch = html.match(/<script type="module">([\s\S]*?)<\/script>/);
   if (inlineMatch?.[1]) {
-    return inlineMatch[1];
+    return inlineModuleImports(inlineMatch[1]);
   }
 
   const srcMatch = html.match(/<script type="module" src="([^"]+)"><\/script>/);
   if (srcMatch?.[1]) {
     const scriptPath = resolve(root, "dist", srcMatch[1].replace(/^\//, ""));
-    return readFile(scriptPath, "utf8");
+    return inlineModuleImports(await readFile(scriptPath, "utf8"));
   }
 
   throw new Error("Could not find module script");
+}
+
+async function inlineModuleImports(script) {
+  const importPattern = /import\s*["']([^"']+)["'];?/g;
+  const imports = [...script.matchAll(importPattern)];
+  if (!imports.length) {
+    return script;
+  }
+
+  const importedScripts = await Promise.all(
+    imports.map(async ([, importPath]) => {
+      const chunkPath = resolve(root, "dist/_astro", importPath.replace(/^\.\//, ""));
+      return inlineModuleImports(await readFile(chunkPath, "utf8"));
+    })
+  );
+
+  return `${importedScripts.join("\n")}\n${script.replace(importPattern, "").trim()}`;
 }
 
 async function findCssPath() {

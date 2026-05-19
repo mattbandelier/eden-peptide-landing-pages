@@ -4,6 +4,7 @@ Use these files when you want a copy/paste handoff for WordPress:
 
 - `wolverine-stack-wordpress-paste.html`
 - `klow-stack-wordpress-paste.html`
+- `glow-stack-wordpress-paste.html`
 
 ## How to publish
 
@@ -19,7 +20,7 @@ Use these files when you want a copy/paste handoff for WordPress:
 
 Use either:
 
-- External form name matching the page, such as `Wolverine Stack Denver Lead Form` or `KLOW Stack Denver Lead Form`
-- Page path matching the slug, such as `/wolverine-stack-greenwood-village` or `/klow-stack-greenwood-village`
+- External form name matching the page, such as `Wolverine Stack Denver Lead Form`, `KLOW Stack Denver Lead Form`, or `GLOW Stack Denver Lead Form`
+- Page path matching the slug, such as `/wolverine-stack-greenwood-village`, `/klow-stack-greenwood-village`, or `/glow-stack-greenwood-village`
 
 The form also includes UTMs, GCLID, FBCLID, source URL, service, and lead source fields.

@@ -9,6 +9,12 @@ const browser = await chromium.launch({
   executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 });
 
+const targetPath = process.argv[2] || "/klow-stack-greenwood-village/";
+const targetUrl = targetPath.startsWith("http")
+  ? targetPath
+  : `http://127.0.0.1:4321${targetPath.startsWith("/") ? targetPath : `/${targetPath}`}`;
+const screenshotSlug = targetUrl.replace(/^https?:\/\//, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
+
 const viewports = [
   { name: "iPhone 17-ish / 15 Pro", width: 393, height: 852, dpr: 3 },
   { name: "iPhone SE narrow", width: 375, height: 667, dpr: 2 },
@@ -33,7 +39,7 @@ for (const vp of viewports) {
     }
     route.continue();
   });
-  await page.goto("http://127.0.0.1:4321/klow-stack-greenwood-village/", {
+  await page.goto(targetUrl, {
     waitUntil: "domcontentloaded"
   });
   await page.waitForTimeout(300);
@@ -97,11 +103,11 @@ for (const vp of viewports) {
     };
   });
 
-  await page.screenshot({ path: `/private/tmp/klow-${vp.width}.png`, fullPage: false });
+  await page.screenshot({ path: `/private/tmp/${screenshotSlug}-${vp.width}.png`, fullPage: false });
   results.push({ name: vp.name, ...metrics });
   await context.close();
 }
 
 await browser.close();
-await writeFile("/private/tmp/klow-mobile-audit.json", JSON.stringify(results, null, 2));
+await writeFile(`/private/tmp/${screenshotSlug}-mobile-audit.json`, JSON.stringify(results, null, 2));
 console.log(JSON.stringify(results, null, 2));

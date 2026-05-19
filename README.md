@@ -25,6 +25,7 @@ Then open:
 ```text
 http://127.0.0.1:4321/wolverine-stack-greenwood-village/
 http://127.0.0.1:4321/klow-stack-greenwood-village/
+http://127.0.0.1:4321/glow-stack-greenwood-village/
 ```
 
 ## Credentials
@@ -57,6 +58,7 @@ Use `WORDPRESS_MODE=live` only after read-only API access has been tested.
 - `/` shows the LP system dashboard.
 - `/wolverine-stack-greenwood-village/` is the Wolverine Stack LP.
 - `/klow-stack-greenwood-village/` is the KLOW Stack LP.
+- `/glow-stack-greenwood-village/` is the GLOW Stack LP.
 
 ## WordPress Export
 
@@ -65,6 +67,7 @@ The WordPress-ready paste files are:
 ```text
 wordpress/wolverine-stack-wordpress-paste.html
 wordpress/klow-stack-wordpress-paste.html
+wordpress/glow-stack-wordpress-paste.html
 ```
 
 Create a WordPress page with the matching slug, add a Custom HTML block, and paste the full file contents.
@@ -73,10 +76,10 @@ Recommended slugs:
 
 - `wolverine-stack-greenwood-village`
 - `klow-stack-greenwood-village`
+- `glow-stack-greenwood-village`
 
 ## Next Pages To Build
 
-- GLOW Stack
 - Recovery Peptide Blend / Structural Repair Stack
 - GLP-1 Support Stack
 - BPC-157
