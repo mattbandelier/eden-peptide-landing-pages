@@ -1,0 +1,366 @@
+---
+import LeadForm from "@/components/LeadForm.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const canonical = "https://edenhealthclubs.com/peptide-therapy-greenwood-village/";
+const title = "Peptide Therapy in Greenwood Village | Eden Health Clubs Denver";
+const description =
+  "Explore clinician-guided peptide therapy at Eden Health Clubs in Greenwood Village, including recovery, GLP-1 support, skin, sleep, cognitive, gut, and longevity protocols.";
+
+const categories = [
+  {
+    label: "Start Here",
+    heading: "Foundation peptides and high-search protocols",
+    copy: "These pages answer the most common peptide therapy searches in Greenwood Village and Denver, then route clients into the right clinician-guided plan.",
+    links: [
+      ["Tesamorelin", "/tesamorelin-greenwood-village/", "Visceral fat, IGF-1, and body-composition support."],
+      ["CJC-1295 / Ipamorelin", "/cjc-1295-ipamorelin-greenwood-village/", "GH-axis support for recovery, sleep, skin, and lean tissue."],
+      ["BPC-157", "/bpc-157-greenwood-village/", "Foundational gut, tissue, tendon, ligament, and recovery support."],
+      ["Sermorelin", "/sermorelin-greenwood-village/", "Entry-point GH-axis support with clinical oversight."],
+      ["NAD+", "/nad-plus-greenwood-village/", "Cellular coenzyme support through wellness therapy, IV, and injectable framing."],
+      ["Glutathione", "/glutathione-greenwood-village/", "Antioxidant capacity, detoxification support, and skin clarity."]
+    ]
+  },
+  {
+    label: "Recovery",
+    heading: "Recovery, repair, and performance stacks",
+    copy: "For active adults, athletes, executives, and GLP-1 clients who want tissue, cellular, and systemic recovery coordinated instead of pieced together.",
+    links: [
+      ["Wolverine Stack", "/wolverine-stack-greenwood-village/", "BPC-157 + TB-500 recovery stack."],
+      ["Structural Repair Stack", "/structural-repair-stack-greenwood-village/", "BPC-157 + TB-500 + KPV for tissue repair and inflammatory balance."],
+      ["The Joint Insurance", "/the-joint-insurance-greenwood-village/", "BPC-157 + TB-500 + Sermorelin for connective-tissue resilience."],
+      ["TB-500", "/tb-500-greenwood-village/", "Systemic recovery, mobility, and soft-tissue remodeling support."],
+      ["MOTS-c", "/mots-c-greenwood-village/", "Mitochondrial, metabolic, and training-response support."],
+      ["KLOW Stack", "/klow-stack-greenwood-village/", "Full-spectrum recovery, inflammation, gut, and skin protocol."]
+    ]
+  },
+  {
+    label: "Weight + Gut",
+    heading: "GLP-1, gut, and metabolic support",
+    copy: "For clients on weight-loss medications, managing gut-barrier concerns, or building a deeper functional medicine protocol around metabolism and inflammation.",
+    links: [
+      ["GLP-1 Support Stack", "/glp-1-support-stack-greenwood-village/", "Companion support for clients on Ozempic, Wegovy, Mounjaro, or Zepbound."],
+      ["Gut Repair & IBD", "/gut-repair-ibd-greenwood-village/", "Gut barrier, inflammatory balance, antioxidant, and cellular support."],
+      ["KPV", "/kpv-peptide-greenwood-village/", "Inflammatory balance, gut barrier integrity, and skin comfort."],
+      ["Insulin Shield", "/insulin-shield-greenwood-village/", "Metabolic flexibility, nutrient partitioning, and inflammatory balance."],
+      ["Post-Medication Reset", "/post-medication-reset-greenwood-village/", "Gut-barrier and antioxidant support after medication stress."],
+      ["Cortisol Management", "/cortisol-management-greenwood-village/", "Stress buffering, sleep recovery, and GH-axis support."]
+    ]
+  },
+  {
+    label: "Skin + Aesthetics",
+    heading: "Skin, collagen, and aesthetic recovery",
+    copy: "For aesthetic-forward clients who want the inside-out support around skin quality, redness, collagen, procedure recovery, and visible aging.",
+    links: [
+      ["The Skin & Glow", "/the-skin-and-glow-greenwood-village/", "KPV + Sermorelin + Glutathione for dermatological support."],
+      ["GLOW Stack", "/glow-stack-greenwood-village/", "BPC-157 + TB-500 + GHK-Cu for skin, collagen, and aesthetic recovery."],
+      ["KLOW Stack", "/klow-stack-greenwood-village/", "Premium recovery, gut, inflammation, and skin protocol."],
+      ["Glutathione", "/glutathione-greenwood-village/", "Antioxidant and skin-clarity support."],
+      ["Sermorelin", "/sermorelin-greenwood-village/", "GH-axis support for collagen, recovery, and active aging."],
+      ["KPV", "/kpv-peptide-greenwood-village/", "Inflammatory balance and skin comfort support."]
+    ]
+  },
+  {
+    label: "Brain + Sleep",
+    heading: "Cognitive, sleep, and nervous-system protocols",
+    copy: "For high-output adults who want focus, sleep depth, nervous-system recovery, executive performance, and calmer resilience handled as a coordinated plan.",
+    links: [
+      ["The Deep Sleep Reset", "/the-deep-sleep-reset-greenwood-village/", "Emideltide, Epitalon, and NAD+ for sleep architecture."],
+      ["Delta Sleep / DSIP", "/delta-sleep-dsip-greenwood-village/", "Deep sleep, stress recovery, and nervous-system reset."],
+      ["Semax", "/semax-greenwood-village/", "Focus, working memory, and cognitive performance support."],
+      ["The Cognitive Edge", "/the-cognitive-edge-greenwood-village/", "Executive function, focus, and overnight brain recovery."],
+      ["The Morning Spark", "/the-morning-spark-greenwood-village/", "Non-stimulant energy, focus, and metabolic response."],
+      ["The CNS Recovery", "/the-cns-recovery-greenwood-village/", "Nervous-system recovery, deep sleep, and cognitive repair."]
+    ]
+  },
+  {
+    label: "Longevity + Clinical",
+    heading: "Longevity and advanced functional medicine protocols",
+    copy: "For clients who want a broader Eden plan around longevity, hormone optimization, neuro-recovery, social stress, migraine-pattern support, and cellular aging.",
+    links: [
+      ["The Telomere Protocol", "/the-telomere-protocol-greenwood-village/", "Epitalon, NAD+, and Glutathione for longevity support."],
+      ["Epitalon", "/epitalon-greenwood-village/", "Telomere, circadian rhythm, and longevity support."],
+      ["Hormone Optimization", "/hormone-optimization-greenwood-village/", "Sleep, mitochondrial energy, and cellular cleanup alongside hormone care."],
+      ["Neuro-Recovery", "/neuro-recovery-greenwood-village/", "Cognitive recovery, brain fog, and neuro-inflammatory support."],
+      ["Migraine & Neuralgia", "/migraine-neuralgia-greenwood-village/", "Neurovascular comfort, inflammatory balance, and nervous-system recovery."],
+      ["The Social Flow", "/the-social-flow-greenwood-village/", "Calm focus, confidence, and recovery from social stress."]
+    ]
+  }
+];
+
+const faqItems = [
+  ["What is peptide therapy at Eden Health Clubs?", "Peptide therapy at Eden is clinician-guided care that may use specific peptides or peptide-adjacent wellness therapies to support recovery, body composition, sleep, cognitive performance, skin quality, gut health, and longevity. Eligibility is determined during consultation."],
+  ["How do I know which peptide protocol is right for me?", "Start with your goal, then review your health history, medications, labs when appropriate, and current Eden plan with a clinician. Eden does not treat peptide therapy as a generic kit."],
+  ["Are Eden peptide protocols prescribed?", "When prescription components are appropriate, protocols are reviewed by licensed providers and fulfilled by a licensed pharmacy partner when prescribed."],
+  ["Is peptide therapy available in Greenwood Village and Denver?", "Yes. Eden Health Clubs is in Greenwood Village and serves Denver, DTC, Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro."],
+  ["Can peptide therapy stack with GLP-1, IV therapy, BHRT, recovery, fitness, or aesthetics?", "Often, yes. Eden coordinates functional medicine, recovery, aesthetics, fitness, IV therapy, wellness injections, GLP-1 support, and hormone support under one care plan."],
+  ["Is this the same as ordering peptides online?", "No. Eden uses clinician-guided protocols, medical director oversight, and licensed fulfillment when prescribed rather than research compounds from the internet."],
+  ["Do these pages include dosing?", "No. Public pages do not include dosing, route, frequency, or cycle length. Specific clinical instructions are reviewed only with eligible patients."],
+  ["What happens after I submit the consultation form?", "Eden reviews your goals and follows up about the best next step, which may include consultation, labs, care-plan review, or routing to the most relevant protocol page."]
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["MedicalBusiness", "HealthClub"],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      name: "Eden Health Clubs",
+      url: "https://edenhealthclubs.com/",
+      telephone: "+1-720-605-7678",
+      priceRange: "$$$",
+      logo: "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "5990 S University Blvd",
+        addressLocality: "Greenwood Village",
+        addressRegion: "CO",
+        postalCode: "80121",
+        addressCountry: "US"
+      },
+      areaServed: ["Denver", "Greenwood Village", "Denver Tech Center", "Cherry Hills Village", "Centennial", "Englewood", "Littleton"],
+      medicalSpecialty: ["Functional Medicine", "Wellness", "Longevity", "Recovery", "Aesthetics"]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: "Peptide Therapy in Greenwood Village / Denver",
+      description,
+      mainEntity: { "@id": `${canonical}#peptide-menu` },
+      inLanguage: "en-US"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": `${canonical}#service`,
+      name: "Peptide Therapy Consultation",
+      alternateName: ["Peptide Injections", "Peptide Protocols", "Longevity Peptide Therapy"],
+      serviceType: "Clinician-guided peptide therapy consultation",
+      provider: { "@id": "https://edenhealthclubs.com/#medicalbusiness" },
+      areaServed: ["Denver", "Greenwood Village", "Denver Tech Center", "Cherry Hills Village", "Centennial", "Englewood", "Littleton"],
+      description
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${canonical}#peptide-menu`,
+      name: "Eden Health Clubs peptide therapy menu",
+      itemListElement: categories.flatMap((category) =>
+        category.links.map(([name, href], index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name,
+          url: `https://edenhealthclubs.com${href}`,
+          category: category.heading
+        }))
+      )
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqItems.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="lp-detail">
+    <section class="hero hero--glow">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img class="site-logo" src="/assets/eden-health-club-logo-transparent.png" alt="Eden Health Club" width="1080" height="1080" />
+        <a href="#consult-form">Consult</a>
+      </nav>
+      <div class="hero__overlay">
+        <p class="eyebrow">Peptide Therapy in Denver</p>
+        <h1>Peptide Therapy in Greenwood Village / Denver</h1>
+        <p class="hero__summary">Explore Eden's clinician-guided peptide therapy menu for recovery, GLP-1 support, skin, sleep, gut health, cognitive performance, body composition, and longevity.</p>
+        <div class="hero__expect">
+          <h3>Built for:</h3>
+          <ul>
+            <li>High-performing adults who want medical oversight</li>
+            <li>Recovery, fitness, aesthetics, and longevity clients</li>
+            <li>GLP-1, gut, hormone, and functional medicine plans</li>
+            <li>Personalized by Eden's clinical team</li>
+          </ul>
+        </div>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+          <a class="button button--secondary" href="#peptide-menu">Explore Protocols</a>
+        </div>
+        <p class="hero__credibility">Clinician-guided care with medical director oversight · Compounded in the U.S. by a licensed pharmacy partner when prescribed</p>
+      </div>
+    </section>
+
+    <section class="proof-band" aria-label="Trust points">
+      <span>Clinician-guided</span>
+      <span>Personalized protocols</span>
+      <span>Greenwood Village + Denver</span>
+      <span>Licensed pharmacy fulfillment</span>
+    </section>
+
+    <section class="local-seo-band" aria-label="Local service area">
+      <p>Eden Health Clubs serves Greenwood Village, the Denver Tech Center (DTC), Cherry Hills Village, Centennial, Englewood, Littleton, and the broader south Denver metro. Peptide therapy consultations are available through Eden's Greenwood Village health club or via telehealth for established Eden patients in Colorado.</p>
+    </section>
+
+    <section class="quick-answer-section" aria-labelledby="quick-answer-heading">
+      <div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is peptide therapy at Eden?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>Peptide therapy at Eden Health Clubs is a clinician-guided consultation pathway for adults exploring specific peptide protocols around recovery, GLP-1 support, gut health, skin quality, sleep, cognitive performance, body composition, and longevity. Eden determines eligibility through clinical consultation, medical history, medication review, and labs when appropriate.</p>
+        <ul>
+          <li><strong>Location:</strong> Greenwood Village, serving Denver, DTC, Cherry Hills, Centennial, Englewood, and Littleton.</li>
+          <li><strong>Best fit:</strong> Adults who want clinician oversight instead of research peptides from the internet.</li>
+          <li><strong>Care model:</strong> Functional medicine, recovery, aesthetics, fitness, and wellness therapies under one plan.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="copy-section copy-section--lead">
+      <p class="eyebrow">Personalized peptide protocols</p>
+      <h2>Start with the goal. Then choose the protocol.</h2>
+      <div class="prose">
+        <p>Most people searching for peptides start with a name: BPC-157, Tesamorelin, Sermorelin, KPV, CJC-1295 / Ipamorelin, or a stack they saw online. Eden starts one level deeper: what are you actually trying to change, and what does your full care plan already include?</p>
+        <p>The right protocol for a GLP-1 client trying to protect lean tissue is different from the right protocol for an executive with poor sleep, an athlete with recovery demands, or an aesthetic client focused on skin quality and collagen support.</p>
+        <p>This hub organizes Eden's peptide and wellness therapy pages by outcome so clients, search engines, and AI answer engines can understand the full menu without losing the medical context: eligibility, follow-up, and personalization come first.</p>
+      </div>
+    </section>
+
+    <section class="peptide-menu-section" id="peptide-menu" aria-labelledby="peptide-menu-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Peptide menu</p>
+        <h2 id="peptide-menu-heading">Explore Eden's peptide therapy pages.</h2>
+      </div>
+      {categories.map((category) => (
+        <section class="menu-category" aria-label={category.heading}>
+          <div class="menu-category__intro">
+            <p class="ingredient-tag">{category.label}</p>
+            <h3>{category.heading}</h3>
+            <p>{category.copy}</p>
+          </div>
+          <div class="menu-card-grid">
+            {category.links.map(([name, href, cardCopy]) => (
+              <a class="menu-card" href={href}>
+                <span>{category.label}</span>
+                <strong>{name}</strong>
+                <p>{cardCopy}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </section>
+
+    <section class="process-section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">How it works at Eden</p>
+        <h2>A premium peptide plan should feel clear from the first consult.</h2>
+      </div>
+      <ol class="step-list">
+        <li><div><strong>Consultation.</strong> Review your goals, history, medications, current protocols, and where peptide therapy may fit.</div></li>
+        <li><div><strong>Medical review & eligibility.</strong> Eden's clinical team determines whether a peptide protocol is appropriate. Labs may be requested.</div></li>
+        <li><div><strong>Personalized protocol.</strong> Your plan is matched to your goal category, health history, and broader Eden care plan.</div></li>
+        <li><div><strong>Fulfillment or in-club guidance.</strong> Prescription components are fulfilled by a licensed pharmacy partner when prescribed.</div></li>
+        <li><div><strong>Follow-up & optimization.</strong> Eden coordinates peptide therapy with functional medicine, recovery, fitness, aesthetics, GLP-1, BHRT, and wellness therapies when appropriate.</div></li>
+      </ol>
+    </section>
+
+    <section class="copy-section copy-section--split">
+      <div>
+        <p class="eyebrow">Why Eden</p>
+        <h2>Eden is not an online peptide shop. It is a medical wellness club.</h2>
+      </div>
+      <ul class="check-list">
+        <li>Real local health club in Greenwood Village with licensed provider review.</li>
+        <li>Functional medicine, aesthetics, recovery, and fitness under one roof.</li>
+        <li>Premium environment designed for high-income south Denver longevity clients.</li>
+        <li>Clinician-guided protocols with medical director oversight.</li>
+        <li>Integrated care across peptide injections, IV therapy, wellness injections, GLP-1 support, BHRT, recovery, fitness, and aesthetics.</li>
+        <li>Personalized plans built around goals, labs, medications, and follow-up.</li>
+      </ul>
+      <div class="internal-link-grid" aria-label="Related Eden services">
+        <a href="https://edenhealthclubs.com/functional-medicine/">Functional Medicine</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/peptide-injections/">Peptide Injections</a>
+        <a href="https://edenhealthclubs.com/functional-medicine/wellness-injections/">Wellness Injections</a>
+        <a href="https://edenhealthclubs.com/fitness-performance/">Fitness + Performance</a>
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div>
+        <p class="eyebrow">Consultation first</p>
+        <h2>Know the right protocol before paying for the wrong one.</h2>
+        <p>Eden does not treat peptide therapy like a shelf of products. Your consultation helps determine whether peptide therapy is appropriate, which page or protocol best matches your goals, and what level of support makes sense for your physiology and care plan.</p>
+      </div>
+      <a class="button button--primary" href="#consult-form">Book a Consultation</a>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently asked.</h2>
+      </div>
+      <div class="faq-list">
+        {faqItems.map(([question, answer]) => (
+          <details>
+            <summary>{question}</summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start with a consultation</p>
+        <h2>Tell us what you want to change.</h2>
+        <p>Eden will review your goals, medications, health history, current protocols, and whether peptide therapy is clinically appropriate before recommending a specific page, protocol, or next step.</p>
+        <p class="microcopy">Greenwood Village health club consults and telehealth follow-ups may be available for established Colorado patients.</p>
+      </div>
+      <LeadForm
+        cta="Request My Peptide Therapy Consultation"
+        service="Peptide Therapy"
+        page="Peptide Therapy in Greenwood Village"
+        leadSource="Peptide Therapy Denver Hub Page"
+        externalFormName="Peptide Therapy Denver Lead Form"
+        goalLabel="Goal / reason for inquiry"
+        goalPlaceholder="Tell us what you are hoping to address."
+        useTextarea
+      />
+    </section>
+
+    <section class="legal-section">
+      <p>Information on this page is educational and is not a substitute for personalized medical advice. Eligibility for peptide therapy is determined during clinical consultation. Results vary by individual. Peptides and wellness therapies on this page may not be FDA-approved for all uses and are dispensed only when prescribed by a licensed medical provider and fulfilled by a licensed compounding pharmacy when appropriate. Public pages do not include dosing, route, frequency, or cycle length. Specific clinical instructions are reviewed only with eligible patients. Statements on this page have not been evaluated by the Food and Drug Administration. Eden Health Clubs makes no claims to diagnose, treat, cure, or prevent any disease.</p>
+    </section>
+
+    <nav class="eden-action-bar" aria-label="Contact Eden">
+      <a href="tel:+17206057678"><span>Phone</span><strong>Call Now</strong></a>
+      <a href="mailto:care@edenhealthclubs.com"><span>Email</span><strong>Care Team</strong></a>
+      <a href="#consult-form"><span>Consult</span><strong>Book</strong></a>
+    </nav>
+  </main>
+
+  <script>
+    const consultSection = document.querySelector("#consult-form");
+    const actionBar = document.querySelector(".eden-action-bar");
+    if (consultSection && actionBar) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          actionBar.classList.toggle("is-hidden", entry.isIntersecting && entry.intersectionRatio >= 0.5);
+        },
+        { threshold: [0, 0.5, 1] }
+      );
+      observer.observe(consultSection);
+    }
+  </script>
+</BaseLayout>

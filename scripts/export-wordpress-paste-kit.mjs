@@ -38,6 +38,12 @@ const pages = [
     outputFile: "glp-1-support-stack-wordpress-paste.html"
   },
   {
+    name: "Peptide Therapy Hub Denver LP",
+    slug: "peptide-therapy-greenwood-village",
+    formName: "Peptide Therapy Denver Lead Form",
+    outputFile: "peptide-therapy-wordpress-paste.html"
+  },
+  {
     name: "CJC-1295 Ipamorelin Denver LP",
     slug: "cjc-1295-ipamorelin-greenwood-village",
     formName: "CJC-1295 Ipamorelin Denver Lead Form",

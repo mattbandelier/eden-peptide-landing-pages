@@ -700,6 +700,80 @@ summary {
   line-height: 1.66;
 }
 
+.peptide-menu-section {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.menu-category {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 32px;
+  align-items: start;
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+
+.menu-category__intro h3 {
+  margin: 0 0 14px;
+  color: var(--green-dark);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.06;
+}
+
+.menu-category__intro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.menu-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.menu-card {
+  min-height: 170px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  border: 1px solid rgba(40, 96, 82, 0.22);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 20px;
+  color: var(--green-dark);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.menu-card:hover {
+  border-color: var(--emerald);
+  transform: translateY(-2px);
+}
+
+.menu-card span {
+  color: var(--sienna);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.menu-card strong {
+  font-size: 1.22rem;
+  line-height: 1.1;
+}
+
+.menu-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.52;
+}
+
 .step-list {
   display: grid;
   gap: 0;
@@ -879,7 +953,9 @@ summary {
 
   .proof-band,
   .split-section,
-  .dashboard-grid {
+  .dashboard-grid,
+  .menu-category,
+  .menu-card-grid {
     grid-template-columns: 1fr;
   }
 
@@ -900,6 +976,7 @@ summary {
     .lp-detail .copy-section,
     .lp-detail .quick-answer-section,
     .lp-detail .ingredient-grid,
+  .peptide-menu-section,
   .lp-detail .process-section,
   .lp-detail .pricing-section,
   .lp-detail .testimonial-section,
@@ -944,13 +1021,16 @@ summary {
   .copy-section,
   .process-section,
   .testimonial-section,
-  .ingredient-grid {
+  .ingredient-grid,
+  .peptide-menu-section {
     padding: 46px 0;
   }
 
   .copy-section--split,
   .quick-answer-section,
   .ingredient-grid,
+  .menu-category,
+  .menu-card-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1035,6 +1115,7 @@ summary {
   .dashboard,
   .lp-detail .copy-section,
   .lp-detail .ingredient-grid,
+  .peptide-menu-section,
   .lp-detail .process-section,
   .lp-detail .pricing-section,
   .lp-detail .testimonial-section,
@@ -1082,7 +1163,8 @@ summary {
 
   .check-list li,
   .note-box,
-  .ingredient-grid article {
+  .ingredient-grid article,
+  .menu-card {
     padding: 14px;
   }
 
