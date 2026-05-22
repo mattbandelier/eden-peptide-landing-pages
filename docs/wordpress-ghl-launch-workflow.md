@@ -11,6 +11,7 @@ Use GitHub as the source of truth for the landing page system.
 - Shared form component: `src/components/LeadForm.astro`
 - WordPress paste files: `wordpress/*-wordpress-paste.html`
 - GHL setup: `docs/ghl-lead-capture.md`
+- Billy-facing GHL forms answer: `docs/billy-ghl-forms-handoff.md`
 - Build/export scripts: `scripts/`
 
 Billy can either rebuild the pages natively in WordPress from the local previews or paste the exported HTML files into WordPress Custom HTML blocks.
@@ -28,6 +29,8 @@ Billy can either rebuild the pages natively in WordPress from the local previews
 ## 3. Recommended GHL path
 
 Use GoHighLevel External Tracking first. This is the cleanest path for native Eden-styled forms inside WordPress.
+
+If the developer is asking whether to create visual GHL forms, send them `docs/billy-ghl-forms-handoff.md`. The short answer is to keep the native Eden forms and connect them to GHL, rather than replacing them with embedded GHL iframes.
 
 1. In GHL, open `Settings -> External Tracking`.
 2. Copy the External Tracking script.
