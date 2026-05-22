@@ -1,12 +1,101 @@
 # Billy GHL Forms Handoff
 
-Short answer: do **not** rebuild these as embedded GHL iframe forms unless absolutely necessary.
+Short answer: if Eden already has a GHL embedded form that triggers the correct workflow, use that for the fastest first launch. The native Eden form path is still the better long-term design/control path.
+
+## Recommended First Launch Setup
+
+Use the existing `Integrative Medicine LP Form` for all peptide landing pages at launch.
+
+- GHL form name: `Integrative Medicine LP Form`
+- GHL form ID: `9BUDLFhLIUhPoauueXfX`
+- Recommended workflow: `Integrative Medicine: Full 14-Day Sequence`
+- Workflow status: published
+- Reason: peptide leads are functionally closer to integrative/functional medicine intake than med spa-only intake, and Matt wants these leads routed toward consultation and bloodwork when appropriate.
+
+Embed code:
+
+```html
+<iframe
+  src="https://api.leadconnectorhq.com/widget/form/9BUDLFhLIUhPoauueXfX"
+  style="width:100%;height:100%;border:none;border-radius:8px"
+  id="inline-9BUDLFhLIUhPoauueXfX"
+  data-layout='{"id":"INLINE"}'
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name="Integrative Medicine LP Form"
+  data-height="760"
+  data-layout-iframe-id="inline-9BUDLFhLIUhPoauueXfX"
+  data-form-id="9BUDLFhLIUhPoauueXfX"
+  title="Integrative Medicine LP Form"
+></iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+```
+
+Place the iframe inside the existing `Start with a Consultation` section on each page. Keep the surrounding Eden copy, heading, sticky CTA behavior, and mobile spacing.
+
+## A2P / SMS Note
+
+A2P is the approved SMS/compliance lane, not the visual form itself. Keep using the A2P-approved sending setup for follow-up texts. The landing page form just needs to enter the same GHL contact/workflow system that already sends through Eden's approved SMS setup.
+
+## Page Attribution
+
+Using one form for all pages is the fastest launch path, but it makes attribution more important.
+
+Billy should preserve page-level tracking in one of these ways:
+
+1. Preferred: add a hidden field or custom field mapping for `Services Interested In`, `contact source`, or `form name` based on the page/service.
+2. Good fallback: use workflow conditions or tags based on the landing page URL, if GHL captures it from the embed.
+3. Minimum viable launch: all peptide pages use the same form/workflow and the team qualifies the exact peptide interest during intake.
+
+Existing helpful GHL custom fields found:
+
+- `Services Interested In` / `contact.services_interested_in`
+- `contact source` / `contact.contact_source`
+- `form name` / `contact.form_name`
+- `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`
+- `gclid capture`
+- `FBCLID`
+
+For launch, tag all submissions from these pages as:
+
+- `Peptide Therapy`
+- `Peptide Lead`
+- `Website Lead`
+- `Functional Medicine`
 
 The pages already include native Eden-styled forms that match the landing page design, mobile spacing, attribution fields, and conversion flow. The best WordPress launch path is to keep those native forms and connect them to GoHighLevel through External Tracking or a server-side proxy.
 
-## Recommended Path: Native Eden Form + GHL External Tracking
+## Fastest Path: Existing GHL Embedded Form
 
-Use this first.
+Use this if Eden's current GHL form is already working and already triggers the intake workflow.
+
+1. Billy can replace the native `<LeadForm>` / rendered `<form class="lead-form">` area in each WordPress page with Eden's existing GHL embed code.
+2. Keep the surrounding section copy, heading, spacing, and sticky CTA behavior.
+3. Add a page-specific hidden field or source value if the GHL form supports it, or create a URL/query/source rule in GHL so leads can be tagged by page.
+4. Submit a test lead from each first-batch page.
+5. Confirm the existing workflow fires.
+
+Why this may be best for first launch:
+
+- Eden already knows this model works.
+- The form goes straight into GHL.
+- Existing workflows can keep working.
+- Fastest way to get the pages live.
+
+Tradeoff:
+
+- The embedded GHL form may not perfectly match the premium Eden page design.
+- Iframe styling can be limited.
+- Mobile spacing must be checked carefully after embed.
+- Page-specific attribution may need hidden fields, URL parameters, or workflow conditions.
+
+## Best Long-Term Path: Native Eden Form + GHL External Tracking
+
+Use this when Billy wants the page design and attribution to stay fully native.
 
 1. Keep the native form inside each WordPress page / paste-kit file.
 2. Install the GHL External Tracking script globally in WordPress, ideally through WP Engine/theme/header-footer injection.
@@ -30,16 +119,16 @@ Billy can create a small WordPress REST endpoint that accepts the native form su
 
 Important: never put the GHL Private Integration Token in browser JavaScript, a WordPress Custom HTML block, or the public repo.
 
-## Avoid Unless Necessary: Embedded GHL Form/Iframe
+## If Using GHL Embed Forms
 
-Only use embedded GHL forms if Eden decides speed matters more than design/control.
+Ask Billy to confirm these items:
 
-Downsides:
-
-- Harder to match Eden's premium LP design.
-- Can create mobile layout issues.
-- Often weaker for conversion tracking and UX.
-- More likely to feel like a generic med spa lead form.
+- Does the embedded form collect name, email, phone, and goal/reason?
+- Can the form pass page-specific service interest?
+- Can the workflow tag leads by page or service?
+- Can UTMs, GCLID, FBCLID, referrer, and landing page still be captured?
+- Does the iframe fit cleanly on iPhone widths without hiding submit buttons?
+- Does the sticky CTA hide or avoid covering the embedded form?
 
 ## Native Form Fields Already Included
 
@@ -131,4 +220,3 @@ Before publishing:
 - Confirm the correct workflow fires.
 - Confirm the confirmation message is compliant.
 - Confirm mobile layout still looks clean after any WordPress/GHL script injection.
-
