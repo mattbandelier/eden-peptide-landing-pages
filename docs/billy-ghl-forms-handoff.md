@@ -1,6 +1,147 @@
 # Billy GHL Forms Handoff
 
-Short answer: if Eden already has a GHL embedded form that triggers the correct workflow, use that for the fastest first launch. The native Eden form path is still the better long-term design/control path.
+Short answer: create one dedicated GHL form for the peptide pages if the GHL builder is available. If the form must go live immediately, use the existing Integrative Medicine form because it already feeds the right 14-day workflow.
+
+## Dedicated Peptide Form To Create In GHL
+
+GHL's public Forms API currently exposes form reads/submissions, not native form creation, so this needs to be created or cloned inside the GHL UI:
+
+`Sites -> Forms -> Builder -> Add Form`
+
+If the form list loads, the fastest version is to duplicate `Integrative Medicine LP Form`, rename the duplicate, then edit the fields/style below. That preserves the working GHL form behavior and reduces setup risk.
+
+### Exact Build Steps
+
+1. In GHL, switch to the Eden Health International location.
+2. Go to `Sites -> Forms -> Builder`.
+3. Click `Add Form`, or duplicate `Integrative Medicine LP Form` if duplication is available.
+4. Rename the form to `Peptide Therapy Consultation Form`.
+5. Add/edit the visible fields in the order below.
+6. Add hidden fields/custom fields for source attribution if the builder allows it.
+7. Set the submit button to `Request Consultation`.
+8. Set the post-submit action to either thank-you message or redirect to the peptide booking/calendar page.
+9. Save and publish the form.
+10. Click share/embed and copy the inline embed code.
+11. Add this new form to the existing `Integrative Medicine: Full 14-Day Sequence` workflow trigger.
+12. Submit one test lead from staging and confirm the workflow fires.
+
+Recommended setup:
+
+- Form name: `Peptide Therapy Consultation Form`
+- Submit button: `Request Consultation`
+- Workflow to connect: `Integrative Medicine: Full 14-Day Sequence`
+- Workflow trigger: `Form Submitted -> Peptide Therapy Consultation Form`
+- Lead tags in workflow: `Peptide Therapy`, `Peptide Lead`, `Website Lead`, `Functional Medicine`
+- Goal: all peptide-page leads go to the same consult/bloodwork intake sequence first, then staff qualifies the exact protocol.
+
+Visible fields:
+
+- `First Name`
+- `Last Name`
+- `Phone` required
+- `Email` required
+- `Services Interested In` dropdown or multi-select
+- `Goal / Reason for Inquiry` large text field
+- SMS consent checkbox using Eden's existing A2P-approved consent language
+
+Suggested copy:
+
+- Form headline: `Start with a Peptide Consultation`
+- Form intro: `Tell us what you're hoping to improve. Eden will follow up about consultation and bloodwork when appropriate.`
+- Goal field label: `Goal / Reason for Inquiry`
+- Goal placeholder: `Tell us what you're hoping to address, what page brought you here, or which peptide protocol you're curious about.`
+- Submit button: `Request Consultation`
+- Thank-you message: `Thanks — Eden will be in touch within one business day. If you'd like to book now, use the consultation link on this page.`
+
+Recommended `Services Interested In` options:
+
+- `Peptide Therapy / Not Sure`
+- `Tesamorelin`
+- `BPC-157`
+- `Sermorelin`
+- `NAD+`
+- `The Skin & Glow`
+- `Wolverine Stack`
+- `KLOW Stack`
+- `GLOW Stack`
+- `CJC-1295 / Ipamorelin`
+- `Structural Repair Stack`
+- `GLP-1 Support Stack`
+- `Other`
+
+Hidden/custom fields to add if practical:
+
+- `contact source` = `Peptide Landing Pages`
+- `form name` = `Peptide Therapy Consultation Form`
+- `Services Interested In`
+- `utm_source`
+- `utm_medium`
+- `utm_campaign`
+- `utm_term`
+- `utm_content`
+- `gclid capture`
+- `FBCLID`
+
+Suggested mobile styling:
+
+- Single-column layout only
+- Field height at least 48px
+- Label/body font at least 16px
+- Full-width submit button
+- Button color: Eden forest green or gold if available in the builder
+- Avoid two-column fields because these pages are mostly iPhone traffic
+- Embed iframe height: start at `860px`; reduce only after testing on iPhone widths
+- Replace any legacy/privacy links that point to another brand/domain with Eden's current Privacy Policy and Terms URLs before launch.
+
+### Workflow Wiring
+
+Use the existing workflow first:
+
+- Workflow name: `Integrative Medicine: Full 14-Day Sequence`
+- Workflow ID: `672c856a-bafe-47a2-9c7f-d23b071127a8`
+- Workflow URL: `https://app.gohighlevel.com/location/PDPqf43omVZVvrp4sHkf/workflow/672c856a-bafe-47a2-9c7f-d23b071127a8`
+
+In the workflow:
+
+1. Open the first trigger: `Form Submitted`.
+2. Keep `Integrative Medicine LP Form` selected.
+3. Add `Peptide Therapy Consultation Form` as an additional allowed form.
+4. Add a workflow step near the top if not already present: `Add Tags`.
+5. Add tags: `Peptide Therapy`, `Peptide Lead`, `Website Lead`, `Functional Medicine`.
+6. Save and publish.
+
+Do not remove the existing Integrative Medicine form from the trigger. This new peptide form should be added alongside it.
+
+Once created, Billy should replace `[NEW_FORM_ID]` below with the GHL form ID.
+
+```html
+<iframe
+  src="https://api.leadconnectorhq.com/widget/form/[NEW_FORM_ID]?contact_source=Peptide%20Landing%20Pages&form_name=Peptide%20Therapy%20Consultation%20Form"
+  style="width:100%;height:860px;border:none;border-radius:8px"
+  id="inline-[NEW_FORM_ID]"
+  data-layout='{"id":"INLINE"}'
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name="Peptide Therapy Consultation Form"
+  data-height="860"
+  data-layout-iframe-id="inline-[NEW_FORM_ID]"
+  data-form-id="[NEW_FORM_ID]"
+  title="Peptide Therapy Consultation Form"
+></iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+```
+
+After the new form is created, the standalone form URL will be:
+
+```text
+https://api.leadconnectorhq.com/widget/form/[NEW_FORM_ID]
+```
+
+## Current Working Fallback Form
 
 ## Recommended First Launch Setup
 
@@ -8,16 +149,17 @@ Use the existing `Integrative Medicine LP Form` for all peptide landing pages at
 
 - GHL form name: `Integrative Medicine LP Form`
 - GHL form ID: `9BUDLFhLIUhPoauueXfX`
+- Direct URL: `https://api.leadconnectorhq.com/widget/form/9BUDLFhLIUhPoauueXfX`
 - Recommended workflow: `Integrative Medicine: Full 14-Day Sequence`
 - Workflow status: published
 - Reason: peptide leads are functionally closer to integrative/functional medicine intake than med spa-only intake, and Matt wants these leads routed toward consultation and bloodwork when appropriate.
 
-Embed code:
+Mobile-friendly embed code:
 
 ```html
 <iframe
-  src="https://api.leadconnectorhq.com/widget/form/9BUDLFhLIUhPoauueXfX"
-  style="width:100%;height:100%;border:none;border-radius:8px"
+  src="https://api.leadconnectorhq.com/widget/form/9BUDLFhLIUhPoauueXfX?contact_source=Peptide%20Landing%20Pages&form_name=Peptide%20Therapy%20Consultation%20Form"
+  style="width:100%;height:820px;border:none;border-radius:8px"
   id="inline-9BUDLFhLIUhPoauueXfX"
   data-layout='{"id":"INLINE"}'
   data-trigger-type="alwaysShow"
@@ -27,7 +169,7 @@ Embed code:
   data-deactivation-type="neverDeactivate"
   data-deactivation-value=""
   data-form-name="Integrative Medicine LP Form"
-  data-height="760"
+  data-height="820"
   data-layout-iframe-id="inline-9BUDLFhLIUhPoauueXfX"
   data-form-id="9BUDLFhLIUhPoauueXfX"
   title="Integrative Medicine LP Form"
@@ -36,6 +178,16 @@ Embed code:
 ```
 
 Place the iframe inside the existing `Start with a Consultation` section on each page. Keep the surrounding Eden copy, heading, sticky CTA behavior, and mobile spacing.
+
+For page-specific attribution, Billy can append a `service` query value in the iframe `src` per page, for example:
+
+```text
+&service=Tesamorelin
+&service=BPC-157
+&service=Peptide%20Therapy%20Hub
+```
+
+If GHL hidden fields are present with matching names, GHL can populate them. Even without hidden fields, GHL form submissions typically retain the submitted page URL in event data, which allows filtering/tagging by peptide page path.
 
 ## A2P / SMS Note
 
