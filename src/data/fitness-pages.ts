@@ -314,6 +314,382 @@ const areaFitnessPages: FitnessPage[] = [
   })
 ];
 
+type KeywordFitnessInput = {
+  slug: string;
+  title: string;
+  description: string;
+  h1: string;
+  eyebrow: string;
+  heroHeadline: string;
+  summary: string;
+  primaryCta: string;
+  intent: string;
+  edenAngle: string;
+  bullets: string[];
+  builtFor: string[];
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+};
+
+function keywordFitnessPage(input: KeywordFitnessInput): FitnessPage {
+  return page({
+    slug: input.slug,
+    title: input.title,
+    description: input.description,
+    h1: input.h1,
+    eyebrow: input.eyebrow,
+    heroHeadline: input.heroHeadline,
+    summary: input.summary,
+    primaryCta: input.primaryCta,
+    secondaryCta: "See how Eden works",
+    builtFor: input.builtFor,
+    sections: [
+      {
+        eyebrow: "Search intent",
+        title: "This is the problem behind the search.",
+        body: input.intent,
+        bullets: input.bullets
+      },
+      {
+        eyebrow: "Eden advantage",
+        title: "The workout is only one part of the result.",
+        body: input.edenAngle,
+        bullets: [
+          "Coached training inside a real fitness facility",
+          "InBody scans for fat, muscle, and body composition tracking",
+          "Recovery, IV therapy, wellness injections, hormones, peptides, and functional medicine nearby",
+          "Aesthetics and medical weight loss support when appropriate"
+        ]
+      },
+      systemSection
+    ],
+    faqs: input.faqs
+  });
+}
+
+const priorityKeywordPages: FitnessPage[] = [
+  keywordFitnessPage({
+    slug: "personal-training-denver-tech-center",
+    title: "Personal Training near Denver Tech Center | Eden Health Club",
+    description:
+      "Personal training near Denver Tech Center for strength, body composition, recovery, and performance at Eden Health Club in Greenwood Village.",
+    h1: "Personal Training near Denver Tech Center",
+    eyebrow: "Private coaching. Bigger system.",
+    heroHeadline: "Personal training for people who want measurable change.",
+    summary:
+      "Eden gives DTC-area clients personal training that can connect with InBody scans, recovery, medical weight loss support, hormones, peptides, IV therapy, wellness injections, and aesthetics when the goal calls for more.",
+    primaryCta: "Book a Personal Training Assessment",
+    intent:
+      "People searching personal training near DTC usually want accountability, efficient coaching, strength, fat loss, and a plan that fits a demanding schedule.",
+    edenAngle:
+      "Eden can turn personal training into a fuller body-composition and wellness plan instead of stopping at sessions and sets.",
+    bullets: [
+      "Personal training near Denver Tech Center",
+      "Private coaching for strength and body composition",
+      "Efficient training for busy professionals",
+      "Recovery and wellness services in the same facility"
+    ],
+    builtFor: ["DTC professionals", "Private training clients", "Strength and fat-loss goals", "People who want accountability"],
+    faqs: [
+      {
+        question: "Where can I find personal training near Denver Tech Center?",
+        answer:
+          "Eden Health Club offers personal training in Greenwood Village near DTC, with strength coaching, InBody scans, recovery, and medical wellness support available under one roof."
+      },
+      {
+        question: "Is Eden personal training only for advanced clients?",
+        answer: "No. Eden can match training to your current level, goals, schedule, and recovery needs."
+      },
+      {
+        question: "Can personal training connect with weight loss or hormones?",
+        answer:
+          "Yes. Eden can connect training with medical weight loss support, hormone care, InBody tracking, recovery, and wellness services when appropriate."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "semi-private-training-denver-tech-center",
+    title: "Semi-Private Training near Denver Tech Center | Eden Health Club",
+    description:
+      "Semi-private training near Denver Tech Center with small-format coaching, accountability, strength, body composition, and recovery support at Eden Health Club.",
+    h1: "Semi-Private Training near Denver Tech Center",
+    eyebrow: "Small format. Real coaching.",
+    heroHeadline: "More coaching than a class, more energy than training alone.",
+    summary:
+      "Semi-private training at Eden gives DTC-area clients structure, accountability, strength, and a path into recovery and wellness support without feeling lost in a crowded gym.",
+    primaryCta: "Book a Semi-Private Assessment",
+    intent:
+      "Semi-private training searches usually come from people who want coaching and accountability but do not necessarily want the cost or intensity of private training every time.",
+    edenAngle:
+      "Eden can make semi-private training a smart entry point into body composition, recovery, GLP-1 muscle protection, longevity, and wellness support.",
+    bullets: [
+      "Semi-private training near DTC",
+      "Small-group accountability",
+      "Strength-focused coaching",
+      "A better bridge than a generic group class"
+    ],
+    builtFor: ["DTC clients who want accountability", "Friends or partners training together", "Busy adults", "Strength beginners"],
+    faqs: [
+      {
+        question: "What is semi-private training?",
+        answer:
+          "Semi-private training is small-format coaching where a trainer works with a small number of clients, giving more attention than a large class while keeping energy and accountability."
+      },
+      {
+        question: "Does Eden offer semi-private training near DTC?",
+        answer:
+          "Eden Health Club offers small-format fitness and performance training options in Greenwood Village near Denver Tech Center."
+      },
+      {
+        question: "Is semi-private training good for body composition?",
+        answer:
+          "It can be. Eden can connect semi-private training with InBody scans, strength programming, recovery, and wellness support for body-composition goals."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "strength-training-denver-tech-center",
+    title: "Strength Training near Denver Tech Center | Eden Health Club",
+    description:
+      "Strength training near Denver Tech Center for muscle, metabolism, body composition, longevity, and recovery at Eden Health Club.",
+    h1: "Strength Training near Denver Tech Center",
+    eyebrow: "Muscle. Metabolism. Longevity.",
+    heroHeadline: "Strength training is the foundation of the Eden fitness system.",
+    summary:
+      "Build strength near DTC in a facility where training can connect with InBody scans, recovery, GLP-1 muscle preservation, hormones, peptides, IV therapy, wellness injections, and aesthetics.",
+    primaryCta: "Book a Strength Assessment",
+    intent:
+      "Strength training searches are not just about lifting weights. They signal demand for muscle, metabolism, fat loss, longevity, confidence, and a body that holds up.",
+    edenAngle:
+      "Eden turns strength training into a measurable plan by pairing coaching with body composition tracking and wellness support.",
+    bullets: [
+      "Strength training near DTC",
+      "Muscle preservation and body composition",
+      "Longevity and anti-aging strength",
+      "Recovery support for consistency"
+    ],
+    builtFor: ["Adults who want to build muscle", "GLP-1 and weight-loss clients", "Longevity-focused adults", "DTC professionals"],
+    faqs: [
+      {
+        question: "Where can I find strength training near Denver Tech Center?",
+        answer:
+          "Eden Health Club offers strength training in Greenwood Village near DTC with coaching, InBody scans, recovery, and wellness services."
+      },
+      {
+        question: "Why does strength training matter for weight loss?",
+        answer:
+          "Strength training helps preserve lean muscle, support metabolism, and improve body composition while weight changes."
+      },
+      {
+        question: "Can beginners start strength training at Eden?",
+        answer: "Yes. Eden can adapt strength training to your starting point, experience, goals, and recovery needs."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "glp-1-strength-training-denver-tech-center",
+    title: "GLP-1 Strength Training near Denver Tech Center | Eden Health Club",
+    description:
+      "GLP-1 strength training near Denver Tech Center for muscle preservation, body composition, recovery, and medical weight loss support at Eden Health Club.",
+    h1: "GLP-1 Strength Training near Denver Tech Center",
+    eyebrow: "Lose weight without losing the body you want.",
+    heroHeadline: "GLP-1 weight loss needs a muscle-protection plan.",
+    summary:
+      "Eden helps DTC-area GLP-1 and medical weight loss clients protect muscle, track body composition, build strength, and connect recovery or wellness support when appropriate.",
+    primaryCta: "Book a GLP-1 Strength Assessment",
+    intent:
+      "GLP-1 searches are shifting from medication-only curiosity toward long-term maintenance, muscle preservation, protein, strength, and body composition.",
+    edenAngle:
+      "Eden can support the missing fitness layer around GLP-1 weight loss: resistance training, InBody scans, recovery, and a plan for what happens after the scale moves.",
+    bullets: [
+      "GLP-1 strength training near DTC",
+      "Muscle preservation during weight loss",
+      "InBody scans to track fat and lean mass",
+      "Recovery and wellness support when appropriate"
+    ],
+    builtFor: ["GLP-1 users", "Medical weight loss clients", "People losing weight quickly", "Clients worried about muscle loss"],
+    faqs: [
+      {
+        question: "Why do GLP-1 clients need strength training?",
+        answer:
+          "Strength training helps protect lean muscle and supports metabolism while weight changes. InBody scans can help track whether the loss is fat, muscle, or both."
+      },
+      {
+        question: "Does Eden offer GLP-1 strength training near DTC?",
+        answer:
+          "Yes. Eden Health Club is in Greenwood Village near DTC and can connect GLP-1 support, strength training, body composition tracking, and recovery."
+      },
+      {
+        question: "Can I use Eden if another provider prescribed my medication?",
+        answer:
+          "Yes. Eden can support the training, InBody, recovery, and wellness side while respecting your existing medical care."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "body-recomposition-denver-tech-center",
+    title: "Body Recomposition near Denver Tech Center | Eden Health Club",
+    description:
+      "Body recomposition near Denver Tech Center with strength training, InBody scans, recovery, and wellness support at Eden Health Club.",
+    h1: "Body Recomposition near Denver Tech Center",
+    eyebrow: "Fat loss. Muscle. Measurement.",
+    heroHeadline: "Change the body, not just the scale.",
+    summary:
+      "Eden helps DTC-area clients lose fat, preserve or build muscle, track InBody changes, and connect training with recovery, medical wellness, and aesthetics when appropriate.",
+    primaryCta: "Book a Body Composition Assessment",
+    intent:
+      "Body recomposition is one of the best keywords for Eden because it captures people who want fat loss, muscle, shape, strength, confidence, and objective measurement.",
+    edenAngle:
+      "Eden can own this space because body recomposition needs more than a class: strength, InBody tracking, recovery, nutrition direction, and wellness support.",
+    bullets: [
+      "Body recomposition near DTC",
+      "InBody scans and body composition tracking",
+      "Fat loss while protecting muscle",
+      "Fitness connected with wellness and aesthetics"
+    ],
+    builtFor: ["Fat-loss clients", "GLP-1 clients", "Strength and shape goals", "People frustrated by the scale"],
+    faqs: [
+      {
+        question: "What is body recomposition?",
+        answer:
+          "Body recomposition means improving the ratio of fat mass to lean muscle mass, not simply chasing a lower body weight."
+      },
+      {
+        question: "Where can I get body composition training near DTC?",
+        answer:
+          "Eden Health Club offers body composition-focused fitness in Greenwood Village near DTC with InBody scans, strength training, recovery, and wellness support."
+      },
+      {
+        question: "Can body recomposition connect with aesthetics?",
+        answer:
+          "Yes. Eden can connect body composition goals with fitness, recovery, medical weight loss support, hormones, peptides, and aesthetics when appropriate."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "pilates-denver-tech-center",
+    title: "Pilates near Denver Tech Center | Eden Health Club",
+    description:
+      "Pilates-inspired strength, core, mobility, and recovery support near Denver Tech Center at Eden Health Club in Greenwood Village.",
+    h1: "Pilates near Denver Tech Center",
+    eyebrow: "Core. Control. Strength.",
+    heroHeadline: "Pilates-style movement with a stronger wellness system behind it.",
+    summary:
+      "Eden gives DTC-area Pilates searchers a bigger answer: core, posture, mobility, low-impact strength, recovery, InBody tracking, and wellness support in one Greenwood Village facility.",
+    primaryCta: "Explore Pilates-Style Training",
+    intent:
+      "Pilates searches usually come from people who want tone, posture, core strength, low-impact training, mobility, and a polished studio experience.",
+    edenAngle:
+      "Eden can capture Pilates intent while offering the next layer: strength, body composition, recovery, medical wellness, and aesthetics.",
+    bullets: [
+      "Pilates near DTC",
+      "Core, posture, and mobility",
+      "Low-impact strength training",
+      "Recovery and wellness services nearby"
+    ],
+    builtFor: ["Pilates seekers near DTC", "Low-impact training clients", "Core and posture goals", "Studio clients ready for strength"],
+    faqs: [
+      {
+        question: "Does Eden offer Pilates near Denver Tech Center?",
+        answer:
+          "Eden offers Pilates-inspired strength, core, mobility, and group fitness options in Greenwood Village near DTC depending on current programming."
+      },
+      {
+        question: "How is Eden different from a Pilates studio?",
+        answer:
+          "Eden connects Pilates-style movement with strength training, InBody scans, recovery, wellness injections, IV therapy, hormones, peptides, medical weight loss support, and aesthetics."
+      },
+      {
+        question: "Is Pilates-style training good for beginners?",
+        answer:
+          "Yes. Pilates-inspired training can be adapted for beginners while supporting core strength, control, posture, and mobility."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "perimenopause-fitness-greenwood-village",
+    title: "Perimenopause Fitness in Greenwood Village | Eden Health Club",
+    description:
+      "Perimenopause fitness in Greenwood Village for strength, body composition, muscle preservation, recovery, hormone-aware wellness, and confidence at Eden Health Club.",
+    h1: "Perimenopause Fitness in Greenwood Village",
+    eyebrow: "Strength for a changing body.",
+    heroHeadline: "When your body changes, your fitness plan has to get smarter.",
+    summary:
+      "Eden helps women navigating perimenopause and menopause changes with strength training, InBody scans, recovery, hormone-aware wellness, functional medicine, IV therapy, wellness injections, peptides, and aesthetics when appropriate.",
+    primaryCta: "Book a Perimenopause Fitness Assessment",
+    intent:
+      "Perimenopause fitness is a trend-shift keyword because many women are searching for why weight, recovery, sleep, strength, and body composition feel different in midlife.",
+    edenAngle:
+      "Eden can win this because the answer is not just another class. It is strength, body composition tracking, recovery, hormone conversations, wellness support, and aesthetics under one roof.",
+    bullets: [
+      "Perimenopause fitness in Greenwood Village",
+      "Strength training for midlife body changes",
+      "Body composition and InBody tracking",
+      "Hormone-aware wellness support when appropriate"
+    ],
+    builtFor: ["Women 35+", "Perimenopause and menopause changes", "Midlife strength and body composition", "Energy, sleep, recovery, and confidence goals"],
+    faqs: [
+      {
+        question: "Can strength training help during perimenopause?",
+        answer:
+          "Strength training can support lean muscle, body composition, metabolism, confidence, and bone-supportive loading during midlife changes."
+      },
+      {
+        question: "Does Eden offer perimenopause fitness in Greenwood Village?",
+        answer:
+          "Yes. Eden can connect fitness, InBody tracking, recovery, hormone-aware wellness, functional medicine, and aesthetics for women navigating perimenopause or menopause changes."
+      },
+      {
+        question: "Is this a hormone program or a fitness program?",
+        answer:
+          "It starts with fitness and body composition, but Eden can connect hormone care, functional medicine, recovery, and wellness support when appropriate."
+      }
+    ]
+  }),
+  keywordFitnessPage({
+    slug: "medical-weight-loss-fitness-greenwood-village",
+    title: "Medical Weight Loss Fitness in Greenwood Village | Eden Health Club",
+    description:
+      "Medical weight loss fitness in Greenwood Village with strength training, InBody scans, GLP-1 muscle support, recovery, and wellness services at Eden Health Club.",
+    h1: "Medical Weight Loss Fitness in Greenwood Village",
+    eyebrow: "Weight loss needs strength.",
+    heroHeadline: "The missing piece in weight loss is often muscle.",
+    summary:
+      "Eden helps medical weight loss and GLP-1 clients connect weight change with strength training, InBody scans, recovery, wellness injections, IV therapy, peptides, hormones, and long-term maintenance support.",
+    primaryCta: "Book a Weight Loss Fitness Assessment",
+    intent:
+      "Medical weight loss searches are high-value, but the fitness layer is often underserved. People need to protect lean mass, rebuild strength, and maintain results.",
+    edenAngle:
+      "Eden can bridge medical weight loss and fitness because training, body composition tracking, recovery, and wellness support can all live in one facility.",
+    bullets: [
+      "Medical weight loss fitness in Greenwood Village",
+      "GLP-1 muscle preservation",
+      "InBody scans for fat and lean mass",
+      "Strength and maintenance after weight loss"
+    ],
+    builtFor: ["Medical weight loss clients", "GLP-1 clients", "People worried about muscle loss", "Long-term maintenance goals"],
+    faqs: [
+      {
+        question: "Why does fitness matter during medical weight loss?",
+        answer:
+          "Strength training can help protect lean muscle, support metabolism, improve body composition, and create a stronger maintenance plan while weight changes."
+      },
+      {
+        question: "Does Eden combine medical weight loss and fitness?",
+        answer:
+          "Eden offers medical weight loss support, fitness, InBody scans, recovery, wellness injections, IV therapy, peptides, hormones, and aesthetics in one Greenwood Village facility."
+      },
+      {
+        question: "Can this help after weight loss?",
+        answer:
+          "Yes. Eden can help build the maintenance phase around strength, body composition, recovery, habits, and follow-up measurement."
+      }
+    ]
+  })
+];
+
 export const fitnessPages: FitnessPage[] = [
   page({
     slug: "strength-training-greenwood-village",
@@ -915,7 +1291,8 @@ export const fitnessPages: FitnessPage[] = [
       }
     ]
   }),
-  ...areaFitnessPages
+  ...areaFitnessPages,
+  ...priorityKeywordPages
 ];
 
 export function getFitnessPage(slug: string) {
