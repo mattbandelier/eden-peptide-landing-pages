@@ -34,6 +34,38 @@ function field(body: Record<string, string>, snakeName: string, legacyName: stri
   return body[snakeName] || body[legacyName];
 }
 
+function leadSource(body: Record<string, string>) {
+  return body.leadSource || body.page || body.service || "Eden Landing Page";
+}
+
+function buildNotes(body: Record<string, string>, firstTouch: Record<string, string>, lastTouch: Record<string, string>) {
+  return [
+    `Landing page lead: ${leadSource(body)}`,
+    body.service ? `Service Interest: ${body.service}` : "",
+    body.page ? `Page: ${body.page}` : "",
+    body.goal ? `Goal: ${body.goal}` : "",
+    body.sourceUrl ? `Source URL: ${body.sourceUrl}` : "",
+    body.landingPage ? `Landing Page: ${body.landingPage}` : "",
+    body.referrer ? `Referrer: ${body.referrer}` : "",
+    field(body, "utm_source", "utmSource") ? `UTM Source: ${field(body, "utm_source", "utmSource")}` : "",
+    field(body, "utm_medium", "utmMedium") ? `UTM Medium: ${field(body, "utm_medium", "utmMedium")}` : "",
+    field(body, "utm_campaign", "utmCampaign")
+      ? `UTM Campaign: ${field(body, "utm_campaign", "utmCampaign")}`
+      : "",
+    field(body, "utm_term", "utmTerm") ? `UTM Term: ${field(body, "utm_term", "utmTerm")}` : "",
+    field(body, "utm_content", "utmContent") ? `UTM Content: ${field(body, "utm_content", "utmContent")}` : "",
+    body.gclid ? `GCLID: ${body.gclid}` : "",
+    body.fbclid ? `FBCLID: ${body.fbclid}` : "",
+    firstTouch.landingPage ? `First Touch Landing Page: ${firstTouch.landingPage}` : "",
+    firstTouch.referrer ? `First Touch Referrer: ${firstTouch.referrer}` : "",
+    field(firstTouch, "utm_source", "utmSource") ? `First Touch UTM Source: ${field(firstTouch, "utm_source", "utmSource")}` : "",
+    field(lastTouch, "utm_source", "utmSource") ? `Last Touch UTM Source: ${field(lastTouch, "utm_source", "utmSource")}` : "",
+    body.submittedAt ? `Submitted At: ${body.submittedAt}` : ""
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
 export const GET: APIRoute = async () => {
   return new Response(JSON.stringify({ ok: true, endpoint: "ghl-lead" }), {
     status: 200,
@@ -59,44 +91,19 @@ export const POST: APIRoute = async ({ request }) => {
 
   const token = getEnv("GHL_PRIVATE_INTEGRATION_TOKEN");
   const locationId = getEnv("GHL_LOCATION_ID");
+  const webhookUrl = getEnv("GHL_WEBHOOK_URL");
   const apiBaseUrl = getEnv("GHL_API_BASE_URL") ?? "https://services.leadconnectorhq.com";
   const apiVersion = getEnv("GHL_API_VERSION") ?? "2021-07-28";
-  const source = getEnv("GHL_LEAD_SOURCE") ?? "Wolverine Stack Denver Landing Page";
-  const tags = (getEnv("GHL_LEAD_TAGS") ?? "Website Lead,Wolverine Stack,Peptide Therapy,Denver LP")
+  const source = body.leadSource || getEnv("GHL_LEAD_SOURCE") || "Eden Landing Page";
+  const tags = (getEnv("GHL_LEAD_TAGS") ?? "Website Lead,Eden Landing Page")
     .split(",")
     .map((tag) => tag.trim())
     .filter(Boolean);
 
-  if (!token || !locationId) {
-    return new Response(JSON.stringify({ error: "GHL is not configured" }), { status: 500 });
-  }
-
   const { firstName, lastName } = splitName(body.name);
   const firstTouch = asRecord(body.firstTouch);
   const lastTouch = asRecord(body.lastTouch);
-  const notes = [
-    "Landing page lead: Wolverine Stack in Denver",
-    body.goal ? `Goal: ${body.goal}` : "",
-    body.sourceUrl ? `Source URL: ${body.sourceUrl}` : "",
-    body.landingPage ? `Landing Page: ${body.landingPage}` : "",
-    body.referrer ? `Referrer: ${body.referrer}` : "",
-    field(body, "utm_source", "utmSource") ? `UTM Source: ${field(body, "utm_source", "utmSource")}` : "",
-    field(body, "utm_medium", "utmMedium") ? `UTM Medium: ${field(body, "utm_medium", "utmMedium")}` : "",
-    field(body, "utm_campaign", "utmCampaign")
-      ? `UTM Campaign: ${field(body, "utm_campaign", "utmCampaign")}`
-      : "",
-    field(body, "utm_term", "utmTerm") ? `UTM Term: ${field(body, "utm_term", "utmTerm")}` : "",
-    field(body, "utm_content", "utmContent") ? `UTM Content: ${field(body, "utm_content", "utmContent")}` : "",
-    body.gclid ? `GCLID: ${body.gclid}` : "",
-    body.fbclid ? `FBCLID: ${body.fbclid}` : "",
-    firstTouch.landingPage ? `First Touch Landing Page: ${firstTouch.landingPage}` : "",
-    firstTouch.referrer ? `First Touch Referrer: ${firstTouch.referrer}` : "",
-    field(firstTouch, "utm_source", "utmSource") ? `First Touch UTM Source: ${field(firstTouch, "utm_source", "utmSource")}` : "",
-    field(lastTouch, "utm_source", "utmSource") ? `Last Touch UTM Source: ${field(lastTouch, "utm_source", "utmSource")}` : "",
-    body.submittedAt ? `Submitted At: ${body.submittedAt}` : ""
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const notes = buildNotes(body, firstTouch, lastTouch);
 
   const customFields = [
     optionalCustomField("GHL_CF_SERVICE_INTEREST", body.service ?? "Wolverine Stack"),
@@ -127,6 +134,42 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (customFields.length) {
     payload.customFields = customFields;
+  }
+
+  if (webhookUrl) {
+    const webhookPayload = {
+      ...body,
+      firstName,
+      lastName,
+      source,
+      tags,
+      notes,
+      firstTouch,
+      lastTouch
+    };
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(webhookPayload)
+    });
+    const webhookResult = await webhookResponse.text();
+    if (!webhookResponse.ok) {
+      return new Response(JSON.stringify({ error: "GHL webhook request failed", detail: webhookResult }), {
+        status: webhookResponse.status
+      });
+    }
+
+    return new Response(webhookResult || JSON.stringify({ ok: true, path: "webhook" }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  if (!token || !locationId) {
+    return new Response(JSON.stringify({ error: "GHL is not configured" }), { status: 500 });
   }
 
   const response = await fetch(`${apiBaseUrl.replace(/\/$/, "")}/contacts/upsert`, {

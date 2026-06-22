@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { page } = Astro.props;
-const canonical = `https://edenhealthclubs.com/${page.slug}/`;
+const canonical = new URL(`/${page.slug}/`, Astro.site ?? "https://landing.edenhealthclubs.com").toString();
 const serviceName = page.h1.replace(" in Greenwood Village", "");
 const phone = "+1-720-605-7678";
 const schema = {

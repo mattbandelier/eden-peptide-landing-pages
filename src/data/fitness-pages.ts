@@ -81,11 +81,31 @@ const systemSection = {
   ]
 };
 
+const reviewSignalsSection = {
+  eyebrow: "What clients already say",
+  title: "The demand is not theoretical.",
+  body:
+    "Public Eden reviews already describe the exact buying triggers these pages need to own: small groups with real attention, workouts that build strength, bloodwork explained clearly, a beautiful state-of-the-art space, recovery tools nearby, and a team that makes people feel supported instead of processed.",
+  bullets: [
+    "Review language points to personalized small-group coaching and whole-body training",
+    "Fitness clients call out strength, Pilates, weightlifting goals, and getting stronger",
+    "Wellness clients mention clear lab explanations, fatigue, brain fog, stress, and having a plan",
+    "Recovery and facility comments reinforce sauna, red light, compression, cleanliness, and community"
+  ]
+};
+
 function page(input: Omit<FitnessPage, "proof" | "related"> & Partial<Pick<FitnessPage, "proof" | "related">>): FitnessPage {
+  const sections = [
+    ...input.sections.slice(0, 2),
+    reviewSignalsSection,
+    ...input.sections.slice(2)
+  ];
+
   return {
     proof: baseProof,
     related: coreRelated,
-    ...input
+    ...input,
+    sections
   };
 }
 

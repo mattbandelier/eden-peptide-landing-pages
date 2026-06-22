@@ -1,6 +1,6 @@
 # GHL Lead Capture Setup
 
-The Astro preview pages submit leads through `/api/ghl-lead`. That endpoint works only when the Astro app is hosted with server/API support and the GHL environment variables are configured.
+The Astro preview pages submit leads through `/api/ghl-lead`. That endpoint works when the Astro app is hosted with server/API support and either `GHL_WEBHOOK_URL` or the direct LeadConnector API variables are configured.
 
 For WordPress publishing on Eden's current site, do not replace the Eden-styled form with an iframe unless you absolutely have to. The recommended launch path is HighLevel External Tracking on the native HTML forms. It can capture standard WordPress/custom HTML forms and trigger workflows by external form name or page path when its tracking script is installed.
 
@@ -24,7 +24,9 @@ For WordPress publishing on Eden's current site, do not replace the Eden-styled 
 
 ## GHL Contact Behavior
 
-The Astro API endpoint upserts a contact in HighLevel using:
+The Astro API endpoint first sends the full lead payload to `GHL_WEBHOOK_URL` when that variable exists in Vercel. This is the preferred path for the landing-page domain because the HighLevel workflow can own routing, notifications, pipeline stage, and follow-up.
+
+If no webhook is configured, the endpoint falls back to upserting a contact in HighLevel using:
 
 - `GHL_PRIVATE_INTEGRATION_TOKEN`
 - `GHL_LOCATION_ID`
@@ -33,10 +35,7 @@ The Astro API endpoint upserts a contact in HighLevel using:
 It adds fallback tags by default:
 
 - Website Lead
-- Wolverine Stack
-- Peptide Therapy
-- Denver LP
-- Wolverine Stack LP Lead
+- Eden Landing Page
 
 For WordPress publishing, use the External Form Submitted trigger instead of relying on this Astro API tag.
 
@@ -64,11 +63,12 @@ HighLevel External Tracking works with valid DOM forms, including WordPress form
 
 ```text
 GHL_API_BASE_URL=https://services.leadconnectorhq.com
+GHL_WEBHOOK_URL=
 GHL_PRIVATE_INTEGRATION_TOKEN=
 GHL_LOCATION_ID=PDPqf43omVZVvrp4sHkf
 GHL_API_VERSION=2021-07-28
-GHL_LEAD_TAGS=Website Lead,Wolverine Stack,Peptide Therapy,Denver LP,Wolverine Stack LP Lead
-GHL_LEAD_SOURCE=Wolverine Stack Denver Landing Page
+GHL_LEAD_TAGS=Website Lead,Eden Landing Page
+GHL_LEAD_SOURCE=Eden Landing Page
 ```
 
 If you want the Astro-hosted version to include the External Tracking script automatically, also add:
