@@ -62,35 +62,35 @@ const coreRelated = [
 
 const baseProof = [
   "Greenwood Village near DTC",
-  "Real medical treatment inside a working fitness facility",
+  "Medical wellness inside a working fitness facility",
   "Training + recovery + body composition",
   "Built for the south Denver lifestyle"
 ];
 
 const systemSection = {
-  eyebrow: "The Eden moat",
-  title: "Training is only one part of the system.",
+  eyebrow: "Why Eden is different",
+  title: "Medical wellness and coached training, inside one working fitness facility.",
   body:
-    "Most places give you a workout and send you home. Eden connects training, recovery, body composition, medical weight loss, hormones, peptides, IV therapy, wellness injections, and aesthetics inside one Greenwood Village facility.",
+    "Most gyms and studios stop at the workout. Eden connects coached training, body composition tracking, recovery, medical wellness, and aesthetics inside one Greenwood Village facility, so your plan can match the body you are actually trying to build.",
   bullets: [
-    "Strength training, personal training, semi-private training, and group fitness",
-    "InBody body composition scans and progress tracking",
-    "IV therapy, wellness injections, red light, sauna, and compression recovery",
-    "Hormone care, peptide therapy, medical weight loss, and functional medicine support",
-    "Aesthetics and skin health available in the same Eden ecosystem"
+    "Coached strength, personal training, semi-private training, and group fitness",
+    "InBody scans to track muscle, fat, and progress beyond the scale",
+    "Recovery tools including IV therapy, wellness injections, red light, sauna, and compression",
+    "Medical weight loss, hormone care, peptide therapy, and functional medicine support when appropriate",
+    "Aesthetics and skin health available in the same Eden facility"
   ]
 };
 
 const reviewSignalsSection = {
-  eyebrow: "What clients already say",
-  title: "The demand is not theoretical.",
+  eyebrow: "Client experience",
+  title: "People come for results and stay for the way Eden feels.",
   body:
-    "Public Eden reviews already describe the exact buying triggers these pages need to own: small groups with real attention, workouts that build strength, bloodwork explained clearly, a beautiful state-of-the-art space, recovery tools nearby, and a team that makes people feel supported instead of processed.",
+    "Clients describe attentive coaching, small-group energy, clear wellness guidance, a beautiful facility, recovery tools nearby, and a team that makes the process feel personal instead of transactional.",
   bullets: [
-    "Review language points to personalized small-group coaching and whole-body training",
-    "Fitness clients call out strength, Pilates, weightlifting goals, and getting stronger",
-    "Wellness clients mention clear lab explanations, fatigue, brain fog, stress, and having a plan",
-    "Recovery and facility comments reinforce sauna, red light, compression, cleanliness, and community"
+    "Small-group coaching with real attention to form, strength, and confidence",
+    "Support for strength, Pilates, weightlifting goals, and feeling stronger",
+    "Clear explanations around labs, fatigue, brain fog, stress, and next steps",
+    "Recovery tools, a clean facility, and a welcoming community under one roof"
   ]
 };
 
