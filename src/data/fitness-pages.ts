@@ -109,6 +109,211 @@ function page(input: Omit<FitnessPage, "proof" | "related"> & Partial<Pick<Fitne
   };
 }
 
+type AreaFitnessInput = {
+  slug: string;
+  area: string;
+  areaPhrase: string;
+  titleArea: string;
+  descriptionArea: string;
+  localAngle: string;
+  driveAngle: string;
+  audience: string[];
+  nearby: string[];
+  incomeSignal: string;
+};
+
+function areaFitnessPage(input: AreaFitnessInput): FitnessPage {
+  return page({
+    slug: input.slug,
+    title: `Fitness and Performance Training ${input.titleArea} | Eden Health Club`,
+    description: `Outcome-based fitness and performance training ${input.descriptionArea}: strength, body recomposition, GLP-1 muscle support, recovery, longevity, Pilates-style movement, and medical wellness at Eden Health Club.`,
+    h1: `Fitness and Performance Training ${input.titleArea}`,
+    eyebrow: "Local fitness. Bigger outcomes.",
+    heroHeadline: "Strength, body composition, recovery, and wellness under one Greenwood Village roof.",
+    summary: `${input.areaPhrase} clients use Eden for more than workouts: coached strength, InBody body composition scans, recovery, IV therapy, wellness injections, hormones, peptides, functional medicine, aesthetics, and medical weight loss support when appropriate.`,
+    primaryCta: "Book a Fitness Assessment",
+    secondaryCta: "See Eden's system",
+    proof: [
+      `Built for ${input.area}`,
+      "10-mile local fitness capture",
+      "Training + InBody + recovery",
+      "Medical wellness inside a working fitness facility"
+    ],
+    builtFor: [
+      ...input.audience,
+      "GLP-1, perimenopause, longevity, and body composition clients",
+      "Pilates, barre, yoga, strength, and recovery seekers"
+    ],
+    sections: [
+      {
+        eyebrow: "Local demand",
+        title: `${input.area} clients do not need another generic gym search.`,
+        body: input.localAngle,
+        bullets: [
+          "Personal training and semi-private training for accountability",
+          "Group fitness, strength, Pilates-inspired movement, barre, yoga, and mobility options",
+          "Body recomposition, GLP-1 strength support, longevity training, and recovery planning",
+          "InBody tracking and wellness services that can support the next step"
+        ]
+      },
+      {
+        eyebrow: "Why the drive makes sense",
+        title: "People will drive for an integrated plan, not a random class.",
+        body: input.driveAngle,
+        bullets: [
+          "Greenwood Village facility near DTC",
+          `Relevant for ${input.nearby.join(", ")}`,
+          "Designed for clients who want measurable change, not just attendance",
+          input.incomeSignal
+        ]
+      },
+      systemSection,
+      {
+        eyebrow: "Searches this page supports",
+        title: `Fitness keywords near ${input.area}.`,
+        body:
+          `This page is designed to support local searches around fitness, personal training, strength training, semi-private training, group fitness, Pilates, barre, yoga, body recomposition, GLP-1 strength training, longevity training, anti-aging strength training, and recovery performance ${input.descriptionArea}.`
+      }
+    ],
+    related: [
+      {
+        label: "Fitness + Performance",
+        href: "https://edenhealthclubs.com/fitness-performance/",
+        text: "Main Eden fitness hub for strength, body composition, recovery, and programs."
+      },
+      ...coreRelated
+    ],
+    faqs: [
+      {
+        question: `Where can I find fitness and performance training ${input.descriptionArea}?`,
+        answer:
+          `Eden Health Club is located in Greenwood Village near DTC and serves ${input.area} clients looking for strength training, personal training, semi-private training, group fitness, recovery, body composition tracking, and medical wellness support.`
+      },
+      {
+        question: `Is Eden close enough for ${input.area} clients?`,
+        answer:
+          `${input.driveAngle} Eden is designed for clients who want one destination for training, recovery, body composition, medical wellness, and aesthetics instead of piecing together separate providers.`
+      },
+      {
+        question: "What makes Eden different from a local gym or boutique studio?",
+        answer:
+          "Eden connects coached fitness with InBody scans, recovery, IV therapy, wellness injections, hormone care, peptide therapy, medical weight loss support, functional medicine, and aesthetics inside one working fitness facility."
+      }
+    ]
+  });
+}
+
+const areaFitnessPages: FitnessPage[] = [
+  areaFitnessPage({
+    slug: "fitness-performance-denver-tech-center",
+    area: "Denver Tech Center",
+    areaPhrase: "Denver Tech Center and DTC corridor",
+    titleArea: "near Denver Tech Center",
+    descriptionArea: "near Denver Tech Center",
+    localAngle:
+      "DTC has the exact client profile Eden should capture: busy professionals, executives, founders, parents, and high-output adults who want efficient fitness, better recovery, and measurable body composition without driving all over Denver.",
+    driveAngle:
+      "Eden sits in Greenwood Village near the Denver Tech Center corridor, making it a practical destination for people who want to train, recover, scan, and access wellness support before work, after work, or between appointments.",
+    audience: [
+      "Busy professionals near DTC",
+      "Executives who want efficient coaching",
+      "People who want strength, recovery, and energy support"
+    ],
+    nearby: ["Greenwood Village", "Belleview Station", "Orchard", "Arapahoe at Village Center"],
+    incomeSignal: "DTC searchers often value convenience, efficiency, and premium support over bargain fitness."
+  }),
+  areaFitnessPage({
+    slug: "fitness-performance-cherry-hills-village",
+    area: "Cherry Hills Village",
+    areaPhrase: "Cherry Hills Village",
+    titleArea: "near Cherry Hills Village",
+    descriptionArea: "near Cherry Hills Village",
+    localAngle:
+      "Cherry Hills Village is a premium wellness market where the right buyer is not looking for the cheapest class. They are looking for strength, longevity, body composition, recovery, aesthetics, and a high-trust environment.",
+    driveAngle:
+      "Eden is close enough for Cherry Hills Village clients who want one polished Greenwood Village destination for fitness, recovery, body composition, aesthetics, and medical wellness support.",
+    audience: [
+      "Cherry Hills clients focused on longevity and strength",
+      "Aesthetics clients who want fitness connected to the bigger plan",
+      "Adults who want a premium wellness environment"
+    ],
+    nearby: ["Cherry Hills Village", "University Boulevard", "Orchard Road", "Greenwood Village"],
+    incomeSignal: "Cherry Hills is one of the strongest premium wellness markets around Eden."
+  }),
+  areaFitnessPage({
+    slug: "fitness-performance-centennial",
+    area: "Centennial",
+    areaPhrase: "Centennial",
+    titleArea: "near Centennial",
+    descriptionArea: "near Centennial",
+    localAngle:
+      "Centennial has a large base of active adults, parents, professionals, and midlife clients who are searching for strength, weight loss support, Pilates, yoga, recovery, and sustainable fitness close to home.",
+    driveAngle:
+      "Eden is a practical north/west Centennial option for people who want a stronger fitness answer than a crowded gym or single-format studio.",
+    audience: [
+      "Centennial adults who want measurable strength and body composition",
+      "Parents and professionals who need efficient training",
+      "GLP-1, weight loss, longevity, and recovery clients"
+    ],
+    nearby: ["Centennial", "Southglenn", "Arapahoe Road", "Greenwood Village"],
+    incomeSignal: "Centennial has a large high-intent local market for premium fitness and wellness services."
+  }),
+  areaFitnessPage({
+    slug: "fitness-performance-englewood",
+    area: "Englewood",
+    areaPhrase: "Englewood",
+    titleArea: "near Englewood",
+    descriptionArea: "near Englewood",
+    localAngle:
+      "Englewood searchers often compare gyms, studios, personal trainers, yoga, Pilates, and wellness clinics separately. Eden gives them one destination where fitness can connect with recovery and medical wellness.",
+    driveAngle:
+      "Eden is close enough for south Englewood and University Boulevard clients who want a more complete facility than a standard gym, class studio, or med spa.",
+    audience: [
+      "Englewood clients comparing gyms and studios",
+      "Strength and recovery seekers",
+      "People who want fitness connected to wellness support"
+    ],
+    nearby: ["Englewood", "South Broadway", "University Boulevard", "Cherry Hills"],
+    incomeSignal: "Englewood adds strong nearby search volume while staying inside the realistic local drive radius."
+  }),
+  areaFitnessPage({
+    slug: "fitness-performance-littleton",
+    area: "Littleton",
+    areaPhrase: "Littleton",
+    titleArea: "near Littleton",
+    descriptionArea: "near Littleton",
+    localAngle:
+      "Littleton has strong demand for personal training, Pilates, yoga, strength, active aging, recovery, and weight-loss-adjacent fitness. Eden should capture the clients who want a higher-touch plan than a neighborhood gym.",
+    driveAngle:
+      "Eden is a realistic option for north and east Littleton clients who want fitness, body composition, recovery, and wellness services in one Greenwood Village facility.",
+    audience: [
+      "Littleton clients focused on strength and longevity",
+      "Active adults who want recovery and mobility",
+      "People looking for personal training, Pilates, yoga, or body recomposition"
+    ],
+    nearby: ["Littleton", "Southglenn", "Cherry Hills", "Greenwood Village"],
+    incomeSignal: "Littleton gives Eden a strong active-adult and family wellness market inside the 10-mile ring."
+  }),
+  areaFitnessPage({
+    slug: "fitness-performance-south-denver",
+    area: "South Denver",
+    areaPhrase: "South Denver",
+    titleArea: "near South Denver",
+    descriptionArea: "near South Denver",
+    localAngle:
+      "South Denver searchers have plenty of gyms and studios, but fewer places where training, recovery, InBody scans, aesthetics, hormone care, peptides, IV therapy, and wellness injections can connect into one plan.",
+    driveAngle:
+      "Eden should not chase all of Denver for routine fitness. South Denver is the right edge: close enough for high-intent clients who want the integrated Eden model and are willing to drive for a better answer.",
+    audience: [
+      "South Denver clients who want an integrated wellness club",
+      "Pilates, barre, yoga, strength, and recovery seekers",
+      "Clients who want body composition and medical wellness connected"
+    ],
+    nearby: ["South Denver", "University Hills", "Wellshire", "Cherry Hills", "DTC"],
+    incomeSignal: "South Denver expands the addressable market without stretching beyond Eden's realistic service radius."
+  })
+];
+
 export const fitnessPages: FitnessPage[] = [
   page({
     slug: "strength-training-greenwood-village",
@@ -709,7 +914,8 @@ export const fitnessPages: FitnessPage[] = [
           "Eden offers movement training inside a facility that also supports recovery, body composition, wellness injections, IV therapy, hormones, peptides, medical weight loss, and aesthetics."
       }
     ]
-  })
+  }),
+  ...areaFitnessPages
 ];
 
 export function getFitnessPage(slug: string) {
