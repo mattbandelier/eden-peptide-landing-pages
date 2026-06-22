@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
