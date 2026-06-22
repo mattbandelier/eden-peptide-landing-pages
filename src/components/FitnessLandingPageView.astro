@@ -1,0 +1,260 @@
+---
+import type { FitnessPage } from "@/data/fitness-pages";
+import LeadForm from "./LeadForm.astro";
+
+type Props = {
+  page: FitnessPage;
+};
+
+const { page } = Astro.props;
+const canonical = `https://edenhealthclubs.com/${page.slug}/`;
+const serviceName = page.h1.replace(" in Greenwood Village", "");
+const phone = "+1-720-605-7678";
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["MedicalBusiness", "HealthClub"],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Club",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": phone,
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Greenwood Village", "Denver Tech Center", "Cherry Hills Village", "Centennial", "Englewood", "Littleton", "Denver"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      "url": canonical,
+      "name": page.title,
+      "description": page.description,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://edenhealthclubs.com/#website",
+        "name": "Eden Health Club",
+        "url": "https://edenhealthclubs.com/"
+      },
+      "about": {
+        "@id": `${canonical}#service`
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      "name": serviceName,
+      "serviceType": serviceName,
+      "provider": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Greenwood Village" },
+        { "@type": "Place", "name": "Denver Tech Center" },
+        { "@type": "City", "name": "Cherry Hills Village" },
+        { "@type": "City", "name": "Centennial" },
+        { "@type": "City", "name": "Englewood" },
+        { "@type": "City", "name": "Littleton" },
+        { "@type": "City", "name": "Denver" }
+      ],
+      "description": page.description
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://edenhealthclubs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fitness + Performance",
+          "item": "https://edenhealthclubs.com/fitness-performance/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": page.h1,
+          "item": canonical
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      "mainEntity": page.faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<main class="fitness-lp">
+  <section class="hero fitness-hero">
+    <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+      <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+    </video>
+    <nav class="mobile-topbar" aria-label="Page">
+      <img
+        class="site-logo"
+        src="/assets/eden-health-club-logo-transparent.png"
+        alt="Eden Health Club"
+        width="1080"
+        height="1080"
+      />
+      <a href="#consult-form">Assess</a>
+    </nav>
+    <div class="hero__overlay fitness-hero__overlay">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.h1}</h1>
+      <p class="fitness-hero__line">{page.heroHeadline}</p>
+      <p class="hero__summary">{page.summary}</p>
+      <div class="hero__actions" aria-label="Primary actions">
+        <a class="button button--primary" href="#consult-form">{page.primaryCta}</a>
+        <a class="button button--secondary" href="#system">{page.secondaryCta}</a>
+      </div>
+      <p class="hero__credibility">
+        Greenwood Village near DTC. Serving Cherry Hills, Centennial, Englewood, Littleton, Denver, and the south metro.
+      </p>
+    </div>
+  </section>
+
+  <section class="proof-band" aria-label="Trust points">
+    {page.proof.map((item) => <span>{item}</span>)}
+  </section>
+
+  <section class="local-seo-band" aria-label="Local service area">
+    <p>
+      Eden Health Club is located at 5990 S University Blvd in Greenwood Village, minutes from Denver Tech Center and a short drive from Cherry Hills Village, Centennial, Englewood, Littleton, and Denver.
+    </p>
+  </section>
+
+  <section class="quick-answer-section fitness-answer" aria-labelledby="quick-answer-heading">
+    <div>
+      <p class="eyebrow">Quick answer</p>
+      <h2 id="quick-answer-heading">What makes Eden different?</h2>
+    </div>
+    <div class="quick-answer-card">
+      <p>
+        Eden is not a traditional gym and it is not a med spa with a fitness room. Eden is a working fitness facility with real medical treatment built into the same environment.
+      </p>
+      <ul>
+        <li><strong>Fitness:</strong> strength, personal training, semi-private training, and group fitness.</li>
+        <li><strong>Measurement:</strong> InBody scans and body composition tracking.</li>
+        <li><strong>Recovery:</strong> IV therapy, wellness injections, red light, sauna, compression, and peptide options.</li>
+        <li><strong>Medical wellness:</strong> hormones, medical weight loss, peptides, functional medicine, and aesthetics.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="system" class="fitness-built" aria-labelledby="built-for-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Built for</p>
+      <h2 id="built-for-heading">People who want more than a random workout.</h2>
+    </div>
+    <div class="fitness-chip-grid">
+      {page.builtFor.map((item) => <span>{item}</span>)}
+    </div>
+  </section>
+
+  {page.sections.map((section) => (
+    <section class="copy-section fitness-copy">
+      <p class="eyebrow">{section.eyebrow}</p>
+      <h2>{section.title}</h2>
+      <div class="prose">
+        <p>{section.body}</p>
+        {section.bullets ? (
+          <ul>
+            {section.bullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+        ) : null}
+      </div>
+    </section>
+  ))}
+
+  <section class="fitness-related" aria-labelledby="related-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Connect the plan</p>
+      <h2 id="related-heading">The services this page can route into.</h2>
+    </div>
+    <div class="fitness-related__grid">
+      {page.related.map((item) => (
+        <a href={item.href}>
+          <span>{item.label}</span>
+          <p>{item.text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="split-section" id="consult-form">
+    <div>
+      <p class="eyebrow">Start here</p>
+      <h2>Book the assessment. Build the plan.</h2>
+      <p>
+        Share what you want to improve and Eden will follow up about the best next step. No pressure, no generic class funnel. The goal is to understand whether training, recovery, body composition, or medical wellness should lead.
+      </p>
+    </div>
+    <LeadForm
+      cta={page.primaryCta}
+      service={serviceName}
+      page={page.h1}
+      leadSource={`${page.h1} Landing Page`}
+      externalFormName={`${page.h1} Lead Form`}
+      goalLabel="What do you want to optimize?"
+      goalPlaceholder="Strength, weight loss, recovery, hormones, energy..."
+      useTextarea={true}
+    />
+  </section>
+
+  <section class="faq-section">
+    <div class="section-heading">
+      <p class="eyebrow">Questions</p>
+      <h2>What people ask before they start.</h2>
+    </div>
+    <div class="faq-list">
+      {page.faqs.map((faq) => (
+        <details>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <div class="eden-action-bar" aria-label="Book assessment">
+    <a href="tel:+17206057678">
+      <span>Call</span>
+      <strong>Now</strong>
+    </a>
+    <a href="https://www.google.com/maps/search/?api=1&query=5990%20S%20University%20Blvd%20Greenwood%20Village%20CO%2080121" target="_blank" rel="noreferrer">
+      <span>Visit</span>
+      <strong>Map</strong>
+    </a>
+    <a href="#consult-form">
+      <span>Book</span>
+      <strong>Assessment</strong>
+    </a>
+  </div>
+</main>
