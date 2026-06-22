@@ -57,10 +57,13 @@ async function submit(endpoint, urlList) {
 
   console.log(`${endpoint}: ${response.status} ${response.statusText}`);
 
-  if (![200, 202].includes(response.status)) {
-    const text = await response.text();
-    throw new Error(`IndexNow rejected ${endpoint}: ${text}`);
+  if ([200, 202].includes(response.status)) {
+    return { endpoint, ok: true, status: response.status };
   }
+
+  const text = await response.text();
+  console.warn(`IndexNow warning for ${endpoint}: ${text}`);
+  return { endpoint, ok: false, status: response.status, text };
 }
 
 const urls = await getSitemapUrls();
@@ -68,6 +71,12 @@ const urls = await getSitemapUrls();
 console.log(`Submitting ${urls.length} URLs from ${sitemapUrl}`);
 console.log(`Key file: ${keyLocation}`);
 
+const results = [];
+
 for (const endpoint of endpoints) {
-  await submit(endpoint, urls);
+  results.push(await submit(endpoint, urls));
+}
+
+if (!results.some((result) => result.ok)) {
+  throw new Error("All IndexNow endpoints rejected the submission.");
 }
