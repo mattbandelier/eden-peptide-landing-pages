@@ -74,6 +74,7 @@ Use `WORDPRESS_MODE=live` only after read-only API access has been tested.
 - `/neuro-recovery-greenwood-village/` is the Neuro-Recovery LP.
 - `/migraine-neuralgia-greenwood-village/` is the Migraine & Neuralgia LP.
 - Additional individual and stack pages are in `src/pages/` and `wordpress/`.
+- Fitness SEO expansion pages are generated from `src/data/fitness-pages.ts` through `src/pages/[slug].astro`, including `/strength-training-greenwood-village/`, `/performance-training-greenwood-village/`, `/longevity-training-greenwood-village/`, `/anti-aging-strength-training-greenwood-village/`, `/glp-1-strength-training-greenwood-village/`, `/body-composition-training-greenwood-village/`, `/recovery-performance-greenwood-village/`, `/executive-fitness-greenwood-village/`, `/semi-private-personal-training-greenwood-village/`, `/group-fitness-classes-greenwood-village/`, `/barre-classes-greenwood-village/`, `/yoga-classes-greenwood-village/`, and `/pilates-strength-training-greenwood-village/`.
 
 ## WordPress Export
 

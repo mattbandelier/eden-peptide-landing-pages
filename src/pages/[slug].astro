@@ -1,0 +1,25 @@
+---
+import FitnessLandingPageView from "@/components/FitnessLandingPageView.astro";
+import { fitnessPages, getFitnessPage } from "@/data/fitness-pages";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return fitnessPages.map((page) => ({
+    params: { slug: page.slug }
+  }));
+}
+
+const page = getFitnessPage(Astro.params.slug ?? "");
+
+if (!page) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical={`https://edenhealthclubs.com/${page.slug}/`}
+>
+  <FitnessLandingPageView page={page} />
+</BaseLayout>
