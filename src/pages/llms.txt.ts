@@ -26,7 +26,12 @@ Location: 5990 S University Blvd, Greenwood Village, CO 80121
 Phone: 720-605-7678
 Primary website: https://edenhealthclubs.com/
 Landing-page domain: ${siteUrl}/
+Public Yelp profile: https://yelp.com/biz/-kzTj8x-TBhZR4xkoxewsg
 Google Business Profile category signal: Medical spa with fitness center, wellness center, medical clinic, weight loss service, health spa, skin care clinic, and related wellness categories.
+
+Primary website role: brand authority, conversion, service overview, and direct appointment path.
+Landing-page domain role: keyword-specific SEO/AEO/GEO capture layer for Greenwood Village, DTC, and south Denver service searches. Landing pages should route visitors toward Eden's main website, phone, email, and consult flow.
+Yelp role: local trust profile and broad Eden Health Club entity signal.
 
 ## Core Positioning
 

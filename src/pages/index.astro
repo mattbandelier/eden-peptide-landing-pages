@@ -1,49 +1,231 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { landingPages } from "@/data/landing-pages";
-import { listRecentPosts } from "@/lib/wordpress";
+import { fitnessPages } from "@/data/fitness-pages";
+import { siteUrl } from "@/data/site-urls";
 
-const posts = await listRecentPosts();
+const canonical = `${siteUrl}/`;
+const phone = "+1-720-605-7678";
+const serviceGroups = [
+  {
+    label: "Aesthetics",
+    href: "https://edenhealthclubs.com/aesthetics/",
+    text: "Skin health, facial balancing, injectables, and aesthetics inside the Eden wellness environment."
+  },
+  {
+    label: "Functional medicine",
+    href: "https://edenhealthclubs.com/functional-medicine/",
+    text: "Labs, medical weight loss, wellness injections, InBody, and consult-first wellness support."
+  },
+  {
+    label: "Hormones and peptides",
+    href: "https://edenhealthclubs.com/hormone-replacement-therapy/",
+    text: "Hormone care, peptide therapy, recovery protocols, sleep, metabolism, and longevity support."
+  },
+  {
+    label: "IV therapy and recovery",
+    href: "https://edenhealthclubs.com/wellness-recovery/iv-therapy/",
+    text: "IV therapy, wellness injections, red light, sauna, compression, and recovery services near DTC."
+  },
+  {
+    label: "Fitness and performance",
+    href: "/strength-training-greenwood-village/",
+    text: "Strength training, semi-private training, group fitness, body composition, recovery, and performance."
+  },
+  {
+    label: "Body composition",
+    href: "/body-composition-training-greenwood-village/",
+    text: "InBody tracking connected to coached training, weight loss support, recovery, and muscle preservation."
+  }
+];
+
+const priorityFitnessPages = [
+  "strength-training-greenwood-village",
+  "semi-private-personal-training-greenwood-village",
+  "group-fitness-classes-greenwood-village",
+  "body-composition-training-greenwood-village",
+  "recovery-performance-greenwood-village",
+  "longevity-training-greenwood-village"
+]
+  .map((slug) => fitnessPages.find((page) => page.slug === slug))
+  .filter(Boolean);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["MedicalBusiness", "HealthClub", "HealthAndBeautyBusiness"],
+      "@id": "https://edenhealthclubs.com/#medicalbusiness",
+      "name": "Eden Health Club",
+      "url": "https://edenhealthclubs.com/",
+      "telephone": phone,
+      "priceRange": "$$$",
+      "logo": "https://edenhealthclubs.com/wp-content/uploads/2025/07/eden-health-club-logo-transparent.png",
+      "image": "https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video-poster.jpg",
+      "sameAs": [
+        "https://yelp.com/biz/-kzTj8x-TBhZR4xkoxewsg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5990 S University Blvd",
+        "addressLocality": "Greenwood Village",
+        "addressRegion": "CO",
+        "postalCode": "80121",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Greenwood Village",
+        "Denver Tech Center",
+        "Cherry Hills Village",
+        "Centennial",
+        "Englewood",
+        "Littleton",
+        "Denver"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Eden Health Club Services",
+        "itemListElement": serviceGroups.map((service) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.label,
+            "url": new URL(service.href, canonical).toString(),
+            "description": service.text
+          }
+        }))
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      "url": canonical,
+      "name": "Eden Health Club Greenwood Village",
+      "description": "Eden Health Club connects aesthetics, functional medicine, recovery, body composition, wellness injections, IV therapy, and coached training in Greenwood Village near DTC.",
+      "about": {
+        "@id": "https://edenhealthclubs.com/#medicalbusiness"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="Landing Page System"
-  description="A reusable Astro landing-page system with mocked WordPress REST API support."
+  title="Eden Health Club Greenwood Village | Aesthetics, Functional Medicine, Recovery, Fitness"
+  description="Eden Health Club connects aesthetics, functional medicine, recovery, body composition, wellness injections, IV therapy, and coached training in Greenwood Village near DTC."
+  canonical={canonical}
 >
-  <main class="dashboard">
-    <section class="dashboard-hero">
-      <p class="eyebrow">LP production system</p>
-      <h1>Reusable landing pages now. WordPress connection when credentials arrive.</h1>
-      <p>
-        This is the durable layer: templates, campaign pages, SEO structure, and a safe
-        WordPress API path that starts in mock mode.
-      </p>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="fitness-lp">
+    <section class="hero fitness-hero">
+      <video class="hero__media" autoplay muted loop playsinline aria-hidden="true">
+        <source src="https://edenhealthclubs.com/wp-content/uploads/2025/07/edenhealth-hero-video.mp4" type="video/mp4" />
+      </video>
+      <nav class="mobile-topbar" aria-label="Page">
+        <img
+          class="site-logo"
+          src="/assets/eden-health-club-logo-transparent.png"
+          alt="Eden Health Club"
+          width="1080"
+          height="1080"
+        />
+        <a href="#consult-form">Start</a>
+      </nav>
+      <div class="hero__overlay fitness-hero__overlay">
+        <p class="eyebrow">Greenwood Village near DTC</p>
+        <h1>Eden Health Club</h1>
+        <p class="fitness-hero__line">Medical wellness and coached training, inside one working fitness facility.</p>
+        <p class="hero__summary">
+          Aesthetics, functional medicine, recovery, body composition, wellness injections, IV therapy, hormones, peptides, and fitness performance connected in one local destination.
+        </p>
+        <div class="hero__actions" aria-label="Primary actions">
+          <a class="button button--primary" href="#consult-form">Start With Eden</a>
+          <a class="button button--secondary" href="#services">Explore Services</a>
+        </div>
+        <p class="hero__credibility">
+          Located at 5990 S University Blvd in Greenwood Village. Serving DTC, Cherry Hills, Centennial, Englewood, Littleton, Denver, and the south metro.
+        </p>
+      </div>
     </section>
 
-    <section class="dashboard-grid">
-      <div>
-        <h2>Landing Pages</h2>
-        <div class="item-list">
-          {landingPages.map((page) => (
-            <a class="list-item" href={`/lp/${page.slug}/`}>
-              <strong>{page.title}</strong>
-              <span>{page.summary}</span>
-            </a>
-          ))}
-        </div>
-      </div>
+    <section class="proof-band" aria-label="Trust points">
+      <span>Aesthetics</span>
+      <span>Functional medicine</span>
+      <span>Recovery and IV therapy</span>
+      <span>Body composition and training</span>
+    </section>
 
+    <section class="quick-answer-section fitness-answer" aria-labelledby="quick-answer-heading">
       <div>
-        <h2>Mock WordPress Posts</h2>
-        <div class="item-list">
-          {posts.map((post) => (
-            <article class="list-item">
-              <strong>{post.title}</strong>
-              <span>{post.status} · {post.date}</span>
-              <p>{post.excerpt}</p>
-            </article>
-          ))}
-        </div>
+        <p class="eyebrow">Quick answer</p>
+        <h2 id="quick-answer-heading">What is Eden Health Club?</h2>
+      </div>
+      <div class="quick-answer-card">
+        <p>
+          Eden is not just a gym and not just a med spa. Eden is a Greenwood Village wellness club where aesthetics, functional medicine, recovery, body composition, wellness injections, IV therapy, and coached training connect under one roof.
+        </p>
+        <ul>
+          <li><strong>Aesthetics:</strong> skin health, facial balancing, and beauty services.</li>
+          <li><strong>Functional:</strong> labs, medical weight loss, hormone care, peptides, and wellness injections.</li>
+          <li><strong>Recovery:</strong> IV therapy, sauna, red light, compression, and performance recovery.</li>
+          <li><strong>Fitness:</strong> strength, personal training, semi-private training, group fitness, and InBody tracking.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services" class="fitness-related" aria-labelledby="services-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Connected services</p>
+        <h2 id="services-heading">One Eden plan can connect the pieces.</h2>
+      </div>
+      <div class="fitness-related__grid">
+        {serviceGroups.map((service) => (
+          <a href={service.href}>
+            <span>{service.label}</span>
+            <p>{service.text}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="copy-section fitness-copy">
+      <p class="eyebrow">Fitness as the front door</p>
+      <h2>Start with strength. Build the whole plan.</h2>
+      <div class="prose">
+        <p>
+          Fitness is often the easiest place to begin because people already know they want to get stronger, lose fat, recover better, or feel more capable. At Eden, that first step can connect into the larger ecosystem: InBody tracking, recovery, medical weight loss, hormone care, peptide therapy, wellness injections, IV therapy, functional medicine, and aesthetics when appropriate.
+        </p>
+      </div>
+    </section>
+
+    <section class="fitness-related" aria-labelledby="fitness-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Fitness and performance pages</p>
+        <h2 id="fitness-heading">Local pages for the high-intent search wedge.</h2>
+      </div>
+      <div class="fitness-related__grid">
+        {priorityFitnessPages.map((page) => page && (
+          <a href={`/${page.slug}/`}>
+            <span>{page.h1}</span>
+            <p>{page.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section" id="consult-form">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Find the right Eden path.</h2>
+        <p>
+          Tell us what you are trying to improve: strength, fat loss, recovery, skin, energy, hormones, performance, longevity, or all of the above. Eden can route you to the right first step.
+        </p>
+      </div>
+      <div class="quick-answer-card">
+        <p><strong>Call:</strong> <a href="tel:+17206057678">720-605-7678</a></p>
+        <p><strong>Email:</strong> <a href="mailto:care@edenhealthclubs.com">care@edenhealthclubs.com</a></p>
+        <p><strong>Visit:</strong> 5990 S University Blvd, Greenwood Village, CO 80121</p>
       </div>
     </section>
   </main>
