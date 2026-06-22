@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const page = getFitnessPage(Astro.params.slug ?? "");
+const canonical = new URL(`/${page?.slug ?? ""}/`, Astro.site ?? "https://landing.edenhealthclubs.com").toString();
 
 if (!page) {
   return Astro.redirect("/");
@@ -19,7 +20,7 @@ if (!page) {
 <BaseLayout
   title={page.title}
   description={page.description}
-  canonical={`https://edenhealthclubs.com/${page.slug}/`}
+  canonical={canonical}
 >
   <FitnessLandingPageView page={page} />
 </BaseLayout>
