@@ -1,8 +1,5 @@
-import type { APIRoute } from "astro";
-
-export const prerender = false;
-
 const required = ["name", "email", "phone"] as const;
+declare const process: { env: Record<string, string | undefined> };
 
 function splitName(name: string) {
   const parts = name.trim().split(/\s+/);
@@ -13,7 +10,7 @@ function splitName(name: string) {
 }
 
 function getEnv(name: string) {
-  return import.meta.env[name] as string | undefined;
+  return process.env[name];
 }
 
 function asRecord(value: unknown): Record<string, string> {
@@ -66,27 +63,39 @@ function buildNotes(body: Record<string, string>, firstTouch: Record<string, str
     .join("\n");
 }
 
-export const GET: APIRoute = async () => {
-  return new Response(JSON.stringify({ ok: true, endpoint: "ghl-lead" }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" }
-  });
-};
+function sendJson(response: any, status: number, payload: unknown) {
+  response.status(status).setHeader("Content-Type", "application/json");
+  response.send(typeof payload === "string" ? payload : JSON.stringify(payload));
+}
 
-export const POST: APIRoute = async ({ request }) => {
-  let body: Record<string, string>;
-
-  try {
-    body = await request.json();
-  } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400 });
+export default async function handler(request: any, response: any) {
+  if (request.method === "GET") {
+    sendJson(response, 200, { ok: true, endpoint: "ghl-lead" });
+    return;
   }
 
-  const missing = required.filter((field) => !body[field]?.trim());
+  if (request.method !== "POST") {
+    sendJson(response, 405, { error: "Method not allowed" });
+    return;
+  }
+
+  let body: unknown;
+  try {
+    body = typeof request.body === "string" ? JSON.parse(request.body) : request.body;
+  } catch {
+    sendJson(response, 400, { error: "Invalid JSON" });
+    return;
+  }
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    sendJson(response, 400, { error: "Invalid JSON" });
+    return;
+  }
+
+  const data = body as Record<string, string>;
+  const missing = required.filter((name) => !data[name]?.trim());
   if (missing.length) {
-    return new Response(JSON.stringify({ error: `Missing required fields: ${missing.join(", ")}` }), {
-      status: 400
-    });
+    sendJson(response, 400, { error: `Missing required fields: ${missing.join(", ")}` });
+    return;
   }
 
   const token = getEnv("GHL_PRIVATE_INTEGRATION_TOKEN");
@@ -94,39 +103,39 @@ export const POST: APIRoute = async ({ request }) => {
   const webhookUrl = getEnv("GHL_WEBHOOK_URL");
   const apiBaseUrl = getEnv("GHL_API_BASE_URL") ?? "https://services.leadconnectorhq.com";
   const apiVersion = getEnv("GHL_API_VERSION") ?? "2021-07-28";
-  const source = body.leadSource || getEnv("GHL_LEAD_SOURCE") || "Eden Landing Page";
+  const source = data.leadSource || getEnv("GHL_LEAD_SOURCE") || "Eden Landing Page";
   const tags = (getEnv("GHL_LEAD_TAGS") ?? "Website Lead,Eden Landing Page")
     .split(",")
-    .map((tag) => tag.trim())
+    .map((tag: string) => tag.trim())
     .filter(Boolean);
 
-  const { firstName, lastName } = splitName(body.name);
-  const firstTouch = asRecord(body.firstTouch);
-  const lastTouch = asRecord(body.lastTouch);
-  const notes = buildNotes(body, firstTouch, lastTouch);
+  const { firstName, lastName } = splitName(data.name);
+  const firstTouch = asRecord(data.firstTouch);
+  const lastTouch = asRecord(data.lastTouch);
+  const notes = buildNotes(data, firstTouch, lastTouch);
 
   const customFields = [
-    optionalCustomField("GHL_CF_SERVICE_INTEREST", body.service ?? "Wolverine Stack"),
-    optionalCustomField("GHL_CF_LEAD_GOAL", body.goal),
-    optionalCustomField("GHL_CF_SOURCE_URL", body.sourceUrl),
-    optionalCustomField("GHL_CF_LANDING_PAGE", body.landingPage),
-    optionalCustomField("GHL_CF_REFERRER", body.referrer),
-    optionalCustomField("GHL_CF_UTM_SOURCE", field(body, "utm_source", "utmSource")),
-    optionalCustomField("GHL_CF_UTM_MEDIUM", field(body, "utm_medium", "utmMedium")),
-    optionalCustomField("GHL_CF_UTM_CAMPAIGN", field(body, "utm_campaign", "utmCampaign")),
-    optionalCustomField("GHL_CF_UTM_TERM", field(body, "utm_term", "utmTerm")),
-    optionalCustomField("GHL_CF_UTM_CONTENT", field(body, "utm_content", "utmContent")),
-    optionalCustomField("GHL_CF_GCLID", body.gclid),
-    optionalCustomField("GHL_CF_FBCLID", body.fbclid)
+    optionalCustomField("GHL_CF_SERVICE_INTEREST", data.service ?? "Eden Landing Page"),
+    optionalCustomField("GHL_CF_LEAD_GOAL", data.goal),
+    optionalCustomField("GHL_CF_SOURCE_URL", data.sourceUrl),
+    optionalCustomField("GHL_CF_LANDING_PAGE", data.landingPage),
+    optionalCustomField("GHL_CF_REFERRER", data.referrer),
+    optionalCustomField("GHL_CF_UTM_SOURCE", field(data, "utm_source", "utmSource")),
+    optionalCustomField("GHL_CF_UTM_MEDIUM", field(data, "utm_medium", "utmMedium")),
+    optionalCustomField("GHL_CF_UTM_CAMPAIGN", field(data, "utm_campaign", "utmCampaign")),
+    optionalCustomField("GHL_CF_UTM_TERM", field(data, "utm_term", "utmTerm")),
+    optionalCustomField("GHL_CF_UTM_CONTENT", field(data, "utm_content", "utmContent")),
+    optionalCustomField("GHL_CF_GCLID", data.gclid),
+    optionalCustomField("GHL_CF_FBCLID", data.fbclid)
   ].filter(Boolean);
 
   const payload: Record<string, unknown> = {
     locationId,
     firstName,
     lastName,
-    name: body.name,
-    email: body.email,
-    phone: body.phone,
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
     source,
     tags,
     notes
@@ -138,7 +147,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (webhookUrl) {
     const webhookPayload = {
-      ...body,
+      ...data,
       firstName,
       lastName,
       source,
@@ -157,22 +166,20 @@ export const POST: APIRoute = async ({ request }) => {
     });
     const webhookResult = await webhookResponse.text();
     if (!webhookResponse.ok) {
-      return new Response(JSON.stringify({ error: "GHL webhook request failed", detail: webhookResult }), {
-        status: webhookResponse.status
-      });
+      sendJson(response, webhookResponse.status, { error: "GHL webhook request failed", detail: webhookResult });
+      return;
     }
 
-    return new Response(webhookResult || JSON.stringify({ ok: true, path: "webhook" }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" }
-    });
+    sendJson(response, 200, webhookResult || { ok: true, path: "webhook" });
+    return;
   }
 
   if (!token || !locationId) {
-    return new Response(JSON.stringify({ error: "GHL is not configured" }), { status: 500 });
+    sendJson(response, 500, { error: "GHL is not configured" });
+    return;
   }
 
-  const response = await fetch(`${apiBaseUrl.replace(/\/$/, "")}/contacts/upsert`, {
+  const leadConnectorResponse = await fetch(`${apiBaseUrl.replace(/\/$/, "")}/contacts/upsert`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -183,15 +190,11 @@ export const POST: APIRoute = async ({ request }) => {
     body: JSON.stringify(payload)
   });
 
-  const result = await response.text();
-  if (!response.ok) {
-    return new Response(JSON.stringify({ error: "GHL request failed", detail: result }), {
-      status: response.status
-    });
+  const result = await leadConnectorResponse.text();
+  if (!leadConnectorResponse.ok) {
+    sendJson(response, leadConnectorResponse.status, { error: "GHL request failed", detail: result });
+    return;
   }
 
-  return new Response(result || JSON.stringify({ ok: true }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" }
-  });
-};
+  sendJson(response, 200, result || { ok: true });
+}
